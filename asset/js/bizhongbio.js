@@ -14,6 +14,21 @@ $(function() {
     $('#header, #cat-header').toggleClass('show-nav');
   });
 
+  // 返回顶部 当滚动条的位置处于距顶部 600 像素以上时，返回顶部链接出现，否则隐藏
+  $(window).on('scroll', function() {
+    if ($(this).scrollTop() > 600) {
+      $('#go-top').fadeIn(300);
+    } else {
+      $('#go-top').fadeOut(300);
+    }
+  });
+
+  // 返回顶部 点击返回顶部链接，返回顶部
+  $('#go-top').on('click', function(event) {
+    $('body, html').animate({scrollTop: 0}, 600);
+    event.preventDefault();
+  });
+
   // 首页处理主函数
   function handleHome() {
     var len = $('#hero-slides .slide').length,
