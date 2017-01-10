@@ -282,7 +282,7 @@ html {
   padding: 0 16px;
   font-size: 1em;
   line-height: 3;
-  color: #999
+  color: #999;
 }
 .main-nav a {
   display: block;
@@ -367,7 +367,7 @@ html {
   width: 100%;
   height: 567px;
 }
-.slide{
+.slide {
   position: absolute;
   left: 100%;
   width: 100%;
@@ -409,14 +409,15 @@ html {
   width: 360px;
   height: 82px;
   background: url(../img/slides/slide-intro-h2.png) no-repeat;
-}.slide-intro h3 {
+}
+.slide-intro h3 {
   text-align: right;
-  color:#fff;
+  color: #fff;
 }
 .slide-project {
   background: #62bfb7;
 }
-.slide-project h2{
+.slide-project h2 {
   width: 152px;
   height: 152px;
   background: url(../img/slides/slide-project-h2.png) no-repeat;
@@ -485,11 +486,11 @@ a.current {
   }
   .slide-video {
     background: url(../img/slides/slide-video.jpg) no-repeat center top;
-    background-size:cover;
+    background-size: cover;
   }
 }
 @media screen and (min-width: 415px) and (max-width: 1024px) {
-  .slide-intro .slide-content{
+  .slide-intro .slide-content {
     background: url(../img/slides/slide-intro-middle.png) no-repeat left bottom;
   }
   .slide-intro .slide-info {
@@ -535,7 +536,7 @@ a.current {
     margin-top: -42px;
     padding: 16px 0;
     width: 100%;
-    background:rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .8);
   }
   .slide-intro h2 {
     margin: 0 auto 16px auto;
@@ -562,7 +563,7 @@ a.current {
   .slide-project h3 {
     padding: 10px 0;
     text-align: center;
-    background:rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .8);
   }
   .slide-work {
     background-position: left top;
@@ -943,7 +944,7 @@ a.current {
 }
 .article-adjacent {
   font-size: 1em;
-  line-height:1.5;
+  line-height: 1.5;
 }
 .bdsharebuttonbox {
   float: right;
@@ -960,7 +961,7 @@ a.current {
 .related-article {
   position: relative;
   float: left;
-  padding-bottom:25%;
+  padding-bottom: 25%;
   width: 25%;
   height: 0;
 }
@@ -1140,7 +1141,7 @@ a.current {
 }
 .video-current,
 .work-current {
-  z-index:6;
+  z-index: 6;
   margin-left: -320px;
   width: 640px;
   background: #fff;
@@ -1426,7 +1427,7 @@ a.current {
   #hero-slides {
     height: 468px;
   }
-  .article{
+  .article {
     padding-bottom: 33.333333%;
     width: 33.333333%;
   }

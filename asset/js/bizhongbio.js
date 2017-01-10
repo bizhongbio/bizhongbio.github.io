@@ -33,10 +33,16 @@ $(function() {
     $(window).on('scroll', function() {
       if ($(this).scrollTop() > 32) {
         $('#cat-header').addClass('cat-header-fixed');
-        $('#menu-cat-nav').css('paddingTop', '48px');
+        // 浏览器当前窗口文档对象宽度低于 768 像素执行
+        if ($(window).width() < 768) {
+          $('#menu-cat-nav').css('paddingTop', '48px');
+        }
       } else {
         $('#cat-header').removeClass('cat-header-fixed');
-        $('#menu-cat-nav').css('paddingTop', '80px');
+        // 浏览器当前窗口文档对象宽度低于 768 像素执行
+        if ($(window).width() < 768) {
+          $('#menu-cat-nav').removeAttr("style");
+        }
       }
     });
   }
