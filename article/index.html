@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>文章 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="双鱼bizhongbio 文章：前端、后端、移动、设计、其它。">
+    <meta name="keywords" content="article, 文章, 双鱼文章, 双鱼bizhongbio文章, bizhongbio文章">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="文章">
+    <meta name="twitter:description" content="双鱼bizhongbio 文章：前端、后端、移动、设计、其它。">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/asset/img/share/share-article.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="文章">
+    <meta property="og:description" content="双鱼bizhongbio 文章：前端、后端、移动、设计、其它。">
+    <meta property="og:image" content="https://bizhongbio.github.io/asset/img/share/share-article.jpg">
+    <meta itemprop="name" content="文章">
+    <meta itemprop="description" content="双鱼bizhongbio 文章：前端、后端、移动、设计、其它。">
+    <meta itemprop="image" content="https://bizhongbio.github.io/asset/img/share/share-article.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="category">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header class="global-header" role="banner">
+      <div class="header-content">
+        <nav class="main-nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href=".／">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <header id="cat-header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="http://www.bizhongbio.com">双鱼bizhongbio</a></h1>
+        <nav class="cat-nav" aria-label="Local navigation" role="navigation">
+          <div class="menu-cat-nav-container">
+            <ul id="menu-cat-nav" class="menu">
+              <li class="current-menu-item"><a href="javascript:void(0);">前端</a></li>
+              <li><a href="javascript:void(0);">后端</a></li>
+              <li><a href="javascript:void(0);">移动</a></li>
+              <li><a href="javascript:void(0);">设计</a></li>
+              <li><a href="javascript:void(0);">其它</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form method="get" id="searchform" action="./">
+          <input type="text" value="" name="s" id="s" placeholder="请输入关键字">
+          <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <section class="posts" data-category="web">
+          <article class="post">
+            <h2><a href="./article/material-design-lite-components/" rel="bookmark">MDL组件库</a><span>2016.08.01</span></h2>
+            <p>早前访问 Google Design 网站，在 Resources 目录下看到了 Material Design Lite 链接。我好奇点开，一下子就被 MDL 组件库的魅力吸引住了。后来详细阅读 Material Design 文档，才明白 Material Design Lite (MDL) 是一个基于 Material Design 理念的 web 开发组件...<a href="./article/material-design-lite-components/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%a1%86%e6%9e%b6/" rel="tag">框架</a></span>
+            <span><i class="fa fa-eye"></i>217</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/material-design-lite-components/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/node-movie/" rel="bookmark">电影预告片</a><span>2016.05.26</span></h2>
+            <p>Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。 一、项目结构 - movie(项目根目录) |- app(应用程序根目录) |- controllers(控制器) |- category.js(分类目录控制器) |- comm...<a href="./article/node-movie/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/node-js/" rel="tag">Node.js</a></span>
+            <span><i class="fa fa-eye"></i>246</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/node-movie/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/css-summary/" rel="bookmark">CSS总结</a><span>2016.04.21</span></h2>
+            <p>一、在HTML中使用CSS 查看我之前写过的文章 在HTML中使用CSS 二、CSS书写规范 位置属性（position，top，right，bottom，left，z-index，display，float 等） 大小（width，height，padding，margin 等） 文字系列（font，line-height，letter-spacing，color，text...<a href="./article/css-summary/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css/" rel="tag">CSS</a></span>
+            <span><i class="fa fa-eye"></i>552</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/css-summary/index.html#comments">10</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/html-summary/" rel="bookmark">HTML总结</a><span>2016.04.14</span></h2>
+            <p>一、对WEB标准以及W3C的理解与认识 WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主要包括 XHTML 和 XML，表现标准语言主要包括 CSS，行...<a href="./article/html-summary/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/html/" rel="tag">HTML</a></span>
+            <span><i class="fa fa-eye"></i>471</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/html-summary/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/html-css-code-guide/" rel="bookmark">HTML&amp;CSS编码规范</a><span>2015.11.12</span></h2>
+            <p>永远遵循同一套编码规范！不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。 一、HTML 1.1 语法 用两个空格来代替制表符（tab）– 这是唯一能保证在所有环境下获得一致展现的方法； 嵌套元素应当缩进一次（即两个空格）； 对于属性的...<a href="./article/html-css-code-guide/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css/" rel="tag">CSS</a>, <a href="./tag/html/" rel="tag">HTML</a></span>
+            <span><i class="fa fa-eye"></i>935</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/html-css-code-guide/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/javascript-sidebar-scroll-effects/" rel="bookmark">JavaScript实现侧边栏滚动特效</a><span>2015.11.06</span></h2>
+            <p>JavaScript实现侧边栏滚动特效：右边文章可见区域高度 oarticleH 大于左边侧边栏可见区域高度 osidebarH 时触发 scrollEvent 事件。如果网页被卷去的高度 scrollH 加上屏幕可视化区域高度 screenH 大于左边侧边栏可见区域高度 osidebarH ，左边侧边栏 osidebar 固定...<a href="./article/javascript-sidebar-scroll-effects/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/javascript/" rel="tag">JavaScript</a></span>
+            <span><i class="fa fa-eye"></i>754</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/javascript-sidebar-scroll-effects/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/home-scrolling-effects/" rel="bookmark">首页滚动特效</a><span>2015.11.01</span></h2>
+            <p>首页滚动特效：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&quot;utf-8&quot;/&amp;g...<a href="./article/home-scrolling-effects/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css3/" rel="tag">CSS3</a>, <a href="./tag/javascript/" rel="tag">JavaScript</a></span>
+            <span><i class="fa fa-eye"></i>987</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/home-scrolling-effects/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/jquery-slides/" rel="bookmark">jQuery图片轮播</a><span>2015.08.01</span></h2>
+            <p>一、前言 演示地址：jQuery图片轮播 二、主要实现代码 2.1 HTML主要代码 index.html(HTML主要代码) &lt;article id=&quot;main&quot;&gt; &lt;section id=&quot;showcase&quot;&gt; &lt;div id=&quot;sliders&quot;&gt; &lt;div class=&quot;sliders&quot;...<a href="./article/jquery-slides/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/jquery/" rel="tag">jQuery</a>, <a href="./tag/%e5%9b%be%e7%89%87%e8%bd%ae%e6%92%ad/" rel="tag">图片轮播</a></span>
+            <span><i class="fa fa-eye"></i>1777</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/jquery-slides/index.html#comments">2</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/jquery/" rel="bookmark">jQuery</a><span>2015.07.20</span></h2>
+            <p>一、前言 jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0 ...<a href="./article/jquery/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/jquery/" rel="tag">jQuery</a></span>
+            <span><i class="fa fa-eye"></i>1183</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/jquery/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/fixed-right-sidebar-scroll-effect/" rel="bookmark">固定右侧边栏滚动特效</a><span>2015.04.27</span></h2>
+            <p>一、前言 我们都知道：浏览网页时，右（左）侧边栏的高度往往没有文章主体内容的高度高。当页面向下滑动高度超出右（左）侧边栏高度的时候，右（左）侧边栏就不可见了。 怎样让右（左）侧边栏一直部分显示呢？ 解决方案：当右（左）侧边栏底部可视化时，就固定在可视...<a href="./article/fixed-right-sidebar-scroll-effect/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/javascript/" rel="tag">JavaScript</a>, <a href="./tag/jquery/" rel="tag">jQuery</a></span>
+            <span><i class="fa fa-eye"></i>1711</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/analyse-response-web-design/" rel="bookmark">浅析RWD</a><span>2015.04.17</span></h2>
+            <p>一、前言 现今，无论是移动设备还是平板电脑亦或是 PC 屏幕，屏幕大小各不相同，若是针对每个屏幕大小单独设计一个解决方案，则会大幅增加网站建设的复杂程度和运营成本。响应式网页设计的概念就是可以让网页根据用户的使用环境进行自动调整，有效的改善用户体验。 ...<a href="./article/analyse-response-web-design/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css/" rel="tag">CSS</a>, <a href="./tag/html/" rel="tag">HTML</a>, <a href="./tag/%e5%93%8d%e5%ba%94%e5%bc%8f%e7%bd%91%e9%a1%b5/" rel="tag">响应式网页</a></span>
+            <span><i class="fa fa-eye"></i>2949</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/analyse-response-web-design/index.html#comments">15</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/pisces-css3-keyframes/" rel="bookmark">双鱼的CSS3动画</a><span>2015.03.23</span></h2>
+            <p>一、前言 通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。 在 CSS3 中创建动画，需要学习 @keyframes 规则。@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画...<a href="./article/pisces-css3-keyframes/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css3/" rel="tag">CSS3</a>, <a href="./tag/keyframes/" rel="tag">keyframes</a></span>
+            <span><i class="fa fa-eye"></i>1071</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/pisces-css3-keyframes/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/embrace-html5/" rel="bookmark">拥抱HTML5</a><span>2015.01.04</span></h2>
+            <p>一、提要 HTML5 作为当今最炙手可热的 Web 开发技术，凭借其强大的功能特性和跨平台等优势，吸引了业内开发人员的重点关注，掌握 HTML5 技术也成为 Web 开发人员的一项必备技能。 二、概念 什么是 HTML5 ？ HTML5 并不只是一个单独的技术。它是一个概括性的术语，包...<a href="./article/embrace-html5/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/html5/" rel="tag">HTML5</a></span>
+            <span><i class="fa fa-eye"></i>917</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/embrace-html5/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/html-use-css/" rel="bookmark">在HTML中使用CSS</a><span>2014.11.06</span></h2>
+            <p>一、前言 在 HTML 中使用 CSS，包括内联式、内嵌式、链接式和导入式。 二、分类 2.1 内联式 内联式是所有样式应用方式中最为直接的一种，它通过对 HTML 标记使用 style 属性，将 CSS 代码直接写在其中。 &lt;!DOCTYPE html PUBLIC &quot;-...<a href="./article/html-use-css/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css/" rel="tag">CSS</a></span>
+            <span><i class="fa fa-eye"></i>1206</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/html-use-css/index.html#comments">2</a></span>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <section class="posts" data-category="back" style="display: none;">
+          <article class="post">
+            <h2><a href="./article/nodejs-summary/" rel="bookmark">Node.js概述</a><span>2016.08.04</span></h2>
+            <p>最近几年，Web 领域出现了一个全新的 JavaScript 开发框架——Node.js。该框架一经问世，便以其独特的优势得到了广大开发人员的关注。以下主要从什么是 Node.js 框架，使用 Node.js 框架能够解决什么问题，为什么要用 Node.js 框架，在哪些场合下应该考虑使用 Node.js ...<a href="./article/nodejs-summary/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/node-js/" rel="tag">Node.js</a></span>
+            <span><i class="fa fa-eye"></i>296</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/nodejs-summary/index.html#comments">8</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/speed-up-wordpress-website/" rel="bookmark">加速WordPress站点</a><span>2015.11.22</span></h2>
+            <p>根据 Akamai 在 2009 年的研究，47% 的访客希望页面在 2 秒内加载完，并且有 57% 的访客会在页面加载超过 3 秒后离开。除了这项研究，也有不少案例表明加载时间会影响销售。 一、打好基础 当你的房子开始陷入地面，你不会去擦窗户 —— 而是修复地基。你的网站也是一样...<a href="./article/speed-up-wordpress-website/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/wordpress/" rel="tag">Wordpress</a></span>
+            <span><i class="fa fa-eye"></i>1153</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/speed-up-wordpress-website/index.html#comments">9</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/cms-home-page-search/" rel="bookmark">CMS首页、分页、搜索的实现</a><span>2015.10.10</span></h2>
+            <p>一、前言 暑假期间，为了更好的学习一些后台的技术，我们团队一起做了用 Node.js、基于 Node.js 平台的 web 应用开发框架 Express、Node.js 模板引擎 swig、MongoDB、MVC 框架等开发技术实现“新思路团队 CMS 内容管理系统”这个项目。老师分配给我的任务是首页、分页...<a href="./article/cms-home-page-search/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/mongodb/" rel="tag">MongoDB</a>, <a href="./tag/node-js/" rel="tag">Node.js</a></span>
+            <span><i class="fa fa-eye"></i>799</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/cms-home-page-search/index.html#comments">2</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/wordpress-4-1-new-function/" rel="bookmark">WordPress 4.1新增函数</a><span>2015.02.19</span></h2>
+            <p>WordPress 4.1 正式版带来新主题 Twenty Fifteen、新功能、改进外，还新增了不少函数。 一、add_theme_support( &#8216;title-tag&#8217; ) 在 wordpress 4.1 开始新增了一个名为 title-tag 的主题特性。 通过声明这个特性，主题就能知道自身并没有定义标题，wordpr...<a href="./article/wordpress-4-1-new-function/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/wordpress/" rel="tag">Wordpress</a></span>
+            <span><i class="fa fa-eye"></i>815</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/wordpress-4-1-new-function/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/wordpress-website-automatic-ping/" rel="bookmark">WordPress网站自动ping</a><span>2015.02.08</span></h2>
+            <p>每当我们更新完文章后，我们都会坐等搜索引擎来抓取收录你的最新文章，这种收录速度太慢了！因为现在很多搜索引擎已经提供了各自的官方 ping 服务。 何为 ping 服务？ ping 是基于 XML_RPC 标准协议的更新通告服务，用于博客网站把更新的文章内容快速地通知给搜索引...<a href="./article/wordpress-website-automatic-ping/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/wordpress/" rel="tag">Wordpress</a></span>
+            <span><i class="fa fa-eye"></i>905</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/wordpress-website-automatic-ping/index.html#comments">2</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/optimize-wp-head-lean-wordpress-head/" rel="bookmark">优化wp_head()，精简WordPress头部</a><span>2015.01.12</span></h2>
+            <p>采用 wordpress 建站的时候，发现页面会生成很多冗余的代码。如： &lt;link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.bizhongbio.com/xmlrpc.php?rsd" /&gt; &lt;link rel="wlwmanifest" type="appl...<a href="./article/optimize-wp-head-lean-wordpress-head/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/wordpress/" rel="tag">Wordpress</a></span>
+            <span><i class="fa fa-eye"></i>1087</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/optimize-wp-head-lean-wordpress-head/index.html#respond">0</a></span>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <section class="posts" data-category="mobile" style="display: none;">
+          <article class="post">
+            <h2><a href="./article/remove-ios-native-style-button/" rel="bookmark">iOS下移除按钮原生样式</a><span>2015.02.04</span></h2>
+            <p>使用按钮时，在 Android 手机浏览器中显示正常，但在 iOS Safari 浏览器中会看到按钮显示为圆角样式，设置 border-radius:0; 也不好使。 这是因为iPhone、iPad 设备上的 Safari 解析 input[type=&#8221;submit&#8221;] 和 input[type=&#8221;reset&#8221;] 按钮会以...<a href="./article/remove-ios-native-style-button/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/ios/" rel="tag">iOS</a></span>
+            <span><i class="fa fa-eye"></i>1499</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/remove-ios-native-style-button/index.html#respond">0</a></span>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <section class="posts" data-category="design" style="display: none;">
+          <article class="post">
+            <h2><a href="./article/new-scuec-sbc/" rel="bookmark">民大设备处改版</a><span>2015.10.31</span></h2>
+            <p>10 月我和另一个伙伴接了“中南民族大学实验室与设备管理处改版”的项目，该项目于 2015 年 10 月 30 日正式上线。以下展示的图片是网站旧版与新版的部分页面。查看网站<a href="./article/new-scuec-sbc/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>1118</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/new-scuec-sbc/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/hum-start-within/" rel="bookmark">Hum-Start Within</a><span>2015.09.18</span></h2>
+            <p>图片来自 © Romain Briaux 欣赏更多 Romain Briaux 作品：Romain Briaux on Behance，Romain Briaux, French graphic designer<a href="./article/hum-start-within/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e5%93%81%e7%89%8c%e8%ae%be%e8%ae%a1/" rel="tag">品牌设计</a></span>
+            <span><i class="fa fa-eye"></i>1130</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/hum-start-within/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/nine-principle-material-design/" rel="bookmark">Material Design的九大设计原则</a><span>2015.08.21</span></h2>
+            <p>一、前言 谷歌发布新操作系统“ L Developer Preview”后，也同步推出了可视化语言 Material Design，它的设计美学将会融入到谷歌所有的平台之中，包括 Chrome OS 和网页，它也将形成一个统一的外观，将所有的产品捆绑在一起。扁平化的设计，加上明亮的色彩，Material...<a href="./article/nine-principle-material-design/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e4%ba%a4%e4%ba%92%e8%ae%be%e8%ae%a1/" rel="tag">交互设计</a></span>
+            <span><i class="fa fa-eye"></i>1558</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/nine-principle-material-design/index.html#comments">8</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/10-mistakes-website/" rel="bookmark">网站看起来不专业的十大设计误区</a><span>2015.08.14</span></h2>
+            <p>一、前言 不管你是不是一个羽翼未丰企业的领导，专业的网站能为你带来的东西比你想象的多很多。退一万步来说，“考虑到我们是一个小厂”，粗糙的网站也许能被用户理解，但是不一定能接受。每天大家所浏览的大量的网站，已经从头到脚为用户灌输了“一个正常的、好的网站...<a href="./article/10-mistakes-website/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>958</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/10-mistakes-website/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/google-doodles-rio-2016/" rel="bookmark">谷歌涂鸦2016年</a><span>2015.08.08</span></h2>
+            <p>Google doodles Rio 2016: This is a project proposal to Google. The project includes some illustrations and animations for Google, concept of doodles mobile games of Rio 2016 Olympics in Brazil. 图片来自 © Leo Natsume 欣赏更多 Leo Natsume...<a href="./article/google-doodles-rio-2016/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%8f%92%e7%94%bb/" rel="tag">插画</a></span>
+            <span><i class="fa fa-eye"></i>2203</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/google-doodles-rio-2016/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/jim-tsinganos-illustration-work/" rel="bookmark">Jim Tsinganos插画作品</a><span>2015.05.31</span></h2>
+            <p>澳大利亚悉尼插画家 Jim Tsinganos 杂志插画作品欣赏。 图片来自 © JIM TSINGANOS ILLUSTRATION 欣赏更多 Jim Tsinganos 插画作品，官方网站：JIM TSINGANOS ILLUSTRATION<a href="./article/jim-tsinganos-illustration-work/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%8f%92%e7%94%bb/" rel="tag">插画</a></span>
+            <span><i class="fa fa-eye"></i>2001</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/jim-tsinganos-illustration-work/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/20-rules-for-making-good-design/" rel="bookmark">好设计的20条金律</a><span>2015.05.24</span></h2>
+            <p>平面设计师的工作，是让需要传达的信息实现视觉转换，变得井然有序，形象生动，从而实现信息的有效传达。对于平面设计师而言，若想成功，就必须具备正确的专业知识、技能和敏锐的直觉。 设计水平有强弱之分，设计作品自然也有好坏之分。当我们谈到“好设计”或“坏设计...<a href="./article/20-rules-for-making-good-design/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e8%ae%be%e8%ae%a1/" rel="tag">设计</a></span>
+            <span><i class="fa fa-eye"></i>839</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/20-rules-for-making-good-design/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/background-design-trend/" rel="bookmark">大背景底图设计趋势</a><span>2015.05.16</span></h2>
+            <p>2015 年的网页设计基本上延续了前面几年的流行趋势，至今比较常见的视觉就是基于扁平化设计的谷歌原质化设计（Material Design）语言，但是它还远远比不上“响应式设计”来得更加革命性。 然而至今为止，我们所能见到最多的就是网页设计里面开始大量使用大背景底图设...<a href="./article/background-design-trend/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a>, <a href="./tag/%e8%a7%86%e8%a7%89%e8%ae%be%e8%ae%a1/" rel="tag">视觉设计</a></span>
+            <span><i class="fa fa-eye"></i>2479</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/background-design-trend/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/strange-background-homepage/" rel="bookmark">诡异的背景首页</a><span>2015.05.03</span></h2>
+            <p>页面加载完之后： “canvas 绘制破碎玻璃背景”代码来自：Shattered 查看 演示地址：诡异的背景首页<a href="./article/strange-background-homepage/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>1625</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/strange-background-homepage/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/galactic-cats/" rel="bookmark">银河系猫</a><span>2015.04.15</span></h2>
+            <p>图片来自 © Jen Bartel 欣赏更多 Jen Bartel 作品：Jen Bartel&#8217;s Portfolio，Jen Bartel Illustration<a href="./article/galactic-cats/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%8f%92%e7%94%bb/" rel="tag">插画</a></span>
+            <span><i class="fa fa-eye"></i>2924</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/galactic-cats/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/image-application-skills/" rel="bookmark">网页大图片应用技巧</a><span>2015.04.06</span></h2>
+            <p>一、前言 用图像创造场景感，增强用户的真实体验，近些年来，图片作为背景填充整个屏幕的设计越来越广泛，曾经只有时尚潮流网站或者摄影类站点才会特别依赖富有冲击力的图像，但是现在几乎任何类型的网站都有可能采用这种大图片作为背景，特别是企业品牌宣传、产品...<a href="./article/image-application-skills/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a>, <a href="./tag/%e8%a7%86%e8%a7%89%e8%ae%be%e8%ae%a1/" rel="tag">视觉设计</a></span>
+            <span><i class="fa fa-eye"></i>1180</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/image-application-skills/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/zjz-portfolios/" rel="bookmark">章同学作品集</a><span>2015.03.28</span></h2>
+            <p>章同学，是我高中同学，创作的作品令人赞赏。以下是其中的一些精选作品。 图片来自：章同学 章同学的作品，“出乎意料，恰如其分。” 浏览章同学更多作品：章同学(http://weibo.com/u/1920100401)<a href="./article/zjz-portfolios/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e4%bd%9c%e5%93%81/" rel="tag">作品</a></span>
+            <span><i class="fa fa-eye"></i>1544</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/zjz-portfolios/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/products-emotional-design/" rel="bookmark">产品情感化设计</a><span>2015.01.26</span></h2>
+            <p>一、前言 原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入境章是一架向左的飞机，出境章则是个向右的飞机。 通...<a href="./article/products-emotional-design/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%83%85%e6%84%9f%e5%8c%96%e8%ae%be%e8%ae%a1/" rel="tag">情感化设计</a></span>
+            <span><i class="fa fa-eye"></i>1094</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/products-emotional-design/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/paolo-domeniconi-illustration-work/" rel="bookmark">意大利Paolo Domeniconi插画作品</a><span>2015.01.20</span></h2>
+            <p>Paolo Domeniconi（Aguaplano），意大利插画师，出生于 1965 年，早年他曾在广告公司工作多年，1992 年转为专职自由插画师，目前他的作品大多是与出版社合作的童书插画。 图片来自 © Paolo Domeniconi Illustrator 看着像铅笔画，并不是细滑的画面，表现出略显...<a href="./article/paolo-domeniconi-illustration-work/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%8f%92%e7%94%bb/" rel="tag">插画</a></span>
+            <span><i class="fa fa-eye"></i>2735</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/paolo-domeniconi-illustration-work/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/virgo/" rel="bookmark">处女座</a><span>2014.12.16</span></h2>
+            <p>演示地址：Virgo <a href="./article/virgo/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i>
+              <a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>1394</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/virgo/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/singlepage-web-design/" rel="bookmark">单页网页设计</a><span>2014.12.01</span></h2>
+            <p><a href="./article/singlepage-web-design/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>1741</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/singlepage-web-design/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/low-poly/" rel="bookmark">Low Poly设计风格</a><span>2014.11.26</span></h2>
+            <p>一、提要 继拟物化（skeuomorphism）、扁平化（Flat Design）、长阴影（Long Shadow）之后，低多边形（Low Poly）又火速掀起了最新设计风潮。其实，这种设计风格在早期计算机建模和动效中就被广泛采用，在快要被遗忘之时，突然又流了一把。 二、特点 Low Poly 是一...<a href="./article/low-poly/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1/" rel="tag">网页设计</a></span>
+            <span><i class="fa fa-eye"></i>2446</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/low-poly/index.html#respond">0</a></span>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <section class="posts" data-category="other" style="display: none;">
+          <article class="post">
+            <h2><a href="./article/second-time-to-see-snow/" rel="bookmark">第二次见到雪</a><span>2016.01.21</span></h2>
+            <p>“受冷空气持续影响，本周，我国大部分地区可谓寒意彻骨，大部分地区的天气将呈现缓步下跌的趋势。从 21 日开始，在一股势力强劲的冷空气影响下，不少地方的气温将连续突破今冬新低。中央气象局估计，我国将出现一次明显低温雨雪天气过程。”—— 中央气象局 仍在武汉的...<a href="./article/second-time-to-see-snow/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/bizhongbio/" rel="tag">bizhongbio</a></span>
+            <span><i class="fa fa-eye"></i>643</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/second-time-to-see-snow/index.html#comments">6</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/september-event-2015/" rel="bookmark">这一天，有点意思。</a><span>2015.09.10</span></h2>
+            <p>北京时间 2015 年 9 月 10 日凌晨 1 点，苹果公司在旧金山的比尔·格雷厄姆市政礼堂举行 2015 苹果秋季新品发布会。本次发布会中，发布了Apple Watch 更多的表带和机身款式、12.9 英寸的 iPad Pro、专为 iPad Pro 打造的全新 Smart keyboard、专为 iPad Pro 打造的全...<a href="./article/september-event-2015/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/apple/" rel="tag">Apple</a></span>
+            <span><i class="fa fa-eye"></i>1380</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/september-event-2015/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/summer-summary/" rel="bookmark">暑假总结</a><span>2015.08.31</span></h2>
+            <p>今年暑假，很多人留校，我也不例外。有的人囿于兼职，有的人囿于考研，而我囿于学习。我不顾归家的心切、不顾家长的想念，毅然决定留校学习前端技术。虽然新思路团队留校成员许多，但是怎敌亲人的陪伴。但这也没办法，既然选择留校，就好好学习。毕竟“执念已深，无法...<a href="./article/summer-summary/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/bizhongbio/" rel="tag">bizhongbio</a></span>
+            <span><i class="fa fa-eye"></i>1243</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/summer-summary/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/a-word-bless-college-entrance-students/" rel="bookmark">一句话祝福高考生</a><span>2015.06.07</span></h2>
+            <p>由新浪娱乐发起的微博话题 #一句话祝福高考生# 导语这样写道：“何炅、李健、井柏然、陈意涵、佟大为、乔振宇、赵丽颖、郭碧婷、宋佳、彭于晏、欧豪、陈都灵、胡歌等人为高考生送上祝福，他们也分享了为自己加油的小秘诀或考试小技巧。祝高考生们考试顺利！”。 ...<a href="./article/a-word-bless-college-entrance-students/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/bizhongbio/" rel="tag">bizhongbio</a></span>
+            <span><i class="fa fa-eye"></i>1626</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/a-word-bless-college-entrance-students/index.html#comments">3</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/apple-watch-is-coming/" rel="bookmark">它，就要来了。</a><span>2015.03.10</span></h2>
+            <p>它， 就要来了。15 年 4 月 24 日发售。 北京时间今凌晨 1 点 苹果 在旧金山芳草地艺术中心举行“2015 年苹果春季发布会”。 苹果官网这样描述：“Our most personal device yet.Our goal has always been to make powerful technology more accessible. More relevan...<a href="./article/apple-watch-is-coming/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/apple/" rel="tag">Apple</a></span>
+            <span><i class="fa fa-eye"></i>1104</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/apple-watch-is-coming/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/shot-on-iphone6/" rel="bookmark">Shot on iPhone 6</a><span>2015.03.04</span></h2>
+            <p>Shot on iPhone 6 全球作品廊（World Gallery），这是由苹果公司为了抢占广告牌市场而推出的一项大型活动，并专门推出了一个专属页面，收集整理世界各地使用 iPhone 6 所拍摄的优秀摄影作品。 苹果官网这样描述：“People take incredible photos and videos on iPho...<a href="./article/shot-on-iphone6/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/apple/" rel="tag">Apple</a></span>
+            <span><i class="fa fa-eye"></i>2267</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/shot-on-iphone6/index.html#comments">1</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/a-little-gift/" rel="bookmark">一份薄礼</a><span>2015.02.26</span></h2>
+            <p>这一天，一份薄礼，来自腾讯。 图片来自：必钟的 iPhone5（截屏）<a href="./article/a-little-gift/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/qq/" rel="tag">QQ</a></span>
+            <span><i class="fa fa-eye"></i>1207</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/a-little-gift/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/grade-one/" rel="bookmark">《一年级》不再见</a><span>2014.12.26</span></h2>
+            <p>《一年级》是湖南卫视 2014 年重磅打造大型校园纪实节目，节目 2014 年 9 月 3 日开始录制，10 月 17 日开播，播出时间每周五晚 22:00-24:00。《一年级》是中国电视首次深入真实校园，对学童鲜师共同的成长进行全景记录。《一年级》讲述的是一群一年级新生进入校园...<a href="./article/grade-one/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e7%9c%9f%e4%ba%ba%e7%a7%80/" rel="tag">真人秀</a></span>
+            <span><i class="fa fa-eye"></i>1042</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/grade-one/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/monument-valley/" rel="bookmark">2014年度苹果设计奖得主《纪念碑谷》</a><span>2014.12.08</span></h2>
+            <p>这款名叫《纪念碑谷》（Monument Valley）的解谜游戏由 8 人组成的英国独立游戏开发团队 USTWO GAMES 制作，于 4 月 3 日在 Apple Store 上架，售价 25 RMB。 《纪念碑谷》设计的灵感来自错觉图形大师 M.C.Escher，奉行简洁、纯粹、极致等理念。游戏的所有关卡和故...<a href="./article/monument-valley/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%b8%b8%e6%88%8f/" rel="tag">游戏</a></span>
+            <span><i class="fa fa-eye"></i>2187</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/monument-valley/index.html#respond">0</a></span>
+          </article>
+          <article class="post">
+            <h2><a href="./article/hello-world/" rel="bookmark">世界，你好！</a><span>2014.10.27</span></h2>
+            <p>欢迎来到我的个人博客网站-双鱼bizhongbio – 渡人渡己，前端开发技术博客。 双鱼bizhongbio，是专注于分享 web 前端开发技术的个人博客。磨砺，聚变。没有伞的孩子，必须努力奔跑。 从开学就开始制作个人博客，期间遇到数多挫折，没有很好的设计功底、网站设计经验...<a href="./article/hello-world/">阅读全文</a></p>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/bizhongbio/" rel="tag">bizhongbio</a></span>
+            <span><i class="fa fa-eye"></i>1372</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/hello-world/index.html#comments">3</a></span>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+  </body>
+</html>

@@ -218,7 +218,7 @@ html {
   position: fixed !important;
   top: 0;
   z-index: 6;
-  background: rgba(255, 255, 255, .85) !important;
+  background: #fff !important;
   border-bottom: 1px solid #e5e5e5;
 }
 #articles,
@@ -305,16 +305,22 @@ html {
 }
 #header #menu-nav,
 #menu-cat-nav {
-  -webkit-transition: all .45s ease-in-out;
-  -moz-transition: all .45s ease-in-out;
-  -ms-transition: all .45s ease-in-out;
-  -o-transition: all .45s ease-in-out;
-  transition: all .45s ease-in-out;
+  -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  -ms-transition: all .35s ease-in-out;
+  -o-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 #header.show-nav #menu-nav,
-#header.show-nav #menu-cat-nav {
-  padding-top: 48px;
+#cat-header.show-nav #menu-cat-nav {
+  box-sizing: border-box;
   height: 100vh;
+}
+#header.show-nav #menu-nav {
+  padding-top: 48px;
+}
+#cat-header.show-nav #menu-cat-nav {
+  padding-top: 80px;
 }
 #btn-search {
   float: right;
@@ -784,14 +790,12 @@ a.current {
   text-align: center;
   color: #fff;
 }
-.friendly-link,
 .recent-comments,
 .recommended-posts {
   margin: 0 16px 16px 0;
   padding: 8px;
   background: #fff;
 }
-.friendly-link h2,
 .recent-comments h2,
 .recommended-posts h2 {
   margin-bottom: 8px;
@@ -805,7 +809,6 @@ a.current {
   color: #0fae6f;
   list-style: decimal-leading-zero inside none;
 }
-.friendly-link a,
 .recommended-posts a {
   color: #666;
 }
@@ -818,12 +821,10 @@ a.current {
 .recent-comments li {
   padding: 8px 0;
 }
-.friendly-link li:hover,
 .recent-comments li:hover,
 .recommended-posts li:hover {
   background: #f2f2f2;
 }
-.friendly-link li:hover a,
 .recent-comments li:hover a,
 .recommended-posts li:hover a {
   color: #0fae6f;
@@ -852,11 +853,6 @@ a.current {
   font-size: .875em;
   line-height: 1.14285;
   color: #666;
-}
-.friendly-link li {
-  padding: 4px 0;
-  color: #0fae6f;
-  list-style: circle inside none;
 }
 #article {
   word-break: break-all;

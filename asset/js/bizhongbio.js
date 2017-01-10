@@ -5,6 +5,8 @@ $(function() {
     case 'home':// 首页
       handleHome();
       break;
+    case 'category':// 分类目录页面
+      handleArticle();
     default:// 匹配不存在
       console.log('Nothing to do.');
   }
@@ -25,7 +27,21 @@ $(function() {
     }
   });
 
-  // 返回顶部 当滚动条的位置处于距顶部 600 像素以上时，返回顶部链接出现，否则隐藏
+  // 分类目录页面、文章页面、搜索页面、标签页面 分类目录头部固定
+  function catHeaderFixed() {
+    // 分类目录头部固定 滚动条距顶部 32 像素以上，分类目录头部固定，否则不固定
+    $(window).on('scroll', function() {
+      if ($(this).scrollTop() > 32) {
+        $('#cat-header').addClass('cat-header-fixed');
+        $('#menu-cat-nav').css('paddingTop', '48px');
+      } else {
+        $('#cat-header').removeClass('cat-header-fixed');
+        $('#menu-cat-nav').css('paddingTop', '80px');
+      }
+    });
+  }
+
+  // 返回顶部 滚动条距顶部 600 像素以上，返回顶部链接出现，否则隐藏
   $(window).on('scroll', function() {
     if ($(this).scrollTop() > 600) {
       $('#go-top').fadeIn(300);
@@ -110,7 +126,7 @@ $(function() {
         }
       }
     });
-    
+
     // 滑动释放
     $('#hero-slides').on('touchend', function(event) {
       if (isScrolling === 0) {// 水平滚动
@@ -124,5 +140,20 @@ $(function() {
         }
       }
     });
+  }
+
+  // ------------------------------------------------------------------ 分类目录
+
+  // 分类目录处理主函数
+  function handleArticle() {
+    // 点击分类目录导航链接，显示对应分类目录文章
+    $('#menu-cat-nav li').each(function(i) {
+      $(this).on('click', function() {
+        $(this).addClass('current-menu-item').siblings().removeClass('current-menu-item');
+        $('.posts').eq(i).show().siblings('.posts').hide();
+      });
+    });
+
+    catHeaderFixed();
   }
 });
