@@ -654,12 +654,16 @@ a.current {
 .article img,
 .article-content p a img,
 .article-content p img,
-.project img,
 .related-article img,
 .video img,
 .work img {
   width: 100%;
   height: auto;
+  vertical-align: bottom;
+}
+.project img {
+  width: 100%;
+  height: 66.666666%;
   vertical-align: bottom;
 }
 .article h2 {
