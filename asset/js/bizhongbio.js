@@ -10,12 +10,13 @@ $(function() {
       catHeaderFixed();
       break;
     case 'page-work':// 作品页面
-      handleWork();
-
-      // 当调整浏览器窗口的大小时，重新作品页面处理主函数
-      $(window).on('resize', function() {
+      // 图片等资源都加载完毕或调整浏览器窗口的大小，执行作品页面处理主函数
+      $(window).on('load resize', function() {
         handleWork();
       });
+      break;
+    case 'page-video':// 视频页面
+      handleVideo();
       break;
     default:// 匹配不存在
       console.log('Nothing to do.');
@@ -227,23 +228,75 @@ $(function() {
 
     // 作品点击放大图片
     $('#works .work').on('click', function(event) {
-      var self = $(this);// 当前点击的作品对象
+      var self = $(this),// 当前点击的作品对象
+          workLeft = '0px';// 当前点击的作品距左边的距离
 
       // 当前点击的作品有 work-current 类，不可再次点击
       if (!self.hasClass('work-current')) {
-        var workLeft = self.css('left');// 当前点击的作品距离左边的距离
+        workLeft = self.css('left');
 
         $('#mask').css('display', 'block');
         $('body, html').scrollTop(self.offset().top);// 滚动条滚动到当前点击的作品距离文档的上方位置
 
-        $(this).addClass('work-current').siblings().removeClass('work-current');
-        $(this).css('left', '50%');
+        self.addClass('work-current').siblings().removeClass('work-current');
+        self.css('left', '50%');
       }
 
       // 蒙版点击退出
       $('#mask').on('click', function() {
         self.removeClass('work-current').css('left', workLeft);
         $('#mask').css('display', 'none');
+      });
+    });
+  }
+
+  // ------------------------------------------------------------------ 视频页面
+
+  // 视频页面处理主函数
+  function handleVideo() {
+    var videoWidth = $('#videos .video').width(),// 单个视频宽度
+        videoHeight = $('#videos .video').height(),// 单个视频高度
+        videoCount = 0,// 视频数目
+        videoTop = 0;// 视频距顶部的距离
+
+    // 每个视频定位
+    $('#videos .video').each(function(i) {
+      videoCount++;
+      $(this).css({
+        'position': 'absolute',
+        'top': videoTop + 'px',
+        'left': (i % 2 === 0 ? '0px' : videoWidth + 'px')
+      });
+
+      if (videoCount % 2 === 0) {
+        videoTop += videoHeight;
+      }
+    });
+
+    $('#videos').css({'height': (videoHeight * $('#videos .video').length / 2 + 42) + 'px'});
+
+    // 视频点击播放
+    $('#videos .video').on('click', function(i) {
+      var self = $(this),// 当前点击的视频对象
+          videoLeft = '0px';// 当前点击的视频距左边的距离
+
+      // 当前点击的视频有 video-current 类，不可再次点击
+      if (!self.hasClass('video-current')) {
+        videoLeft = self.css('left');
+
+        $('#mask').css('display', 'block');
+        $('body, html').scrollTop(self.offset().top - videoHeight / 3);// 滚动条滚动到适当的位置
+
+        self.addClass('video-current').siblings().removeClass('video-current');
+        self.css('left', '50%');
+        self.find('.video-player').attr('controls', 'controls');
+      }
+
+      // 蒙版点击退出
+      $('#mask').on('click', function() {
+        $('#mask').css('display', 'none');
+        self.removeClass('video-current').css('left', videoLeft);
+        self.find('.video-player').removeAttr('controls');
       });
     });
   }

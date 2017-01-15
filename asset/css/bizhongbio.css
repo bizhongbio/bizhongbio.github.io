@@ -1088,8 +1088,11 @@ a.current {
   float: left;
   width: 33.333333%;
 }
-.project figcaption {
-  padding-top: 16px;
+.project figcaption,
+.work figcaption,
+.video figcaption {
+  padding: 12px;
+  background: #fff;
 }
 .project h2 {
   text-align: center;
@@ -1106,21 +1109,27 @@ a.current {
   float: left;
   width: 25%;
 }
-.video,
-.work {
+.work,
+.video {
   -webkit-transition: all .35s ease-in-out;
   -moz-transition: all .35s ease-in-out;
   -ms-transition: all .35s ease-in-out;
   -o-transition: all .35s ease-in-out;
   transition: all .35s ease-in-out;
 }
-.video figure,
+.work.work-current,
+.video.video-current {
+  z-index: 6;
+  margin-left: -320px;
+  width: 640px;
+  background: #fff;
+}
 .work figure {
   cursor: pointer;
 }
-.work figcaption {
-  padding: 8px;
-  background: #fff;
+.work.work-current figure,
+.video.video-current figure {
+  margin: 0;
 }
 .work h2 {
   color: #0fae6f;
@@ -1136,19 +1145,13 @@ a.current {
 }
 #videos {
   position: relative;
-  min-height: 810px;
+  min-height: 820px;
 }
 .video {
   float: left;
   width: 50%;
   background: #f2f2f2;
-}
-.video-current,
-.work-current {
-  z-index: 6;
-  margin-left: -320px;
-  width: 640px;
-  background: #fff;
+  cursor: pointer;
 }
 .video-cover {
   position: relative;
@@ -1161,11 +1164,6 @@ a.current {
   width: 100%;
   height: 100%;
   background: #000;
-}
-.video-current img,
-.video-current span,
-.video-current span i {
-  display: none;
 }
 .video span {
   position: absolute;
@@ -1185,8 +1183,12 @@ a.current {
 .video:hover i {
   color: #0fae6f;
 }
+.video-current .video-cover span,
+.video-current .video-cover span i {
+  display: none;
+}
 .video h2 {
-  margin: 8px 0 12px;
+  margin-bottom: 12px;
   font-size: 1.25em;
   color: #0fae6f;
   word-break: break-all;
@@ -1202,17 +1204,17 @@ a.current {
 }
 .more-videos {
   margin: 0 auto;
-  padding-bottom: 48px;
+  padding-bottom: 74px;
   width: 1008px;
 }
 .more-videos a {
   display: block;
   margin: 0 auto;
-  padding-left: 158px;
-  width: 148px;
+  padding-left: 148px;
+  width: 160px;
   height: 50px;
   line-height: 3.125;
-  background: url(../img/yk-logo.png) no-repeat;
+  background: url(../img/yk-logo-1220.png) no-repeat;
 }
 .more-videos a:hover {
   text-decoration: underline;
@@ -1345,8 +1347,8 @@ a.current {
   .hero-video-content,
   .more-videos,
   .slide-content,
-  .videos,
-  .works {
+  .works,
+  .videos {
     width: 1184px;
   }
   .logo a {
@@ -1383,13 +1385,13 @@ a.current {
   .work {
     width: 20%;
   }
-  .video-current,
-  .work-current {
+  .work.work-current,
+  .video.video-current {
     margin-left: -408px;
     width: 816px;
   }
-  .videos-content {
-    min-height: 910px;
+  #videos {
+    min-height: 973px;
   }
 }
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
@@ -1670,6 +1672,7 @@ a.current {
   }
   .footer-content,
   .project figcaption,
+  .work figcaption,
   .works {
     padding: 16px;
   }
