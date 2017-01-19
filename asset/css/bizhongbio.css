@@ -1382,6 +1382,13 @@ a.current {
   .sidebar {
     width: 352px;
   }
+  .promos {
+    height: 208px;
+  }
+  .promos a {
+    font-size: 2.5em;
+    line-height: 208px;
+  }
   .work {
     width: 20%;
   }
