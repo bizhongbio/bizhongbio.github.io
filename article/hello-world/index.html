@@ -63,9 +63,11 @@
   </head>
   <body id="single">
     <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
-    <header class="global-header" role="banner">
+    <header id="header" role="banner">
       <div class="header-content">
-        <nav class="main-nav" aria-label="Global navigation" role="navigation">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
           <div class="menu-nav-container">
             <ul id="menu-nav" class="menu">
               <li><a href="./">首页</a></li>
@@ -77,27 +79,10 @@
             </ul>
           </div>
         </nav>
-      </div>
-    </header>
-    <header id="cat-header" role="banner">
-      <div class="header-content">
-        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
-        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
-        <nav class="cat-nav" aria-label="Local navigation" role="navigation">
-          <div class="menu-cat-nav-container">
-            <ul id="menu-cat-nav" class="menu">
-              <li><a href="javascript:void(0);">前端</a></li>
-              <li><a href="javascript:void(0);">后端</a></li>
-              <li><a href="javascript:void(0);">移动</a></li>
-              <li><a href="javascript:void(0);">设计</a></li>
-              <li class="current-menu-item"><a href="javascript:void(0);">其它</a></li>
-            </ul>
-          </div>
-        </nav>
         <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
-        <form method="get" id="searchform" action="./">
-          <input type="text" value="" name="s" id="s" placeholder="请输入关键字">
-          <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
     </header>
