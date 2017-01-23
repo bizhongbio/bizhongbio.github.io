@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>产品情感化设计 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="一、前言 原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入…">
+    <meta name="keywords" content="情感化设计">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="产品情感化设计">
+    <meta name="twitter:description" content="一、前言 原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入…">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/products-emotional-design/products-emotional-design.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/products-emotional-design/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="产品情感化设计">
+    <meta property="og:description" content="一、前言 原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入…">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/products-emotional-design/products-emotional-design.jpg">
+    <meta itemprop="name" content="产品情感化设计">
+    <meta itemprop="description" content="一、前言 原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入…">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/products-emotional-design/products-emotional-design.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/products-emotional-design/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+          <section class="article-header">
+            <h1>产品情感化设计</h1>
+            <span><i class="fa fa-calendar-check-o"></i>2015.01.26 19:00</span>
+            <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/%e6%83%85%e6%84%9f%e5%8c%96%e8%ae%be%e8%ae%a1/" rel="tag">情感化设计</a></span>
+            <span><i class="fa fa-eye"></i>1094</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/products-emotional-design/index.html#comments">1</a></span>
+          </section>
+          <section class="article-content">
+            <h2>一、前言</h2>
+            <p>原研哉在他的《设计中的设计》中有介绍过这样一个案例：日本机场原来是用一个圆圈和一个方块表示出入的区别，形式简单并且好用，但设计师佐藤雅彦却用一个更“温暖”的方式来重新设计了出入境的印章：入境章是一架向左的飞机，出境章则是个向右的飞机。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-1.jpg"><img src="./article/products-emotional-design/products-emotional-design-1.jpg" alt="products-emotional-design-1"></a></p>
+            <p>通过一次次的盖章，将这种“温暖”的情绪传递给每一位进关的旅行者们。在他们的视线与印章相交的那一刻，会将这种温暖转化为小小的惊喜，而不由自主且充满善意的『啊哈』一下。一千一万次的『啊哈』就会伴随着这一千一万次对旅行者的善意与好客。这便是产品中的细节与用户直接情感化传递的结果。</p>
+            <p>一兰拉面是在日本非常受欢迎的拉面店，在顾客吃完面并把汤喝完会看下碗底有这样几个字“この一滴が 最高喜びです（你最后一口是对我们最大的肯定）”，他们用这种简单的细节打通了产品与顾客感情的传递，顾客在喝完最后一口面汤是对店主的肯定，并也因为对店主的肯定同时获得了店主的感谢。</p>
+            <p>产品中的情感化的细节经常会成为产品与用户之间情感传递的桥梁，这种传递情感的细节不仅可以增加用户对产品的好感度，更可以让产品更加深入人心，利于产品口碑的传播。有时候可能仅仅一句文案、一个动画、一个彩蛋都可以打动用户，使其与产品产生情感上的共鸣，这便是产品细节中的情感化设计的作用。</p>
+            <h2>二、情感化设计在网页或者App上的实际运用</h2>
+            <h3>2.1 情感化设计可以加强用户对产品气质的定位</h3>
+            <p><a href="http://timehop.com/" target="_blank">Timehop</a> 是一款让你回顾那年今日的 App，它可以帮你把去年今日写过的 Twitter，Facebook 状态和拍过 Instagram 照片翻出来，帮你回顾过去的自己。Timehop 为自己的产品塑造了一个蓝色小恐龙的吉祥物形象。许多小恐龙贯穿于界面之中，用吉祥物 + 幽默文案的方式来将品牌形象的性格特点和产品气质传达出来。用户打开 App 时就能感受到小恐龙的存在，闪屏中一个小恐龙坐在地上说了句“Let’s time travel”，立马将用户从情感上带入了 App 的主题——时间之旅。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-2.jpg"><img src="./article/products-emotional-design/products-emotional-design-2.jpg" alt="products-emotional-design-2"></a></p>
+            <p>有趣的地方还有很多，类似下图，在默认情况下是露出一半的恐龙在向你招手，小恐龙边上是一句不明意义的文案“My mom buys my underwear（我妈妈给我买了我的内衣）”，当你继续向上拖动时，会发现一只穿着内裤的恐龙，用户就会马上明白上面这句幽默文案的含义。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-3.jpg"><img src="./article/products-emotional-design/products-emotional-design-3.jpg" alt="products-emotional-design-3"></a></p>
+            <p>类似的地方还有下图，在设置页面顶部向下拖动会有一只摇动的小恐龙，在用户顺着他的引导不断下拉，拉到头，会发现这是一个对话的气泡，蓝色的小恐龙说了句“You made it to the top!（你拉到了最顶端！）”，产品“诙谐有趣”的气质便从这些隐秘于界面细节之中的设计传递给了用户。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-4.jpg"><img src="./article/products-emotional-design/products-emotional-design-4.jpg" alt="products-emotional-design-4"></a></p>
+            <p>一个产品能获得用户的青睐不仅要有强烈的需求、优秀的体验，更主要的是让产品与用户之间有情感上的交流，有时对细节的巧妙设计将会极大的加强用户对产品气质的定位，产品不再是一个由代码组成的冷冰冰的应用程序，拉近了与用户的情感距离。</p>
+            <h3>2.2 情感化设计帮助用户化解负面的情绪</h3>
+            <p>情感化设计的目标是让产品与用户在情感上产生交流从而产生积极的情绪。这种积极的情绪可以加强用户对产品的认同感甚至还可以提高用户对使用产品困难时的容忍能力。注册登录是让用户很头疼的流程，它的出现让用户不能直接的使用产品，所以在注册和登录的过程中很容易造成用户的流失。巧妙的运用情感化设计可以缓解用户的负面情绪。</p>
+            <p>在 <a href="https://wwws.betterment.com/app/#signup" target="_blank">Betterment</a> 的注册流程中，在用户输入完出生年月日后会在时间下面显示下次生日的日期，一个小小的关怀马上就让枯燥的注册流程有了惊喜。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-5.jpg"><img src="./article/products-emotional-design/products-emotional-design-5.jpg" alt="products-emotional-design-5"></a></p>
+            <p>在 <a href="https://dash.readme.io/login" target="_blank">Readme</a> 的登陆页面上，当你输入密码时，上面萌萌的猫头鹰会遮住自己的眼睛，在输入密码的过程中给用户传递了安全感。让这个阻挡用户直接体验产品的“墙”变得更有关怀感，用“卖萌”的形象来减少用户在登录时的负面情绪。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-6.jpg"><img src="./article/products-emotional-design/products-emotional-design-6.jpg" alt="products-emotional-design-6"></a></p>
+            <p><a href="https://www.virginamerica.com/elevate-frequent-flyer" target="_blank">Virgin America</a> 的注册流程非常的“拟人化”，在你输入 First name 以后你会收到“Hey There”的打招呼，当你在把 Middle name 输入好后会出现“Nice name”的提示，好像有一个人在指示你完成注册步骤一样。亲切友好的文案相比冷冰冰的话语更能得到用户的好感与共鸣，人机的对话变得更加情感化。</p>
+            <div class="photo"><a href="./article/products-emotional-design/products-emotional-design-7.jpg"><img src="./article/products-emotional-design/products-emotional-design-7.jpg" alt="products-emotional-design-7"></a></div>
+            <p>注册和登录对于一个互联网产品来说都是相当繁琐但又缺失不了的部分，这些流程阻碍的用户不能直接使用产品。对用户来说这便是在使用产品时候的“墙”，在这 些枯燥的流程中赋予情感化的元素，将大大减少“墙”给用户带来的负面情绪，同时加强用户对产品的认同感，并感受到产品给用户传递的善意与友好。</p>
+            <h3>2.3 情感化设计可以帮助产品引导用户的情绪</h3>
+            <p>在产品的一些流程中，使用一些情感化的表现形式能对用户的操作提供鼓励、引导与帮助。用这些情感化设计抓住用户的注意，诱发那些有意识或者无意识的行为。在 <a href="http://www.turntable.fm/" target="_blank">Turntable.fm</a> 中的订阅模式中有一个滑块，你付多少钱决定了猴子欣喜若狂的程度。在涉及到真金白银的操作中，给用户卖个萌也许有奇效。</p>
+            <p><a href="./article/products-emotional-design/products-emotional-design-8.jpg"><img src="./article/products-emotional-design/products-emotional-design-8.jpg" alt="products-emotional-design-8"></a></p>
+            <p>在 Chrome 浏览器的 Android 版中，当你打开了太多的标签卡，标签卡图标上的数字会变成一个笑脸。使用细微的变化友善的对用户的操作进行引导。</p>
+            <div class="photo"><a href="./article/products-emotional-design/products-emotional-design-9.jpg"><img src="./article/products-emotional-design/products-emotional-design-9.jpg" alt="products-emotional-design-9"></a></div>
+            <p>有趣的文案有时比醒目的视觉元素更具有引导用户作用，当你在使用 <a href="http://invisionpsychic.com/" target="_blank">InVision</a> 切换到别的标签时，标题的标签会改成“Don’t forget to read this…”。</p>
+            <div class="photo"><a href="./article/products-emotional-design/products-emotional-design-10.gif"><img src="./article/products-emotional-design/products-emotional-design-10.gif" alt="products-emotional-design-10"></a></div>
+            <p>人类是地球上最具情感的动物，人类的行为也常常受到情感的驱动。在界面上融入情感化元素，引导用户的情绪，使其更有效的引发用户那些有意识无意思的行为，这种情感化的引导比单纯的使用视觉引导会来的更有效果。</p>
+            <h2>三、总结</h2>
+            <p>一个优秀的产品应该是有人格魅力且让人愉悦的，这种让人愉悦的积极的情绪便是由产品中那些多多少少的情感化细节来表现出的。那些让用户“啊哈”的细节，都将会成为积极的情绪所传递下去，影响的将可以能千千万万用户的体验与口碑。</p>
+            <p>转载自：腾讯ISUX (<a title="产品细节中的情感化设计" href="http://isux.tencent.com/emotional-design-details.html" target="_blank">http://isux.tencent.com/emotional-design-details.html</a>)</p>
+          </section>
+          <section class="article-copyright">
+            <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="产品情感化设计" href="https://bizhongbio.github.io/article/products-emotional-design/">https://bizhongbio.github.io/article/products-emotional-design/</a>）</p>
+          </section>
+          <section class="article-adjacent">
+            上一篇：<a href="./article/paolo-domeniconi-illustration-work/" rel="prev">意大利Paolo Domeniconi插画作品</a><br/>
+            下一篇：<a href="./article/zjz-portfolios/" rel="next">章同学作品集</a><br/>
+          </section>
+          <section class="article-share">
+            <h2>分享到</h2>
+            <div class="bdsharebuttonbox">
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+              <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a class="bds_count"></a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="article-related">
+            <h2>相关文章</h2>
+            <ul class="related-articles">
+              <p>暂无相关文章</p>
+              <li class="clear"></li>
+            </ul>
+          </section>
+          <section class="article-comment">
+            <div class="comments">
+              <a name="comments"></a>
+              <h2>1条评论</h2>
+              <ol class="commentslist">
+                <li class="comment" id="li-comment-24">
+                  <div class="author-face">垃</div>
+                  <div class="comment-content" id="comment-24">垃圾人
+                    <span class="comment-meta">2015.05.04 21:42</span>
+                    <div class="comment-text">
+                      <p>好文章，内容文笔犀利。</p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="respond">
+              <a name="respond"></a>
+              <h2>发表评论</h2>
+              <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                <label for="comment_mail_notify">回复时邮件通知我</label>
+              </form>
+            </div>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
