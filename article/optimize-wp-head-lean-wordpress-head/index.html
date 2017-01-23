@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>优化wp_head()，精简WordPress头部 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="采用 WordPress 建站的时候，发现页面会生成很多冗余的代码。如：[crayon-5884246337f49413796099/] 这些代码并不是必须的。但是删除 wp_head() 并不是一个很好的选择，因为这样会影响到一些插件的使用。那我…">
+    <meta name="keywords" content="WordPress">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="优化wp_head()，精简WordPress头部">
+    <meta name="twitter:description" content="采用 WordPress 建站的时候，发现页面会生成很多冗余的代码。如：[crayon-5884246337f49413796099/] 这些代码并不是必须的。但是删除 wp_head() 并不是一个很好的选择，因为这样会影响到一些插件的使用。那我…">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/optimize-wp-head-lean-wordpress-head.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="优化wp_head()，精简WordPress头部">
+    <meta property="og:description" content="采用 WordPress 建站的时候，发现页面会生成很多冗余的代码。如：[crayon-5884246337f49413796099/] 这些代码并不是必须的。但是删除 wp_head() 并不是一个很好的选择，因为这样会影响到一些插件的使用。那我…">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/optimize-wp-head-lean-wordpress-head.jpg">
+    <meta itemprop="name" content="优化wp_head()，精简WordPress头部">
+    <meta itemprop="description" content="采用 WordPress 建站的时候，发现页面会生成很多冗余的代码。如：[crayon-5884246337f49413796099/] 这些代码并不是必须的。但是删除 wp_head() 并不是一个很好的选择，因为这样会影响到一些插件的使用。那我…">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/optimize-wp-head-lean-wordpress-head.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="stylesheet" id="crayon-css" href="./asset/dep/crayon-syntax-highlighter/css/min/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-familiar-css" href="./asset/dep/crayon-syntax-highlighter/themes/familiar/familiar.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="./asset/dep/crayon-syntax-highlighter/fonts/monaco.css" type="text/css" media="all">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+          <section class="article-header">
+            <h1>优化wp_head()，精简WordPress头部</h1>
+            <span><i class="fa fa-calendar-check-o"></i>2015.01.12 21:00</span>
+            <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/wordpress/" rel="tag">Wordpress</a></span>
+            <span><i class="fa fa-eye"></i>1087</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/optimize-wp-head-lean-wordpress-head/index.html#respond">0</a></span>
+          </section>
+          <section class="article-content">
+            <p>采用 WordPress 建站的时候，发现页面会生成很多冗余的代码。如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f49413796099" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.bizhongbio.com/xmlrpc.php?rsd" /&gt; &lt;link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.bizhongbio.com/wp-includes/wlwmanifest.xml" /&gt; &lt;meta name="generator" content="WordPress 4.1.1" /&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f49413796099-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f49413796099-2">2</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f49413796099-3">3</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f49413796099-1"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"EditURI"</span><span class="crayon-h"> </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"application/rsd+xml"</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-o">=</span><span class="crayon-s">"RSD"</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com/xmlrpc.php?rsd"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f49413796099-2"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"wlwmanifest"</span><span class="crayon-h"> </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"application/wlwmanifest+xml"</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com/wp-includes/wlwmanifest.xml"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5884246337f49413796099-3"><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"generator"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"WordPress 4.1.1"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0030 seconds] -->
+            <p>这些代码并不是必须的。但是删除 wp_head() 并不是一个很好的选择，因为这样会影响到一些插件的使用。那我们该怎么删除这些代码呢？</p>
+            <h2>一、完整的WordPress头部清理代码</h2>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f63722508182" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;?php //完整的wordpress头部清理代码 //remove_action( 'wp_head', 'wp_enqueue_scripts', 1 ); remove_action( 'wp_head', 'feed_links', 2 ); remove_action( 'wp_head', 'feed_links_extra', 3 ); remove_action( 'wp_head', 'rsd_link' ); remove_action( 'wp_head', 'wlwmanifest_link' ); remove_action( 'wp_head', 'index_rel_link' ); remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); //remove_action( 'wp_head', 'locale_stylesheet' ); remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 ); //remove_action( 'wp_head', 'noindex', 1 ); //remove_action( 'wp_head', 'wp_print_styles', 8 ); //remove_action( 'wp_head', 'wp_print_head_scripts', 9 ); remove_action( 'wp_head', 'wp_generator' ); //remove_action( 'wp_head', 'rel_canonical' ); remove_action( 'wp_footer', 'wp_print_footer_scripts' ); remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 ); remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 ); add_action('widgets_init', 'my_remove_recent_comments_style'); function my_remove_recent_comments_style() { global $wp_widget_factory; remove_action('wp_head', array($wp_widget_factory-&gt;widgets['WP_Widget_Recent_Comments'], 'recent_comments_style')); } ?&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-2">2</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-4">4</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-6">6</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-7">7</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-8">8</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-9">9</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-10">10</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-11">11</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-12">12</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-13">13</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-14">14</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-15">15</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-16">16</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-17">17</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-18">18</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-19">19</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-20">20</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-21">21</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-22">22</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-23">23</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-24">24</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-25">25</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-26">26</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-27">27</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f63722508182-28">28</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f63722508182-29">29</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f63722508182-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-2">&nbsp;</div><div class="crayon-line" id="crayon-5884246337f63722508182-3"><span class="crayon-c">//完整的wordpress头部清理代码</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-4"><span class="crayon-c">//remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-5"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'feed_links'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-6"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'feed_links_extra'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-7"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'rsd_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-8"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wlwmanifest_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-9"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'index_rel_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-10"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'parent_post_rel_link'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-11"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'start_post_rel_link'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-12"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'adjacent_posts_rel_link_wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-13"><span class="crayon-c">//remove_action( 'wp_head', 'locale_stylesheet' );</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-14"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'publish_future_post'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'check_and_publish_future_post'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-15"><span class="crayon-c">//remove_action( 'wp_head', 'noindex', 1 );</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-16"><span class="crayon-c">//remove_action( 'wp_head', 'wp_print_styles', 8 );</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-17"><span class="crayon-c">//remove_action( 'wp_head', 'wp_print_head_scripts', 9 );</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-18"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wp_generator'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-19"><span class="crayon-c">//remove_action( 'wp_head', 'rel_canonical' );</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-20"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_footer'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wp_print_footer_scripts'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-21"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wp_shortlink_wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-22"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'template_redirect'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wp_shortlink_header'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">11</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-23"><span class="crayon-e">add_action</span><span class="crayon-sy">(</span><span class="crayon-s">'widgets_init'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'my_remove_recent_comments_style'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-24"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">my_remove_recent_comments_style</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-25"><span class="crayon-m">global</span><span class="crayon-h"> </span><span class="crayon-v">$wp_widget_factory</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-26"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">array</span><span class="crayon-sy">(</span><span class="crayon-v">$wp_widget_factory</span><span class="crayon-o">-&gt;</span><span class="crayon-i">widgets</span><span class="crayon-sy">[</span><span class="crayon-s">'WP_Widget_Recent_Comments'</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'recent_comments_style'</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5884246337f63722508182-27"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f63722508182-28">&nbsp;</div><div class="crayon-line" id="crayon-5884246337f63722508182-29"><span class="crayon-ta">?&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0345 seconds] -->
+            <p>把这段代码插入到主题的 functions.php 文件下，可以清除 WordPress 头部大量冗余信息。如有必要，可以看看这些代码的具体意义，以免删除某些你想保留的功能。</p>
+            <h2>二、wp_head()函数</h2>
+            <p>wp_head() 是 WordPress 的一个非常重要的函数，基本上所有的主题在 header.php 这个文件里都会使用到这个函数，而且很多插件为了在 header 上加点东西也会用到 wp_head()，比如 SEO 的相关插件。但是，在 wp_head() 出现的这个位置，会增加很多并不常用的代码。可以通过 remove_action() 移除这些代码。</p>
+            <h2>三、remove_action()函数</h2>
+            <p>函数原型：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f69160614619" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( $tag, $function_to_add, $priority, $accepted_args );</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f69160614619-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f69160614619-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">tag</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">function_to_add</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">priority</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">accepted</span><span class="crayon-sy">_</span>args<span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0011 seconds] -->
+            <p>该函数移除一个附属于指定动作 hook 的函数。该方法可用来移除附属于特定动作 hook 的默认函数，并可能用其它函数取而代之。参见 remove_filter()，add_action() 和 add_filter()。<br />重要：添加 hook 时的 $function_to_remove 和 $priority 参数要能够相匹配，这样才可以移除 hook。该原则也适用于过滤器和动作。移除失败时不进行警告提示。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f6f513590292" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">参数 $tag（字符串）（必需）将要被删除的函数所连接到的动作hook。默认值：None $function_to_remove（回调）（必需） 将要被删除函数的名称默认值：None $priority（整数）（可选）函数优先级（在函数最初连接时定义）默认值：10 $accepted_args（整数）（必需）函数所接受参数的数量。默认值：1 返回值 （布尔值）函数是否被移除。 Ttue 函数被成功移除 False函数未被移除</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f6f513590292-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f6f513590292-2">2</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f6f513590292-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f6f513590292-4">4</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f6f513590292-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f6f513590292-6">6</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f6f513590292-7">7</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f6f513590292-8">8</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f6f513590292-9">9</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f6f513590292-1">参数</div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f6f513590292-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-i">tag</span>（字符串）（必需）将要被删除的函数所连接到的动作<span class="crayon-i">hook</span>。默认值：<span class="crayon-i">None</span></div><div class="crayon-line" id="crayon-5884246337f6f513590292-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">function_to</span><span class="crayon-sy">_</span>remove（回调）（必需）<span class="crayon-h"></span>将要被删除函数的名称默认值：<span class="crayon-i">None</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f6f513590292-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-i">priority</span>（整数）（可选）函数优先级（在函数最初连接时定义）默认值：<span class="crayon-cn">10</span></div><div class="crayon-line" id="crayon-5884246337f6f513590292-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">accepted</span><span class="crayon-sy">_</span>args（整数）（必需）函数所接受参数的数量。默认值：<span class="crayon-cn">1</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f6f513590292-6">返回值</div><div class="crayon-line" id="crayon-5884246337f6f513590292-7">（布尔值）函数是否被移除。</div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f6f513590292-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">Ttue</span><span class="crayon-h"></span>函数被成功移除</div><div class="crayon-line" id="crayon-5884246337f6f513590292-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">False</span>函数未被移除</div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0015 seconds] -->
+            <h2>四、移除WordPress版本</h2>
+            <p>在 head 区域，可以看到如下代码：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f73039306478" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;meta name="generator" content="WordPress 3.1.2" /&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f73039306478-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f73039306478-1"><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"generator"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"WordPress 3.1.2"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0004 seconds] -->
+            <p>这是隐性显示的 WordPress 版本信息，默认添加。可以被黑客利用，攻击特定版本的 WordPress 漏洞。清除代码：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f78956284007" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( 'wp_head', 'wp_generator' );</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f78956284007-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f78956284007-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wp_generator'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0003 seconds] -->
+            <h2>五、移除离线编辑器开放接口</h2>
+            <p>WordPress 自动添加两行离线编辑器的开放接口：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f7c891855358" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://example.com/xmlrpc.php?rsd" /&gt; &lt;link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://example.com/wp-includes/wlwmanifest.xml" /&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f7c891855358-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f7c891855358-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f7c891855358-1"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"EditURI"</span><span class="crayon-h"> </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"application/rsd+xml"</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-o">=</span><span class="crayon-s">"RSD"</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://example.com/xmlrpc.php?rsd"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f7c891855358-2"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"wlwmanifest"</span><span class="crayon-h"> </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"application/wlwmanifest+xml"</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://example.com/wp-includes/wlwmanifest.xml"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0009 seconds] -->
+            <p>其中 RSD 是一个广义的接口，wlwmanifest 是针对微软 Live Writer 编辑器的。如果你不需要离线编辑，可移除之。即便你需要使用离线编辑器，大部分时候也不需要这两行代码。Live Writer 自己知道它们。保留这两行代码可能会留有安全隐患。清除代码：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f81714663055" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( 'wp_head', 'rsd_link' ); remove_action( 'wp_head', 'wlwmanifest_link' );</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f81714663055-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f81714663055-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f81714663055-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'rsd_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f81714663055-2"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'wlwmanifest_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <h2>六、移除前后文、第一篇文章、主页meta信息</h2>
+            <p>WordPress 把前后文、第一篇文章和主页链接全放在 meta 中。我认为对于 SEO 帮助不大，反使得头部信息巨大。移除代码：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f86999528075" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( 'wp_head', 'index_rel_link' ); // Removes the index link remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // Removes the prev link remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // Removes the start link remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Removes the relational links for the posts adjacent to the current post.</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f86999528075-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f86999528075-2">2</div>
+                        <div class="crayon-num" data-line="crayon-5884246337f86999528075-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f86999528075-4">4</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f86999528075-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'index_rel_link'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// Removes the index link</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f86999528075-2"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'parent_post_rel_link'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// Removes the prev link</span></div><div class="crayon-line" id="crayon-5884246337f86999528075-3"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'start_post_rel_link'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// Removes the start link</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f86999528075-4"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'adjacent_posts_rel_link_wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// Removes the relational links for the posts adjacent to the current post.</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0014 seconds] -->
+            <h2>七、移除canonical标记</h2>
+            <p>2009 年 2 月份，Google、Yahoo 及 Microsoft 三大搜索引擎联合推出了一个旨在减少重复内容困扰的方法，这对于广大站长来说不啻是个好事情，不用再担心因为网站上有重复的内容而影响到网站页面的权重了。</p>
+            <p>造成重复内容的原因有很多，最常见的便是多个 url 地址指向了同一个页面，比如：WordPress 平台下的一篇日志页面，包括了文章及评论内容。每个评论都可以有个固定的链接地址，如果有多个评论的话，则每条评论的链接都类似于上述格式，只是 commentID 号有所不同，这些链接其实都是指向同一篇文章的。蜘蛛来爬时，便会依次爬行一遍，这篇文章下如有 10 条评论，则爬了 10 次相同的页面文章，相当于做了多次重复的工作，严重影响了抓取的效率，及耗费了带宽。</p>
+            <p>重复内容造成的结果必然是蜘蛛不愿意来爬，不同的 url 指向同一个页面，也会影响到该页面的权重。通过 canonical 标签，能有效的避免这类问题。</p>
+            <p>需要注意两点：</p>
+            <ul>
+              <li>允许指向不同的子域名，不允许指向其他域名；</li>
+              <li>canonical 属性可以被传递（即 A 页面声明 B 为权威链接，B 声明 C 为权威网页，那么 C 就是 A 和 B 共同的首选权威版本）。</li>
+            </ul>
+            <p>如果你的 WordPress 版本在 2.9 之前，需要通过插件（上面已经提到）或者手工 Hack 主题的 header.php 文件来使得博客支持。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f8c177116764" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;link rel="canonical" href="&lt;?php get_permalink()?&gt;" /&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f8c177116764-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f8c177116764-1"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"canonical"</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"<span class="crayon-ta">&lt;?php</span><span class="crayon-h"> </span><span class="crayon-e">get_permalink</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-ta">?&gt;</span>"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <p>在 WordPress 2.9 发布之后，WordPress 已经默认支持这一标签了，我们无需做任何动作，主题就支持这一标签。这对于文章固定链接的更改很有帮助，可以增加对搜索引擎的友好度。但是如果你觉得这个标签对你无用，也可以移除之。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f91802794530" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( 'wp_head', 'rel_canonical' );</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f91802794530-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f91802794530-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'rel_canonical'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0004 seconds] -->
+            <h2>八、移除feed</h2>
+            <p>HTML 中通过 &lt;link rel="alternate" type="application/rss+xml" title="feed名" href="http://example.com/feed/" /&gt; 来指定博客 feed。可以被浏览器检测到，然后被读者订阅。<br />如果你不想添加 feed，或者想使用烧制的 feed（如 FeedSky 或者 Feedburner 烧制的 feed ），可以移除之。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-5884246337f95544235556" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">remove_action( 'wp_head', 'feed_links', 2 );//文章和评论feed remove_action( 'wp_head', 'feed_links_extra', 3 ); //分类等feed</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-5884246337f95544235556-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-5884246337f95544235556-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5884246337f95544235556-1"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'feed_links'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-c">//文章和评论feed</span></div><div class="crayon-line crayon-striped-line" id="crayon-5884246337f95544235556-2"><span class="crayon-e">remove_action</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'wp_head'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'feed_links_extra'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">//分类等feed</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0008 seconds] -->
+            <p>如果用的烧制的 feed，然后还可以再手动添加 feed 地址。</p>
+            <p>转载自：<a href="http://www.xuanfengge.com/streamline-wordpress-optimization-wp-head-head.html" target="_blank">轩枫阁</a>，<a href="http://www.hipetro.com/%E4%BC%98%E5%8C%96wp_head%E7%B2%BE%E7%AE%80wordpress%E5%A4%B4%E9%83%A8.html" target="_blank">石油杂记</a></p>
+          </section>
+          <section class="article-copyright">
+            <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="优化wp_head()，精简WordPress头部" href="https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/">https://bizhongbio.github.io/article/optimize-wp-head-lean-wordpress-head/</a>）</p>
+          </section>
+          <section class="article-adjacent">
+            <p>这一刻，一只鱼已经游到下游了</p>
+            下一篇：<a href="./article/wordpress-website-automatic-ping/" rel="next">WordPress网站自动ping</a><br/>
+          </section>
+          <section class="article-share">
+            <h2>分享到</h2>
+            <div class="bdsharebuttonbox">
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+              <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a class="bds_count"></a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="article-related">
+            <h2>相关文章</h2>
+            <ul class="related-articles">
+              <li class="related-article">
+                <figure>
+                  <a href="./article/speed-up-wordpress-website/" target="_blank">
+                    <img src="./article/speed-up-wordpress-website/speed-up-wordpress-website.jpg" alt="加速WordPress站点">
+                  </a>
+                  <figcaption>
+                    <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点" rel="bookmark">加速WordPress站点</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/wordpress-4-1-new-function/" target="_blank">
+                    <img src="./article/wordpress-4-1-new-function/wordpress-4-1-new-function.jpg" alt="WordPress 4.1新增函数">
+                  </a>
+                  <figcaption>
+                    <a href="./article/wordpress-4-1-new-function/" title="WordPress 4.1新增函数" rel="bookmark">WordPress 4.1新增函数</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/wordpress-website-automatic-ping/" target="_blank">
+                    <img src="./article/wordpress-website-automatic-ping/wordpress-website-automatic-ping.jpg" alt="WordPress网站自动ping">
+                  </a>
+                  <figcaption>
+                    <a href="./article/wordpress-website-automatic-ping/" title="WordPress网站自动ping" rel="bookmark">WordPress网站自动ping</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="clear"></li>
+            </ul>
+          </section>
+          <section class="article-comment">
+            <div class="comments">
+              <a name="comments"></a>
+              <h2>暂无评论</h2>
+              <ol class="commentslist">
+                <li class="prompt">
+                  <p>还没有任何评论，你来说两句吧。</p>
+                </li>
+              </ol>
+            </div>
+            <div class="respond">
+              <a name="respond"></a>
+              <h2>发表评论</h2>
+              <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                <label for="comment_mail_notify">回复时邮件通知我</label>
+              </form>
+            </div>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var CrayonSyntaxSettings = {
+        "version": "2.8.4",
+        "is_admin": "0",
+        "ajaxurl": "https:\/\/bizhongbio.github.io\/",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
+      };
+      var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+      };
+      /* ]]&gt; */
+    </script>
+    <script type="text/javascript" src="./asset/dep/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
