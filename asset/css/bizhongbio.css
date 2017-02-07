@@ -938,9 +938,12 @@ a.current {
   font-weight: 400;
   color: #000;
 }
+.article-content ul {
+  padding-left: 16px;
+}
 .article-content ul li {
   margin: 8px 0;
-  list-style: disc inside none;
+  list-style: disc outside none;
 }
 .article-copyright {
   font-size: .875em;
