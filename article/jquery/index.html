@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="一、前言 jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0…">
+    <meta name="keywords" content="jQuery">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="jQuery">
+    <meta name="twitter:description" content="一、前言 jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0…">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/jquery/jquery.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/jquery/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="jQuery">
+    <meta property="og:description" content="一、前言 jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0…">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/jquery/jquery.jpg">
+    <meta itemprop="name" content="jQuery">
+    <meta itemprop="description" content="一、前言 jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0…">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/jquery/jquery.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="stylesheet" id="crayon-css" href="./asset/dep/crayon-syntax-highlighter/css/min/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-familiar-css" href="./asset/dep/crayon-syntax-highlighter/themes/familiar/familiar.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="./asset/dep/crayon-syntax-highlighter/fonts/monaco.css" type="text/css" media="all">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/jquery/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+          <section class="article-header">
+            <h1>jQuery</h1>
+            <span><i class="fa fa-calendar-check-o"></i>2015.07.20 14:22</span>
+            <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/jquery/" rel="tag">jQuery</a></span>
+            <span><i class="fa fa-eye"></i>1183</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/jquery/index.html#comments">1</a></span>
+          </section>
+          <section class="article-content">
+            <h2>一、前言</h2>
+            <p>jQuery 是继 prototype 之后又一个优秀的 JavaScript 库，顾名思议，也就是 JavaScript 和查询（Query），即是辅助 JavaScript 开发的库。它是轻量级的 JS 库 ，它兼容 CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery 2.0 及后续版本将不再支持 IE6/7/8 浏览器。</p>
+            <p>jQuery 是由美国人 John Resig 于 2006 年创建的一个开源项目，随着被人们熟知，越来越多的程序高手加入其中，完善并壮大其项目内容，如今已发展成为集 JavaScript、CSS、DOM、Ajax 于一体的强大框架体系。它的主旨是：已更少的代码，实现更多的功能（Write less, do more）。</p>
+            <h2>二、jQuery基本功能</h2>
+            <h3>2.1 访问和操作DOM元素</h3>
+            <p>使用 jQuery 库，可以很方便地获取和修改页面中的某元素，无论是删除、移动还是复制某元素，jQuery 都提供了一整套方便，快捷的方法，既减少了代码的编写，又大大提高了用户对页面的体验度。</p>
+            <h3>2.2 控制页面样式</h3>
+            <p>通过引入 jQuery，程序开发人员可以很便捷地控制页面的 CSS 文件，浏览器对页面文件的兼容性，一直以来都是页面开发者最为头痛的事，而使用 jQuery 操作页面的样式却可以很好地兼容各种浏览器。</p>
+            <h3>2.3 对页面事件的处理</h3>
+            <p>引入 jQuery 库后，可以使页面的表现层与功能开发分享，开发者更多地专注于程序的逻辑与功效，页面设计者侧重于页面的优化与用户体验。然后，通过事件绑定机制，可以很轻松地实现二者的结合。</p>
+            <h3>2.4 大量插件在页面中的运用</h3>
+            <p>在引入 jQuery 库后，还可以使用大量的插件来完善页面的功能和效果，如表单插件、UI 插件，这些插件的使用极大地丰富了页的展示效果，使原来使用 JavaScript 代码遥不可及的功能通过插件的引入而轻松地实现。</p>
+            <h3>2.5 与Ajax技术的完美结合</h3>
+            <p>Ajax 的异步读取服务器数据的方法，极大地方便了程序的开发，加深了用户的页面体验度；而引入了 jQuery 库后，不仅仅完善了的原有的功能，而且减少了代码的书写，通过其内部对象或函数，加上几行代码就可以实现复杂的功能。</p>
+            <h2>三、引入jQuery库方法</h2>
+            <p>由于 jQuery 是一个完整的 JavaScript 文件库，因此，搭建 jQuery 开发环境十分简单，无须安装任何文件，只需要先在 <a title="Download jQuery | jQuery" href="http://jquery.com/download/">jQuery 官方网站</a> 下载最新的文件库，然后将该文件库引入页面中的 &lt;head&gt; 元素间即可。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb666217361825" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">本地引入jQuery</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">&lt;script src="js/jquery-2.1.4.min.js"&gt;&lt;/script&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb666217361825-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb666217361825-1"><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"js/jquery-2.1.4.min.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0025 seconds] -->
+            <p>如果不希望下载并存放 jQuery 类库，那么也可以使用 CDN （全称：Content Delivery Network，内容分发网络）加载它，加速你的网站 。例如：<a href="http://code.jquery.com/">jQuery CDN</a>、<a href="https://developers.google.com/speed/libraries/devguide#jquery">Google CDN</a>、<a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a>、<a href="http://cdnjs.com/libraries/jquery/">CDNJS CDN</a>、<a href="http://www.jsdelivr.com/#!jquery">jsDelivr CDN</a>、<a href="http://cdn.code.baidu.com/">百度 CDN</a>、<a href="http://lib.sinaapp.com/">新浪 CDN</a>、<a href="http://libs.useso.com/">360 CDN</a> 等等。</p>
+            <p>jQuery CDN 加载 jQuery：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb680373845616" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">jQuery CDN加载jQuery</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">&lt;script src="//code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt; &lt;script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"&gt;&lt;/script&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb680373845616-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb680373845616-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb680373845616-1"><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"//code.jquery.com/jquery-1.11.3.min.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb680373845616-2"><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"//code.jquery.com/jquery-migrate-1.2.1.min.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0007 seconds] -->
+            <p>百度 CDN 加载 jQury：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb685045099599" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">百度 CDN加载jQuery</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"&gt;&lt;/script&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb685045099599-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb685045099599-1"><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0005 seconds] -->
+            <h2>四、版本介绍</h2>
+            <p>jQuery 有两个版本：<strong>jQuery 1.x</strong> 和 <strong>jQuery 2.x</strong>。</p>
+            <p>jQuery 1.x 对 IE6，7，8 还支持，而 jQuery 2.x 不再对 IE8 或更早的浏览器支持。</p>
+            <p>了解更多：<a href="http://jquery.com/download/">Download jQuery | jQuery</a></p>
+            <h2>五、jQuery API</h2>
+            <p>我们可以在 <a href="http://api.jquery.com/">jQuery API Documentation</a> 中查看一些预先定义的函数，深入了解并掌握其用法。英文看不懂的同学可以翻译一下或者直接访问一些 jQuery API 中文网站。例如：<a href="http://www.jquery123.com/">jQuery API 中文文档 &#8212; jQuery 中文网</a></p>
+            <h2>六、jQuery程序的代码风格</h2>
+            <h3>6.1 美元符$的使用</h3>
+            <p>在 jQuery 程序中，使用最多的莫过于美元符 $ 了，无论是页面元素的选择、功能函数的前缀，都必须使用该符号，可以说它是 jQuery 程序的标志。</p>
+            <h3>6.2 事件操作链接式写法</h3>
+            <p>在编写页面某元素事件时，jQuery 程序可以使用链接式的方式编写该元素的所有事件。例如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb68b985212344" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">jQuery事件操作链接式写法</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">&lt;script&gt; $(document).ready(function(){ $("#button").click(function(){ $("#content").show().html("您好，欢迎来到jQuery世界！").append('&lt;a href="#"&gt;开始学习&lt;/a&gt;'); }); }); &lt;/script&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb68b985212344-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb68b985212344-2">2</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb68b985212344-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb68b985212344-4">4</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb68b985212344-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb68b985212344-6">6</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb68b985212344-7">7</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb68b985212344-1"><span class="crayon-ta">&lt;script&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb68b985212344-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-r">document</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">ready</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589a96d1bb68b985212344-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"#button"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">click</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb68b985212344-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"#content"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">show</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span><span class="crayon-s">"您好，欢迎来到jQuery世界！"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">append</span><span class="crayon-sy">(</span><span class="crayon-s">'&lt;a href="#"&gt;开始学习&lt;/a&gt;'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589a96d1bb68b985212344-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb68b985212344-6"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589a96d1bb68b985212344-7"><span class="crayon-ta">&lt;/script&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0014 seconds] -->
+            <h2>七、jQuery注意点</h2>
+            <h3>7.1 $(document).ready和window.onload的区别</h3>
+            <h4>7.1.1 执行时间不同</h4>
+            <p>$(document).ready 在页面框架下载完毕后（即页面的 DOM 模型加载完毕后）就执行；而 window.onload 必须在页面全部加载完毕（包含图片下载）后才能执行。很明显，前者的执行效率高于后者。</p>
+            <h4>7.1.2 执行数量不同</h4>
+            <p>$(document).ready 可以重复写多个，并且每次执行结果不同；而 window.onload 尽管可以执行多个，但仅输出最后一个执行结果，无法完成多个结果的输出。</p>
+            <h4>7.1.3 $(document).ready可简写</h4>
+            <p>$(document).ready(function(){}) 可以简写成 $(function(){})。另外，$ 可以写成 jQuery。因此，ready() 方法有四种写法。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb690697548521" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">ready()方法的四种写法</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">$(document).ready(function(){//第一种写法 //代码部分 }); $(function(){//第二种写法 //代码部分 }); jQuery(document).ready(function(){//第三种写法 //代码部分 }); jQuery(function(){//第四种写法 //代码部分 });</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-2">2</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-4">4</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-6">6</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-7">7</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-8">8</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-9">9</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-10">10</div>
+                        <div class="crayon-num" data-line="crayon-589a96d1bb690697548521-11">11</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589a96d1bb690697548521-12">12</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb690697548521-1"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">document</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">ready</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-c">//第一种写法</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//代码部分</span></div><div class="crayon-line" id="crayon-589a96d1bb690697548521-3"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-4"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-c">//第二种写法</span></div><div class="crayon-line" id="crayon-589a96d1bb690697548521-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//代码部分</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-6"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589a96d1bb690697548521-7"><span class="crayon-e">jQuery</span><span class="crayon-sy">(</span><span class="crayon-v">document</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">ready</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-c">//第三种写法</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//代码部分</span></div><div class="crayon-line" id="crayon-589a96d1bb690697548521-9"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-10"><span class="crayon-e">jQuery</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-c">//第四种写法</span></div><div class="crayon-line" id="crayon-589a96d1bb690697548521-11"><span class="crayon-h"> </span><span class="crayon-c">//代码部分</span></div><div class="crayon-line crayon-striped-line" id="crayon-589a96d1bb690697548521-12"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0014 seconds] -->
+            <h3>7.2 jQuery选择器</h3>
+            <p>jQuery 选择器可谓之强大无比。jQuery 选择器分为基本选择器、层次选择器、过滤选择器、表单选择器。而过滤选择器又可分为简单过滤选择器、内容过滤选择器、可见性过滤选择器、属性过滤选择器、子元素过滤选择器、表单对象属性过滤选择器。</p>
+            <h3>7.3 jQuery操作DOM</h3>
+            <p>DOM（Document Object Model，文档对象模型）为文档提供了一种结构化表示方法，通过该方法可以改变文档的内容和展示形式。在实际运用中，DOM 更像是桥梁，通过它可以实现跨平台、跨语言的标准访问。在 jQuery 中可以操作或控制 DOM 中的各种元素或对象。</p>
+            <h4>遍历元素</h4>
+            <p>在 DOM 元素操作中，有时需要对同一标记的全部元素进行统一操作。在传统的 JavaScript 中，先获取元素的总长度，然后，以 for 循环语句，递减总长度，访问其中的某个，代码相对复杂；而在 jQuery 中，可以直接使用 each() 方法实现元素的遍历。</p>
+            <p>其语法格式如下：each(callback)</p>
+            <p>其中，参数 callback 是一个function 函数，该函数还可以接受一个形参 index，此形参为遍历元素的序号（从 0 开始）；如果需要访问元素中的属性，可以借助形参 index，配合 this 关键字来实现元素属性的设置或获取。</p>
+            <h3>7.4 jQuery事件</h3>
+            <p>众所周知，页面在加载时，会触发 load 事件。当用户单击某个按钮时，触发该按钮 click 事件，通过种种事件实现各项功能或执行某项操作。严格来说，事件在触发后被分为两个阶段，一个是捕获，另一个是冒泡。遗憾的是大多数浏览器并不都支持捕获阶段，jQuery 也不支持。因此在事件触发后，往往执行冒泡过程。</p>
+            <h4>7.4.1 阻止冒泡过程</h4>
+            <p>事件在执行的过程中存在冒泡现象。而在实际需要中，我们并不希望事件的冒泡现象发生，比如单击按钮就执行单一的单击事件，并不触发其他外围的事件。</p>
+            <p>在 jQuery 中，可以通过 <strong>stopPropagation() 方法</strong>来阻止事件的冒泡过程或者通过<strong>语句 return false;</strong> 停止事件的冒泡过程。</p>
+            <h4>7.4.2 绑定事件</h4>
+            <p>jQuery 有四种事件绑定方式，分别是 bind() 方法、live() 方法、delegate() 方法和 on() 方法。建议使用 .on() 方法绑定。</p>
+            <h4>① bind()方法</h4>
+            <p>为每个匹配元素的特定事件绑定事件处理函数。其语法格式为：bind(type, [data], fn)</p>
+            <p>例如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb697197176845" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">bind()方法绑定事件</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">$("a").bind("click",function(){alert("OK");});</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb697197176845-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb697197176845-1"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"a"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">bind</span><span class="crayon-sy">(</span><span class="crayon-s">"click"</span><span class="crayon-sy">,</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-e">alert</span><span class="crayon-sy">(</span><span class="crayon-s">"OK"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <h4>② live()方法</h4>
+            <p>给所有匹配的元素附加一个事件处理函数，即使这个元素是以后再添加进来的。其语法格式为：live(type, [data], fn)</p>
+            <p>例如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb69c571648022" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">live()方法绑定事件</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">$("a").live("click",function(){alert("OK");});</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb69c571648022-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb69c571648022-1"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"a"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">live</span><span class="crayon-sy">(</span><span class="crayon-s">"click"</span><span class="crayon-sy">,</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-e">alert</span><span class="crayon-sy">(</span><span class="crayon-s">"OK"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <h4>③ delegate()方法</h4>
+            <p>指定的元素（属于被选元素的子元素）添加一个或多个事件处理程序，并规定当这些事件发生时运行的函数。其语法格式为：delegate(selector, [type], [data], fn)</p>
+            <p>例如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb6a1102689300" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">delegate()方法绑定事件</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">$("#main").delegate("a","click",function(){alert("OK");})</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb6a1102689300-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589a96d1bb6a1102689300-1"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"#main"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">delegate</span><span class="crayon-sy">(</span><span class="crayon-s">"a"</span><span class="crayon-sy">,</span><span class="crayon-s">"click"</span><span class="crayon-sy">,</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-e">alert</span><span class="crayon-sy">(</span><span class="crayon-s">"OK"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <h4>④ on()方法</h4>
+            <p>在选择元素上绑定一个或多个事件的事件处理函数。其语法格式为：on(events, [selector], [data], fn)</p>
+            <p>例如：</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589a96d1bb6a6804517084" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title">on()方法绑定事件</span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">$("#main").on("click","a",function(){alert("OK");})</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589a96d1bb6a6804517084-1">1</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589aa086401f8302833253-1"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"#main"</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">on</span><span class="crayon-sy">(</span><span class="crayon-s">"click"</span><span class="crayon-sy">,</span><span class="crayon-s">"a"</span><span class="crayon-sy">,</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-e">alert</span><span class="crayon-sy">(</span><span class="crayon-s">"OK"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0006 seconds] -->
+            <p><strong>差别：</strong></p>
+            <ul>
+              <li>bind() 方法是直接绑定在元素上；</li>
+              <li>live() 方法则是通过冒泡的方式来绑定到元素上的。更适合列表类型的，绑定到 document DOM 节点上。和 bind() 方法的优势是支持动态数据；</li>
+              <li>delegate() 方法则是更精确的小范围使用事件代理，性能优于 live() 方法；</li>
+              <li>on() 方法则是最新的 1.9 版本整合了之前的三种方式的新事件绑定机制。</li>
+            </ul>
+            <h3>7.5 jQuery动画方法</h3>
+            <ul>
+              <li><strong>show() 与 hide() 方法</strong>，元素以动画效果实现显示与隐藏。可以同时改变元素的多个属性，如宽度、高度、透明度；</li>
+              <li><strong>toggle() 方法</strong>，可以替代 show() 和与 hide() 两个方法，因此，其改变的元素属性也与 show() 与 hide() 方法一样；</li>
+              <li><strong>fadeIn() 与 fadeOut() 方法</strong>，元素以动画的效果淡入与淡出，仅改变元素的透明度；</li>
+              <li><strong>fadeTo() 方法</strong>，元素按照指定的透明度进行渐进式调整，从而达到一种动画效果，该方法改变的是元素的透明度，宽度和高度都不发生变化；</li>
+              <li><strong>slideUp() 和 slideDown() 方法</strong>，元素以“卷窗帘”的动画效果显示与隐藏，仅改变元素的透明度，其他属性不发生变化；</li>
+              <li><strong>slideToggle () 方法</strong>，可以替代 slideUp() 和 slideDown() 两个方法，改变的元素也与 slideUp() 和 slideDown() 方法一样；</li>
+              <li><strong>animate() 方法</strong>，自定义元素的动画效果，可以实现改变上述方法中全部属性的功能。同时，还可以用动画的效果，改变其他的元素属性，该方法是上述方法的核心。</li>
+            </ul>
+          </section>
+          <section class="article-copyright">
+            <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="jQuery" href="https://bizhongbio.github.io/article/jquery/">https://bizhongbio.github.io/article/jquery/</a>）</p>
+          </section>
+          <section class="article-adjacent">
+            上一篇：<a href="./article/fixed-right-sidebar-scroll-effect/" rel="prev">固定右侧边栏滚动特效</a><br/>
+            下一篇：<a href="./article/jquery-slides/" rel="next">jQuery图片轮播</a><br/>
+          </section>
+          <section class="article-share">
+            <h2>分享到</h2>
+            <div class="bdsharebuttonbox">
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+              <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a class="bds_count"></a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="article-related">
+            <h2>相关文章</h2>
+            <ul class="related-articles">
+              <li class="related-article">
+                <figure>
+                  <a href="./article/jquery-slides/" target="_blank">
+                    <img src="./article/jquery-slides/jquery-slides.jpg" alt="jQuery图片轮播">
+                  </a>
+                  <figcaption>
+                    <a href="./article/jquery-slides/" title="jQuery图片轮播" rel="bookmark">jQuery图片轮播</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/fixed-right-sidebar-scroll-effect/" target="_blank">
+                    <img src="./article/default.jpg" alt="固定右侧边栏滚动特效">
+                  </a>
+                  <figcaption>
+                    <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效" rel="bookmark">固定右侧边栏滚动特效</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <div class="clear"></div>
+            </ul>
+          </section>
+          <section class="article-comment">
+            <div class="comments">
+              <a name="comments"></a>
+              <h2>1条评论</h2>
+              <ol class="commentslist">
+                <li class="comment" id="li-comment-374">
+                  <div class="author-face">黄</div>
+                  <div class="comment-content" id="comment-374">黄平财
+                    <span class="comment-meta">2016.06.29 21:10</span>
+                    <div class="comment-text">
+                      <p>瞻仰大牛！</p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="respond">
+              <a name="respond"></a>
+              <h2>发表评论</h2>
+              <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                <label for="comment_mail_notify">回复时邮件通知我</label>
+              </form>
+            </div>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var CrayonSyntaxSettings = {
+        "version": "2.8.4",
+        "is_admin": "0",
+        "ajaxurl": "https:\/\/bizhongbio.github.io\/",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
+      };
+      var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+      };
+      /* ]]&gt; */
+    </script>
+    <script type="text/javascript" src="./asset/dep/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
