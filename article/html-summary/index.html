@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML总结 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="一、对WEB标准以及W3C的理解与认识 WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主…">
+    <meta name="keywords" content="HTML">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="HTML总结">
+    <meta name="twitter:description" content="一、对WEB标准以及W3C的理解与认识 WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主…">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/html-summary/html-summary.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/html-summary/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="HTML总结">
+    <meta property="og:description" content="一、对WEB标准以及W3C的理解与认识 WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主…">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/html-summary/html-summary.jpg">
+    <meta itemprop="name" content="HTML总结">
+    <meta itemprop="description" content="一、对WEB标准以及W3C的理解与认识 WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主…">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/html-summary/html-summary.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="stylesheet" id="crayon-css" href="./asset/dep/crayon-syntax-highlighter/css/min/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-familiar-css" href="./asset/dep/crayon-syntax-highlighter/themes/familiar/familiar.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="./asset/dep/crayon-syntax-highlighter/fonts/monaco.css" type="text/css" media="all">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/html-summary/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+          <section class="article-header">
+            <h1>HTML总结</h1>
+            <span><i class="fa fa-calendar-check-o"></i>2016.04.14 20:34</span>
+            <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/html/" rel="tag">HTML</a></span>
+            <span><i class="fa fa-eye"></i>471</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/html-summary/index.html#comments">1</a></span>
+          </section>
+          <section class="article-content">
+            <h2>一、对WEB标准以及W3C的理解与认识</h2>
+            <p>WEB 标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主要包括 XHTML 和 XML，表现标准语言主要包括 CSS，行为标准主要包括对象模型（如 W3C DOM）、ECMAScript 等。这些标准大部分由万维网联盟（外语缩写：W3C）起草和发布，也有一些是其他标准组织制订的标准，比如 ECMA（European Computer Manufacturers Association）的 ECMAScript 标准。</p>
+            <ul>
+              <li>web 标准规范要求，书写标签必须闭合、标签小写、不乱嵌套，可提高搜索机器人对网页内容的搜索几率（SEO）；</li>
+              <li>建议使用外链 CSS 和 JS 脚本，从而达到结构与行为、结构与表现的分离，提高页面的渲染速度，能更快地显示页面的内容；</li>
+              <li>样式与标签的分离，更合理的语义化标签，使内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，从而降低维护成本、改版更方便；</li>
+              <li>不需要变动页面内容，便可提供打印版本而不需要复制内容，提高网站易用性。</li>
+            </ul>
+            <p>遵循 W3C 制定的 WEB 标准，能够使用户浏览者更方便的阅读，使网页开发者之间更好的交流。</p>
+            <h2>二、HTML与XHTML有什么差别</h2>
+            <p>HTML 与 XHTML 之间的差别，粗略可以分为两大类比较：一个是功能上的差别，另外是书写习惯的差别。关于功能上的差别，主要是 XHTML 可兼容各大浏览器、手机以及平板，并且浏览器也能快速正确地编译网页。</p>
+            <p>HTML 是一种基本的 WEB 网页设计语言，XHTML 是一个基于 XML 的标记语言。</p>
+            <ul>
+              <li>XHTML 元素必须被正确地嵌套；</li>
+              <li>XHTML 元素必须被关闭；</li>
+              <li>标签名必须用小写字母；</li>
+              <li>XHTML 文档必须拥有根元素。</li>
+            </ul>
+            <h3>2.1 XHTML的规则</h3>
+            <h4>1）所有标签都必须小写</h4>
+            <p>在 XHTML 中，所有的标签都必须小写，不能大小写穿插其中，也不能全部都是大写。看一个例子。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91c3148298632" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">错误：&lt;Head&gt;&lt;/Head&gt;&lt;Body&gt;&lt;/Body&gt; 正确：&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91c3148298632-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91c3148298632-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91c3148298632-1">错误：<span class="crayon-o">&lt;</span><span class="crayon-v">Head</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">Head</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v">Body</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">Body</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91c3148298632-2">正确：<span class="crayon-o">&lt;</span><span class="crayon-v">head</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">head</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v">body</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">body</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0009 seconds] -->
+            <h4>2）标签必须成双成对</h4>
+            <p>像是 p、a、div 标签等，当出现一个标签时，必须要有对应的结束标签，缺一不可，就像在任何程序语言中的括号一样。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91da488533437" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">错误：大家好&lt;p&gt;我是muki 正确：&lt;p&gt;大家好&lt;/p&gt;&lt;p&gt;我是muki&lt;/p&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91da488533437-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91da488533437-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91da488533437-1">错误：大家好<span class="crayon-o">&lt;</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span>我是<span class="crayon-i">muki</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91da488533437-2">正确：<span class="crayon-o">&lt;</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span>大家好<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span>我是<span class="crayon-v">muki</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0007 seconds] -->
+            <h4>3）标签顺序必须正确</h4>
+            <p>标签由外到内，一层层包覆着，所以假设你先写 div 后写 h1，结尾就要先写 h1 后写 div。只要记住一个原则“先进后出”，先弹出的标签要后结尾。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91e0526738698" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">错误：&lt;div&gt;&lt;h1&gt;大家好&lt;/div&gt;&lt;/h1&gt; 正确：&lt;div&gt;&lt;h1&gt;大家好&lt;/h1&gt;&lt;/div&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91e0526738698-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91e0526738698-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91e0526738698-1">错误：<span class="crayon-o">&lt;</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span>大家好<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91e0526738698-2">正确：<span class="crayon-o">&lt;</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span>大家好<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0008 seconds] -->
+            <h4>4）所有属性都必须使用双引号</h4>
+            <p>在 XHTML 1.0 中规定连单引号也不能使用，所以全程都得用双引号。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91e5172759155" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">错误：&lt;div style='font-size:11px'&gt;hello&lt;/div&gt; 正确：&lt;div style="font-size:11px"&gt;hello&lt;/div&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91e5172759155-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91e5172759155-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91e5172759155-1">错误：<span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">'font-size:11px'</span><span class="crayon-o">&gt;</span><span class="crayon-v">hello</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91e5172759155-2">正确：<span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"font-size:11px"</span><span class="crayon-o">&gt;</span><span class="crayon-v">hello</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0007 seconds] -->
+            <h4>5）不允许使用 target=&#8221;_blank&#8221;</h4>
+            <p>从 XHTML 1.1 开始全面禁止 target 属性，如果想要有开新窗口的功能，就必须改写为 rel=&#8221;external&#8221;，并搭配 JavaScript 实现此效果。</p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91ea503807710" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">错误：&lt;a href="http://www.bizhongbio.com" target="_blank"&gt;www.bizhongbio.com&lt;/a&gt; 正确：&lt;a href="http://www.bizhongbio.com" rel="external"&gt;www.bizhongbio.com&lt;/a&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91ea503807710-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91ea503807710-2">2</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91ea503807710-1">错误：<span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com"</span><span class="crayon-h"> </span><span class="crayon-v">target</span><span class="crayon-o">=</span><span class="crayon-s">"_blank"</span><span class="crayon-o">&gt;</span><span class="crayon-v">www</span><span class="crayon-sy">.</span><span class="crayon-v">bizhongbio</span><span class="crayon-sy">.</span><span class="crayon-v">com</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">a</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91ea503807710-2">正确：<span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com"</span><span class="crayon-h"> </span><span class="crayon-v">rel</span><span class="crayon-o">=</span><span class="crayon-s">"external"</span><span class="crayon-o">&gt;</span><span class="crayon-v">www</span><span class="crayon-sy">.</span><span class="crayon-v">bizhongbio</span><span class="crayon-sy">.</span><span class="crayon-v">com</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">a</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0010 seconds] -->
+            <h2>三、Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?</h2>
+            <p>混杂模式是一种比较宽松的向后兼容的模式。混杂模式通常模拟老式浏览器的行为，以防止老站点无法工作 。</p>
+            <ul>
+              <li>混杂模式（quirks mode），让IE的行为与（包含非标准特性的）IE5 相同；</li>
+              <li>标准模式（standards mode），让 IE 的行为更接近标准行为；</li>
+              <li>准标准模式（almost standards mode），这种模式下的浏览器特性有很多都是符合标准的，不标准的地方主要体现在处理图片间隙的时候（在表格中使用图片时问题最明显）；</li>
+              <li>超级标准模式（super standards mode），IE8 引入的一种新的文档模式，超级文档模式可以让 IE 以其所有版本中最符合标准的方式来解释网页内容。</li>
+            </ul>
+            <p><strong>触发混杂模式</strong>: 如果在文档开始处没有发现文档类型声明，则所有浏览器都会默认开启混杂模式。但采用混杂模式不是什么值得推荐的做法，因为不同浏览器在这种模式下的行为差异非常大，如果不使用某些 hack 技术，跨浏览器的行为根本就没有一致性可言。</p>
+            <p>根据 Doctype 是否存在以及使用哪种 DTD 来触发其不同的模式。如果 Doctype 不存在或者其形式不正确那么默认为混杂模式。如果 XHTML 文档中包含完整的Doctype，那么它一般以标准模式呈现。</p>
+            <p>区分它们的意义可以让开发者更好的写出标准兼容的页面，同时不影响以前的页面标准。</p>
+            <h2>四、HTML语义化</h2>
+            <p>语义化的含义就是用正确的标签做正确的事情，HTML 语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；在没有样式 CCS 情况下也以一种文档格式显示，并且是容易阅读的。搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+            <h2>五、行内元素、块级元素有哪些？</h2>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589dbeb8d91f0526702283" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">&lt;!--块元素（block element）HTML 标签分类明细--&gt; * address - 地址 * blockquote - 块引用 * center - 居中中对齐块 * dir - 目录列表 * div - 常用块级容易，也是 css layout 的主要标签 * dl - 定义列表 * fieldset - form 控制组 * form - 交互表单 （只能用来容纳其它块元素） * h1 - 大标题 * h2 - 副标题 * h3 - 3 级标题 * h4 - 4 级标题 * h5 - 5 级标题 * h6 - 6 级标题 * hr - 水平分隔线 * isindex - input prompt * menu - 菜单列表 * noframes - frames 可选内容，（对于不支持 frame 的浏览器显示此区块内容 * noscript - 可选脚本内容（对于不支持 script 的浏览器显示此内容） * ol - 排序表单 * p - 段落 * pre - 格式化文本 * table - 表格 * ul - 非排序列表 &lt;!--内联元素（inline element）HTML 标签分类明细--&gt; * a - 锚点 * abbr - 缩写 * acronym - 首字 * b - 粗体(不推荐) * bdo - bidi override * big - 大字体 * br - 换行 * cite - 引用 * code - 计算机代码(在引用源码的时候需要) * dfn - 定义字段 * em - 强调 * font - 字体设定(不推荐) * i - 斜体 * img - 图片 * input - 输入框 * kbd - 定义键盘文本 * label - 表格标签 * q - 短引用 * s - 中划线(不推荐) * samp - 定义范例计算机代码 * select - 项目选择 * small - 小字体文本 * span - 常用内联容器，定义文本内区块 * strike - 中划线 * strong - 粗体强调 * sub - 下标 * sup - 上标 * textarea - 多行文本输入框 * tt - 电传文本 * u - 下划线 * var - 定义变量 &lt;!--可变元素 HTML 标签分类明细--&gt; * applet - java applet * button - 按钮 * del - 删除文本 * iframe - inline frame * ins - 插入的文本 * map - 图片区块(map) * object - object 对象 * script - 客户端脚本</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-2">2</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-4">4</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-6">6</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-7">7</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-8">8</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-9">9</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-10">10</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-11">11</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-12">12</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-13">13</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-14">14</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-15">15</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-16">16</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-17">17</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-18">18</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-19">19</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-20">20</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-21">21</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-22">22</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-23">23</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-24">24</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-25">25</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-26">26</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-27">27</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-28">28</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-29">29</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-30">30</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-31">31</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-32">32</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-33">33</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-34">34</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-35">35</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-36">36</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-37">37</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-38">38</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-39">39</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-40">40</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-41">41</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-42">42</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-43">43</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-44">44</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-45">45</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-46">46</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-47">47</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-48">48</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-49">49</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-50">50</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-51">51</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-52">52</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-53">53</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-54">54</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-55">55</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-56">56</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-57">57</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-58">58</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-59">59</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-60">60</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-61">61</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-62">62</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-63">63</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-64">64</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-65">65</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-66">66</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-67">67</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-68">68</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-69">69</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589dbeb8d91f0526702283-70">70</div>
+                        <div class="crayon-num" data-line="crayon-589dbeb8d91f0526702283-71">71</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-1"><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-o">--</span>块元素（<span class="crayon-e">block </span><span class="crayon-i">element</span>）<span class="crayon-i">HTML</span><span class="crayon-h"> </span>标签分类明细<span class="crayon-o">--</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-2">&nbsp;</div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">address</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>地址<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">blockquote</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>块引用<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">center</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>居中中对齐块<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">dir</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>目录列表<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">div</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>常用块级容易，也是<span class="crayon-h"> </span><span class="crayon-e">css </span><span class="crayon-i">layout</span><span class="crayon-h"> </span>的主要标签<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">dl</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>定义列表<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">fieldset</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-i">form</span><span class="crayon-h"> </span>控制组<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">form</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>交互表单<span class="crayon-h"> </span>（只能用来容纳其它块元素）<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h1</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>大标题<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h2</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>副标题<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h3</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-h"> </span>级标题<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h4</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-cn">4</span><span class="crayon-h"> </span>级标题<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h5</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-cn">5</span><span class="crayon-h"> </span>级标题<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">h6</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-cn">6</span><span class="crayon-h"> </span>级标题<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">hr</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>水平分隔线<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">isindex</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">input </span><span class="crayon-e ">prompt </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-19"><span class="crayon-e ">&nbsp;&nbsp;&nbsp;&nbsp;*</span><span class="crayon-h"> </span><span class="crayon-v">menu</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>菜单列表<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">noframes</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-i">frames</span><span class="crayon-h"> </span>可选内容，（对于不支持<span class="crayon-h"> </span><span class="crayon-i">frame</span><span class="crayon-h"> </span>的浏览器显示此区块内容<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">noscript</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>可选脚本内容（对于不支持<span class="crayon-h"> </span><span class="crayon-i">script</span><span class="crayon-h"> </span>的浏览器显示此内容）<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">ol</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>排序表单<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">p</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>段落<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">pre</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>格式化文本<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">table</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>表格<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">ul</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>非排序列表</div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-27">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-28"><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-o">--</span>内联元素（<span class="crayon-e">inline </span><span class="crayon-i">element</span>）<span class="crayon-i">HTML</span><span class="crayon-h"> </span>标签分类明细<span class="crayon-o">--</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-29">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-30"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">a</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>锚点<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-31"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">abbr</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>缩写<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-32"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">acronym</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>首字<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-33"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>粗体<span class="crayon-sy">(</span>不推荐<span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-34"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">bdo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">bidi </span><span class="crayon-e ">override </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-35"><span class="crayon-e ">&nbsp;&nbsp;&nbsp;&nbsp;*</span><span class="crayon-h"> </span><span class="crayon-v">big</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>大字体<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">br</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>换行<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">cite</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>引用<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">code</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>计算机代码<span class="crayon-sy">(</span>在引用源码的时候需要<span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-39"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">dfn</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>定义字段<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-40"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">em</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>强调<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">font</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>字体设定<span class="crayon-sy">(</span>不推荐<span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-42"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>斜体<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">img</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>图片<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-44"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">input</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>输入框<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-45"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">kbd</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>定义键盘文本<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-46"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">label</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>表格标签<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-47"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">q</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>短引用<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-48"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">s</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>中划线<span class="crayon-sy">(</span>不推荐<span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-49"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">samp</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>定义范例计算机代码<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-50"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">select</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>项目选择<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-51"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">small</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>小字体文本<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-52"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">span</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>常用内联容器，定义文本内区块<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-53"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">strike</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>中划线<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-54"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">strong</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>粗体强调<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-55"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">sub</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>下标<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-56"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">sup</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>上标<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-57"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">textarea</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>多行文本输入框<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-58"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">tt</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>电传文本<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-59"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">u</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>下划线<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-60"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>定义变量</div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-61">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-62"><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-o">--</span>可变元素<span class="crayon-h"> </span><span class="crayon-i">HTML</span><span class="crayon-h"> </span>标签分类明细<span class="crayon-o">--</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-63">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-64"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">applet</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">java </span><span class="crayon-i">applet</span>　　<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-65"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">button</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>按钮<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-66"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">del</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>删除文本<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-67"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">iframe</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">inline </span><span class="crayon-i">frame</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-68"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">ins</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>插入的文本<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-69"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">map</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>图片区块<span class="crayon-sy">(</span><span class="crayon-v">map</span><span class="crayon-sy">)</span>　　<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-589dbeb8d91f0526702283-70"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-t">object</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-t">object</span><span class="crayon-h"> </span>对象<span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-589dbeb8d91f0526702283-71"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">script</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span>客户端脚本</div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0135 seconds] -->
+            <h2>六、行内元素与块级元素不同点</h2>
+            <p>块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。通过样式控制，它们可以相互转换。</p>
+            <p>块级元素和行内元素之间的一个重要的不同点：<strong>尺寸</strong>。</p>
+            <ul>
+              <li>设置宽度 width 无效；</li>
+              <li>设置高度 height 无效，可以通过 line-height 来设置；</li>
+              <li>设置 margin 只有左右 margin 有效，上下无效；</li>
+              <li>设置 padding 只有左右 padding 有效，上下则无效。</li>
+            </ul>
+            <p><strong>注</strong>：无效指它对其它元素的排列没有影响。也就是说，对于设置的 margin，padding 行内元素文档流里的上下元素来说，他们的间距不会因为上下 margin 或者上下 padding 而产生间距。但是就他本身而言，对于上下 margin 与 padding 是有效的。</p>
+            <p><strong>HTML 总结，未完待续（To be continued）。</strong></p>
+          </section>
+          <section class="article-copyright">
+            <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="HTML总结" href="https://bizhongbio.github.io/article/html-summary/">https://bizhongbio.github.io/article/html-summary/</a>）</p>
+          </section>
+          <section class="article-adjacent">
+            上一篇：<a href="./article/html-css-code-guide/" rel="prev">HTML&#038;CSS编码规范</a><br/>
+            下一篇：<a href="./article/css-summary/" rel="next">CSS总结</a><br/>
+          </section>
+          <section class="article-share">
+            <h2>分享到</h2>
+            <div class="bdsharebuttonbox">
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+              <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a class="bds_count"></a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="article-related">
+            <h2>相关文章</h2>
+            <ul class="related-articles">
+              <li class="related-article">
+                <figure>
+                  <a href="./article/html-css-code-guide/" target="_blank">
+                    <img src="./article/html-css-code-guide/html-css-code-guide.jpg" alt="HTML&CSS编码规范">
+                  </a>
+                  <figcaption>
+                    <a href="./article/html-css-code-guide/" title="HTML&#038;CSS编码规范" rel="bookmark">HTML&#038;CSS编码规范</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/analyse-response-web-design/" target="_blank">
+                    <img src="./article/analyse-response-web-design/analyse-response-web-design.jpg" alt="浅析RWD">
+                  </a>
+                  <figcaption>
+                    <a href="./article/analyse-response-web-design/" title="浅析RWD" rel="bookmark">浅析RWD</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <div class="clear"></div>
+            </ul>
+          </section>
+          <section class="article-comment">
+            <div class="comments">
+              <a name="comments"></a>
+              <h2>1条评论</h2>
+              <ol class="commentslist">
+                <li class="comment" id="li-comment-294">
+                  <div class="author-face">T</div>
+                  <div class="comment-content" id="comment-294">Ted
+                    <span class="comment-meta">2016.04.20 13:35</span>
+                    <div class="comment-text">
+                      <p>看看！</p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="respond">
+              <a name="respond"></a>
+              <h2>发表评论</h2>
+              <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                <label for="comment_mail_notify">回复时邮件通知我</label>
+              </form>
+            </div>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var CrayonSyntaxSettings = {
+        "version": "2.8.4",
+        "is_admin": "0",
+        "ajaxurl": "https:\/\/bizhongbio.github.io\/",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
+      };
+      var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+      };
+      /* ]]&gt; */
+    </script>
+    <script type="text/javascript" src="./asset/dep/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
