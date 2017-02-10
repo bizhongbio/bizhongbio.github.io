@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>首页滚动特效 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="首页滚动特效：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。[crayon-589d79a4806ac266750428/]">
+    <meta name="keywords" content="CSS3, JavaScript">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="首页滚动特效">
+    <meta name="twitter:description" content="首页滚动特效：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。[crayon-589d79a4806ac266750428/]">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/home-scrolling-effects/home-scrolling-effects.jpg">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/home-scrolling-effects/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="首页滚动特效">
+    <meta property="og:description" content="首页滚动特效：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。[crayon-589d79a4806ac266750428/]">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/home-scrolling-effects/home-scrolling-effects.jpg">
+    <meta itemprop="name" content="首页滚动特效">
+    <meta itemprop="description" content="首页滚动特效：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。[crayon-589d79a4806ac266750428/]">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/home-scrolling-effects/home-scrolling-effects.jpg">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="stylesheet" id="crayon-css" href="./asset/dep/crayon-syntax-highlighter/css/min/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-familiar-css" href="./asset/dep/crayon-syntax-highlighter/themes/familiar/familiar.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="./asset/dep/crayon-syntax-highlighter/fonts/monaco.css" type="text/css" media="all">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/home-scrolling-effects/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+          <section class="article-header">
+            <h1>首页滚动特效</h1>
+            <span><i class="fa fa-calendar-check-o"></i>2015.11.01 12:00</span>
+            <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+            <span><i class="fa fa-bookmark"></i><a href="./tag/css3/" rel="tag">CSS3</a>, <a href="./tag/javascript/" rel="tag">JavaScript</a></span>
+            <span><i class="fa fa-eye"></i>987</span>
+            <span><i class="fa fa-commenting"></i><a href="./article/home-scrolling-effects/index.html#comments">3</a></span>
+          </section>
+          <section class="article-content">
+            <p><strong>首页滚动特效</strong>：页面渲染时，CSS3 实现文字动画；滑动页面时，JavaScript 实现改变背景图片的 background-position 属性和线性改变文字透明度。</p>
+            <p><a href="./article/home-scrolling-effects/home-scrolling-effects-1.gif"><img src="./article/home-scrolling-effects/home-scrolling-effects-1.gif" alt="home-scrolling-effects-1"></a></p>
+            <!-- Crayon Syntax Highlighter v2.7.1 -->
+            <div id="crayon-589d79a4806ac266750428" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+              <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                <span class="crayon-title"></span>
+                <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-mixed-highlight" title="含多种语言"></span>
+                  <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-copy-button" title="复制代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                  <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                    <div class="crayon-button-icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+              <div class="crayon-plain-wrap">
+                <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset="utf-8"/&gt; &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /&gt; &lt;title&gt;首页滚动特效&lt;/title&gt; &lt;meta name="keywords" content="双鱼,双鱼bizhongbio,bizhongbio"/&gt; &lt;meta name="description" content="双鱼bizhongbio，是专注于分享web前端开发技术的个人博客。磨砺，聚变。没有伞的孩子，必须努力奔跑。"/&gt; &lt;meta name="author" content="双鱼bizhongbio, http://www.bizhongbio.com/" /&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/&gt; &lt;style&gt; *{padding: 0;margin: 0;} body{font: 16px/1 'Microsoft YaHei',Arial,Helvetica,sans-serif;} #head{position: absolute;z-index: 999;width: 100%;height: 55px;background: rgba(0,0,0,.2);} #gallery{position: relative;width: 100%;height: 615px;background: #fff url(images/work.jpg) no-repeat top center;background-size: cover;} #gallery-content{position: absolute;top: 39%;width: 100%;height: 61%;text-align: center;color: #fff;} #gallery-content h1{font-size: 4em;font-weight: 400;letter-spacing: 1px;} #gallery-content p{margin: 15px 0;font-size: 2em;} #gallery-content span{display: block;margin-top: 35px;} #gallery-content span a{display: inline-block;padding: 12px 30px;line-height: 1em;text-decoration: none;border: 1px solid #fff;border-radius: 2px;} a.bookmark{margin-right: 20px;background: #fff;color: #333;} a.feature{color: #fff;} a.bookmark:hover,a.feature:hover{opacity: .65;filter: alpha(opacity=65);} #head,#gallery-content h1,#gallery-content p,#gallery-content span{ opacity: 0; filter: alpha(opacity=100); -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } #head{ -webkit-animation: showhead 1500ms ease 0ms forwards; -moz-animation: showhead 1500ms ease 0ms forwards; -ms-animation: showhead 1500ms ease 0ms forwards; -o-animation: showhead 1500ms ease 0ms forwards; animation: showhead 1500ms ease 0ms forwards; } #gallery-content h1{ -webkit-animation: show 1500ms ease 1500ms forwards; -moz-animation: show 1500ms ease 1500ms forwards; -ms-animation: show 1500ms ease 1500ms forwards; -o-animation: show 1500ms ease 1500ms forwards; animation: show 1500ms ease 1500ms forwards; } #gallery-content p{ -webkit-animation: show 1500ms ease 3000ms forwards; -moz-animation: show 1500ms ease 3000ms forwards; -ms-animation: show 1500ms ease 3000ms forwards; -o-animation: show 1500ms ease 3000ms forwards; animation: show 1500ms ease 3000ms forwards; } #gallery-content span{ -webkit-animation: show 1500ms ease 4500ms forwards; -moz-animation: show 1500ms ease 4500ms forwards; -ms-animation: show 1500ms ease 4500ms forwards; -o-animation: show 1500ms ease 4500ms forwards; animation: show 1500ms ease 4500ms forwards; } @-webkit-keyframes showhead{from{opacity: 0}to{opacity: 1}} @-moz-keyframes showhead{from{opacity: 0}to{opacity: 1}} @-ms-keyframes showhead{from{opacity: 0}to{opacity: 1}} @-o-keyframes showhead{from{opacity: 0}to{opacity: 1}} @keyframes showhead{from{opacity: 0}to{opacity: 1}} @-webkit-keyframes show{from{opacity: 0;transform: translateY(30px)}to{opacity: 1;transform: translateY(0)}} @-moz-keyframes show{from{opacity: 0;transform: translateY(30px)}to{opacity: 1;transform: translateY(0)}} @-ms-keyframes show{from{opacity: 0;transform: translateY(30px)}to{opacity: 1;transform: translateY(0)}} @-o-keyframes show{from{opacity: 0;transform: translateY(30px)}to{opacity: 1;transform: translateY(0)}} @keyframes show{from{opacity: 0;transform: translateY(30px)}to{opacity: 1;transform: translateY(0)}} &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;header id="head"&gt;&lt;/header&gt; &lt;article id="gallery"&gt; &lt;section id="gallery-content"&gt; &lt;h1&gt;磨砺 聚变&lt;/h1&gt; &lt;p&gt;没有伞的孩子，必须努力奔跑。&lt;/p&gt; &lt;span&gt; &lt;a href="http://www.bizhongbio.com/tag/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1" class="bookmark"&gt;网页设计&lt;/a&gt; &lt;a href="http://www.bizhongbio.com/category/demo" class="feature"&gt;网页案例&lt;/a&gt; &lt;/span&gt; &lt;/section&gt; &lt;/article&gt; &lt;section style="height: 800px"&gt;&lt;/section&gt; &lt;script&gt; window.onload = function(){ var $ = function(id){ return document.getElementById(id); }; var ogallery = $("gallery"), galleryHeight = ogallery.offsetHeight, ogalleryCon = $("gallery-content"); var addEvent = function(obj,event,fn){ if(obj.addEventListener){ obj.addEventListener(event,fn,false); }else if(obj.attachEvent){ obj.attachEvent('on'+event,fn); } }; var scrollEvevt = function(){ var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop, oopacity = 1, k = oopacity / galleryHeight; if(scrollHeight &lt;= galleryHeight){ oopacity -= k * scrollHeight; ogallery.style.backgroundPositionY = 1/2 * scrollHeight +"px"; ogalleryCon.style.filter = "alpha(opacity:" + oopacity * 100 + ")"; ogalleryCon.style.opacity = oopacity; } }; addEvent(window,'scroll',function(){ scrollEvevt(); }); }; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</textarea>
+              </div>
+              <div class="crayon-main" style="">
+                <table class="crayon-table">
+                  <tr class="crayon-row">
+                    <td class="crayon-nums" data-settings="show">
+                      <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-1">1</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-2">2</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-3">3</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-4">4</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-5">5</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-6">6</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-7">7</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-8">8</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-9">9</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-10">10</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-11">11</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-12">12</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-13">13</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-14">14</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-15">15</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-16">16</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-17">17</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-18">18</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-19">19</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-20">20</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-21">21</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-22">22</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-23">23</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-24">24</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-25">25</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-26">26</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-27">27</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-28">28</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-29">29</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-30">30</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-31">31</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-32">32</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-33">33</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-34">34</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-35">35</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-36">36</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-37">37</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-38">38</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-39">39</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-40">40</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-41">41</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-42">42</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-43">43</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-44">44</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-45">45</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-46">46</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-47">47</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-48">48</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-49">49</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-50">50</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-51">51</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-52">52</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-53">53</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-54">54</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-55">55</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-56">56</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-57">57</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-58">58</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-59">59</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-60">60</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-61">61</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-62">62</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-63">63</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-64">64</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-65">65</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-66">66</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-67">67</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-68">68</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-69">69</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-70">70</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-71">71</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-72">72</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-73">73</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-74">74</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-75">75</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-76">76</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-77">77</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-78">78</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-79">79</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-80">80</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-81">81</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-82">82</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-83">83</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-84">84</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-85">85</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-86">86</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-87">87</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-88">88</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-89">89</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-90">90</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-91">91</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-92">92</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-93">93</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-94">94</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-95">95</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-96">96</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-97">97</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-98">98</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-99">99</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-100">100</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-101">101</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-102">102</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-103">103</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-104">104</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-105">105</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-106">106</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-107">107</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-108">108</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-109">109</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-110">110</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-111">111</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-112">112</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-113">113</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-114">114</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-115">115</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-116">116</div>
+                        <div class="crayon-num" data-line="crayon-589d79a4806ac266750428-117">117</div>
+                        <div class="crayon-num crayon-striped-num" data-line="crayon-589d79a4806ac266750428-118">118</div>
+                      </div>
+                    </td>
+                    <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589d811fa1fa1226900309-1"><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-e">DOCTYPE </span><span class="crayon-v">html</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-2"><span class="crayon-o">&lt;</span><span class="crayon-v">html</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-3"><span class="crayon-o">&lt;</span><span class="crayon-v">head</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">charset</span><span class="crayon-o">=</span><span class="crayon-s">"utf-8"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">http</span><span class="crayon-o">-</span><span class="crayon-v">equiv</span><span class="crayon-o">=</span><span class="crayon-s">"X-UA-Compatible"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"IE=Edge,chrome=1"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">title</span><span class="crayon-o">&gt;</span>首页滚动特效<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">title</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"keywords"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"双鱼,双鱼bizhongbio,bizhongbio"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"description"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"双鱼bizhongbio，是专注于分享web前端开发技术的个人博客。磨砺，聚变。没有伞的孩子，必须努力奔跑。"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"author"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"双鱼bizhongbio, http://www.bizhongbio.com/"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"viewport"</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">=</span><span class="crayon-s">"width=device-width, initial-scale=1, minimum-scale=1"</span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-ta">&lt;style&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">*</span><span class="crayon-sy">{</span><span class="crayon-e ">padding</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">0</span><span class="crayon-sy">;</span><span class="crayon-e ">margin</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">0</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">body</span><span class="crayon-sy">{</span><span class="crayon-e ">font</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">16px/1</span><span class="crayon-h"> </span><span class="crayon-s">'Microsoft YaHei'</span><span class="crayon-i ">,Arial,Helvetica,sans-serif</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#head</span><span class="crayon-sy">{</span><span class="crayon-e ">position</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">absolute</span><span class="crayon-sy">;</span><span class="crayon-e ">z-index</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">999</span><span class="crayon-sy">;</span><span class="crayon-e ">width</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">100%</span><span class="crayon-sy">;</span><span class="crayon-e ">height</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">55px</span><span class="crayon-sy">;</span><span class="crayon-e ">background</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">rgba</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0,.2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery</span><span class="crayon-sy">{</span><span class="crayon-e ">position</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">relative</span><span class="crayon-sy">;</span><span class="crayon-e ">width</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">100%</span><span class="crayon-sy">;</span><span class="crayon-e ">height</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">615px</span><span class="crayon-sy">;</span><span class="crayon-e ">background</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-h"> </span><span class="crayon-i ">url</span><span class="crayon-sy">(</span><span class="crayon-i ">images/work.jpg</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-i ">no-repeat</span><span class="crayon-h"> </span><span class="crayon-i ">top</span><span class="crayon-h"> </span><span class="crayon-i ">center</span><span class="crayon-sy">;</span><span class="crayon-e ">background-size</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">cover</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content</span><span class="crayon-sy">{</span><span class="crayon-e ">position</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">absolute</span><span class="crayon-sy">;</span><span class="crayon-e ">top</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">39%</span><span class="crayon-sy">;</span><span class="crayon-e ">width</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">100%</span><span class="crayon-sy">;</span><span class="crayon-e ">height</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">61%</span><span class="crayon-sy">;</span><span class="crayon-e ">text-align</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">center</span><span class="crayon-sy">;</span><span class="crayon-e ">color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content h1</span><span class="crayon-sy">{</span><span class="crayon-e ">font-size</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">4em</span><span class="crayon-sy">;</span><span class="crayon-e ">font-weight</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">400</span><span class="crayon-sy">;</span><span class="crayon-e ">letter-spacing</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1px</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content p</span><span class="crayon-sy">{</span><span class="crayon-e ">margin</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">15px</span><span class="crayon-h"> </span><span class="crayon-i ">0</span><span class="crayon-sy">;</span><span class="crayon-e ">font-size</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">2em</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content span</span><span class="crayon-sy">{</span><span class="crayon-e ">display</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">block</span><span class="crayon-sy">;</span><span class="crayon-e ">margin-top</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">35px</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content span a</span><span class="crayon-sy">{</span><span class="crayon-e ">display</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">inline-block</span><span class="crayon-sy">;</span><span class="crayon-e ">padding</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">12px</span><span class="crayon-h"> </span><span class="crayon-i ">30px</span><span class="crayon-sy">;</span><span class="crayon-e ">line-height</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1em</span><span class="crayon-sy">;</span><span class="crayon-e ">text-decoration</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">none</span><span class="crayon-sy">;</span><span class="crayon-e ">border</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1px</span><span class="crayon-h"> </span><span class="crayon-i ">solid</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-sy">;</span><span class="crayon-e ">border-radius</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">2px</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">a.bookmark</span><span class="crayon-sy">{</span><span class="crayon-e ">margin-right</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">20px</span><span class="crayon-sy">;</span><span class="crayon-e ">background</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-sy">;</span><span class="crayon-e ">color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#333</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">a.feature</span><span class="crayon-sy">{</span><span class="crayon-e ">color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">a.bookmark:hover,a.feature:hover</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">.65</span><span class="crayon-sy">;</span><span class="crayon-e ">filter</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">alpha</span><span class="crayon-sy">(</span><span class="crayon-i ">opacity=65</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#head,#gallery-content h1,#gallery-content p,#gallery-content span</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">filter</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">alpha</span><span class="crayon-sy">(</span><span class="crayon-i ">opacity=100</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-webkit-transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translate3d</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-moz-transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translate3d</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-29"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-ms-transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translate3d</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-30"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-o-transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translate3d</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-31"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translate3d</span><span class="crayon-sy">(</span><span class="crayon-i ">0,0,0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-32"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-33"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#head</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-34"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-webkit-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">showhead</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">0ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-35"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-moz-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">showhead</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">0ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-ms-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">showhead</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">0ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-o-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">showhead</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">0ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">showhead</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">0ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-39"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-40"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content h1</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-webkit-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-42"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-moz-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-ms-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-44"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-o-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-45"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-46"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-47"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content p</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-48"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-webkit-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">3000ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-49"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-moz-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">3000ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-50"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-ms-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">3000ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-51"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-o-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">3000ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-52"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">3000ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-53"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-54"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">#gallery-content span</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-55"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-webkit-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">4500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-56"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-moz-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">4500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-57"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-ms-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">4500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-58"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">-o-animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">4500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-59"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">animation</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">show</span><span class="crayon-h"> </span><span class="crayon-i ">1500ms</span><span class="crayon-h"> </span><span class="crayon-i ">ease</span><span class="crayon-h"> </span><span class="crayon-i ">4500ms</span><span class="crayon-h"> </span><span class="crayon-i ">forwards</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-60"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-61"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@-webkit-keyframes showhead{from{opacity: 0}to{opacity: 1}}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-62"><span class="crayon-n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@-moz-keyframes showhead{from{opacity: 0}to{opacity: 1}}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-63"><span class="crayon-n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@-ms-keyframes showhead{from{opacity: 0}to{opacity: 1}}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-64"><span class="crayon-n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@-o-keyframes showhead{from{opacity: 0}to{opacity: 1}}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-65"><span class="crayon-n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@keyframes showhead{from{opacity: 0}to{opacity: 1}}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-66"><span class="crayon-n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@-webkit-keyframes show{from{opacity: 0;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">30px</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-k ">to</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1</span><span class="crayon-sy">;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">0</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-67"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@-moz-keyframes show{from{opacity: 0;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">30px</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-k ">to</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1</span><span class="crayon-sy">;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">0</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-68"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@-ms-keyframes show{from{opacity: 0;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">30px</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-k ">to</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1</span><span class="crayon-sy">;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">0</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-69"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@-o-keyframes show{from{opacity: 0;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">30px</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-k ">to</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1</span><span class="crayon-sy">;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">0</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-70"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@keyframes show{from{opacity: 0;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">30px</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-k ">to</span><span class="crayon-sy">{</span><span class="crayon-e ">opacity</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1</span><span class="crayon-sy">;</span><span class="crayon-e ">transform</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">translateY</span><span class="crayon-sy">(</span><span class="crayon-i ">0</span><span class="crayon-sy">)</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-71"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-ta">&lt;/style&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-72"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">head</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-73"><span class="crayon-o">&lt;</span><span class="crayon-v">body</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-74"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">header </span><span class="crayon-v">id</span><span class="crayon-o">=</span><span class="crayon-s">"head"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">header</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-75"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">article </span><span class="crayon-v">id</span><span class="crayon-o">=</span><span class="crayon-s">"gallery"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-76"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">section </span><span class="crayon-v">id</span><span class="crayon-o">=</span><span class="crayon-s">"gallery-content"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-77"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span>磨砺<span class="crayon-h"> </span>聚变<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">h1</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-78"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span>没有伞的孩子，必须努力奔跑。<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-79"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-80"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com/tag/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"bookmark"</span><span class="crayon-o">&gt;</span>网页设计<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">a</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-81"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"http://www.bizhongbio.com/category/demo"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"feature"</span><span class="crayon-o">&gt;</span>网页案例<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">a</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-82"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-83"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">section</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-84"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">article</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-85"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">section </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"height: 800px"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">section</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-86"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-ta">&lt;script&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-87"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">window</span><span class="crayon-sy">.</span><span class="crayon-v">onload</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-88"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-v">id</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-89"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">document</span><span class="crayon-sy">.</span><span class="crayon-e">getElementById</span><span class="crayon-sy">(</span><span class="crayon-v">id</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-90"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-91"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">ogallery</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"gallery"</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-92"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">galleryHeight</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">ogallery</span><span class="crayon-sy">.</span><span class="crayon-v">offsetHeight</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-93"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">ogalleryCon</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-s">"gallery-content"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-94"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">addEvent</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-v">obj</span><span class="crayon-sy">,</span><span class="crayon-v">event</span><span class="crayon-sy">,</span><span class="crayon-v">fn</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-95"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">obj</span><span class="crayon-sy">.</span><span class="crayon-v">addEventListener</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-96"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">obj</span><span class="crayon-sy">.</span><span class="crayon-e">addEventListener</span><span class="crayon-sy">(</span><span class="crayon-v">event</span><span class="crayon-sy">,</span><span class="crayon-v">fn</span><span class="crayon-sy">,</span><span class="crayon-t">false</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-97"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">obj</span><span class="crayon-sy">.</span><span class="crayon-v">attachEvent</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-98"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">obj</span><span class="crayon-sy">.</span><span class="crayon-e">attachEvent</span><span class="crayon-sy">(</span><span class="crayon-s">'on'</span><span class="crayon-o">+</span><span class="crayon-v">event</span><span class="crayon-sy">,</span><span class="crayon-v">fn</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-99"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-100"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-101"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">scrollEvevt</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-102"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">scrollHeight</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">document</span><span class="crayon-sy">.</span><span class="crayon-v">documentElement</span><span class="crayon-sy">.</span><span class="crayon-v">scrollTop</span><span class="crayon-h"> </span><span class="crayon-o">||</span><span class="crayon-h"> </span><span class="crayon-v">document</span><span class="crayon-sy">.</span><span class="crayon-v">body</span><span class="crayon-sy">.</span><span class="crayon-v">scrollTop</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-103"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">oopacity</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-104"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">k</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">oopacity</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-h"> </span><span class="crayon-v">galleryHeight</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-105"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">scrollHeight</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-v">galleryHeight</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-106"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">oopacity</span><span class="crayon-h"> </span><span class="crayon-o">-=</span><span class="crayon-h"> </span><span class="crayon-v">k</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">scrollHeight</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-107"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">ogallery</span><span class="crayon-sy">.</span><span class="crayon-v">style</span><span class="crayon-sy">.</span><span class="crayon-v">backgroundPositionY</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-c ">/2 * scrollHeight +"px";</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-108"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ogalleryCon.style.filter = "alpha(opacity:" + oopacity * 100 + ")";</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-109"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ogalleryCon.style.opacity = oopacity;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-110"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-111"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-112"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addEvent(window,'scroll',function(){</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-113"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scrollEvevt();</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-114"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-115"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;};</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-116"><span class="crayon-c ">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/s</span><span class="crayon-v">cript</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-589d811fa1fa1226900309-117"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">body</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-589d811fa1fa1226900309-118"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">html</span><span class="crayon-o">&gt;</span></div></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- [Format Time: 0.0266 seconds] -->
+          </section>
+          <section class="article-copyright">
+            <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="首页滚动特效" href="https://bizhongbio.github.io/article/home-scrolling-effects/">https://bizhongbio.github.io/article/home-scrolling-effects/</a>）</p>
+          </section>
+          <section class="article-adjacent">
+            上一篇：<a href="./article/jquery-slides/" rel="prev">jQuery图片轮播</a><br/>
+            下一篇：<a href="./article/javascript-sidebar-scroll-effects/" rel="next">JavaScript实现侧边栏滚动特效</a><br/>
+          </section>
+          <section class="article-share">
+            <h2>分享到</h2>
+            <div class="bdsharebuttonbox">
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+              <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a class="bds_count"></a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="article-related">
+            <h2>相关文章</h2>
+            <ul class="related-articles">
+              <li class="related-article">
+                <figure>
+                  <a href="./article/javascript-sidebar-scroll-effects/" target="_blank">
+                    <img src="./article/javascript-sidebar-scroll-effects/javascript-sidebar-scroll-effects.jpg" alt="JavaScript实现侧边栏滚动特效">
+                  </a>
+                  <figcaption>
+                    <a href="./article/javascript-sidebar-scroll-effects/" title="JavaScript实现侧边栏滚动特效" rel="bookmark">JavaScript实现侧边栏滚动特效</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/fixed-right-sidebar-scroll-effect/" target="_blank">
+                    <img src="./article/default.jpg" alt="固定右侧边栏滚动特效">
+                  </a>
+                  <figcaption>
+                    <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效" rel="bookmark">固定右侧边栏滚动特效</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="related-article">
+                <figure>
+                  <a href="./article/pisces-css3-keyframes/" target="_blank">
+                    <img src="./article/pisces-css3-keyframes/pisces-css3-keyframes.jpg" alt="双鱼的CSS3动画">
+                  </a>
+                  <figcaption>
+                    <a href="./article/pisces-css3-keyframes/" title="双鱼的CSS3动画" rel="bookmark">双鱼的CSS3动画</a>
+                  </figcaption>
+                </figure>
+              </li>
+              <div class="clear"></div>
+            </ul>
+          </section>
+          <section class="article-comment">
+            <div class="comments">
+              <a name="comments"></a>
+              <h2>3条评论</h2>
+              <ol class="commentslist">
+                <li class="comment" id="li-comment-142">
+                  <div class="author-face">石</div>
+                  <div class="comment-content" id="comment-142">石头
+                    <span class="comment-meta">2015.11.21 14:58</span>
+                    <div class="comment-text">
+                      <p>文章不错</p>
+                    </div>
+                  </div>
+                  <ul class="children">
+                    <li class="comment" id="li-comment-143">
+                      <div class="author-face">B</div>
+                      <div class="comment-content" id="comment-143">
+                        <a href='http://www.bizhongbio.com' rel='external nofollow' class='url'>bizhongbio</a>
+                        <span class="comment-meta">2015.11.21 14:59</span>
+                        <div class="comment-text">
+                          <p>谢谢支持</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="comment" id="li-comment-144">
+                  <div class="author-face">我</div>
+                  <div class="comment-content" id="comment-144">我活该单身一辈子
+                    <span class="comment-meta">2015.11.21 16:12</span>
+                    <div class="comment-text">
+                      <p>好棒啊</p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="respond">
+              <a name="respond"></a>
+              <h2>发表评论</h2>
+              <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                <label for="comment_mail_notify">回复时邮件通知我</label>
+              </form>
+            </div>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var CrayonSyntaxSettings = {
+        "version": "2.8.4",
+        "is_admin": "0",
+        "ajaxurl": "https:\/\/bizhongbio.github.io\/",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
+      };
+      var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+      };
+      /* ]]&gt; */
+    </script>
+    <script type="text/javascript" src="./asset/dep/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
