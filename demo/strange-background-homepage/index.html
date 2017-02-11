@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<title>诡异的背景首页 | 双鱼bizhongbio – 渡人渡己，前端开发技术博客</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="description" content="诡异的背景首页">
+		<meta name="description" content="诡异的背景首页。磨砺，聚变。没有伞的孩子，必须努力奔跑。">
 		<meta name="keywords" content="网页设计">
 		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/main.min.css">
 	</head>
 	<body>
 		<canvas id="canvas"></canvas>
@@ -23,8 +23,8 @@
 					<a href="#about">关于</a>
 				</nav>
 				<form class="searchform" action="http://www.bizhongbio.com/" target="_blank">
-				 	<input type="text" class="s" name="q" id="s" autocomplete="off" placeholder="请输入关键字">
-				 	<input type="submit" class="submit" value="搜索">
+				 	<input class="s" id="s" name="q" type="text" autocomplete="off" placeholder="请输入关键字">
+				 	<input class="submit" type="submit" value="搜索">
 				</form>
 			</header>
 			<div id="dec">
@@ -34,199 +34,199 @@
 			<div id="latestposts">
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/fixed-right-sidebar-scroll-effect/" target="_blank">
-						<img src="img/posts/default.jpg">
+						<img src="img/posts/default.jpg" alt="固定右侧边栏滚动特效">
 						<h1>固定右侧边栏滚动特效</h1>
 					</a>
 				</article>
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/analyse-response-web-design/" target="_blank">
-						<img src="img/posts/analyse-response-web-design.jpg">
+						<img src="img/posts/analyse-response-web-design.jpg" alt="浅析 RWD">
 						<h1>浅析 RWD</h1>
 					</a>
 				</article>
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/galactic-cats/" target="_blank">
-						<img src="img/posts/galactic-cats.jpg">
+						<img src="img/posts/galactic-cats.jpg" alt="银河系猫">
 						<h1>银河系猫</h1>
 					</a>
 				</article>
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/image-application-skills/" target="_blank">
-						<img src="img/posts/image-application-skills.jpg">
+						<img src="img/posts/image-application-skills.jpg" alt="网页大图片应用技巧">
 						<h1>网页大图片应用技巧</h1>
 					</a>
 				</article>
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/zjz-portfolios/" rel="bookmark" target="_blank">
-						<img src="img/posts/zjz-portfolios.jpg">
+						<img src="img/posts/zjz-portfolios.jpg" alt="章同学作品集">
 						<h1>章同学作品集</h1>
 					</a>
 				</article>
 				<article class="post">
 					<a href="https://bizhongbio.github.io/article/pisces-css3-keyframes/" target="_blank">
-						<img src="img/posts/pisces-css3-keyframes.jpg">
+						<img src="img/posts/pisces-css3-keyframes.jpg" alt="双鱼的 CSS3 动画">
 						<h1>双鱼的 CSS3 动画</h1>
 					</a>
 				</article>
 			</div>
-			<footer>版权所有 © 2014-2015 双鱼BIZHONGBIO</footer>
-	</div>
-	<script>
-		window.requestAnimFrame = (function() {
-		  return window.requestAnimationFrame ||
-				window.webkitRequestAnimationFrame ||
-				window.mozRequestAnimationFrame ||
-				window.oRequestAnimationFrame ||
-				window.msRequestAnimationFrame ||
-				function(callback) {
-					window.setTimeout(callback, 1000 / 60);
-				};
-		})();
+			<footer>版权所有 © 2014-2015 <a href="https://bizhongbio.github.io/">双鱼BIZHONGBIO</a></footer>
+		</div>
+		<script>
+			window.requestAnimFrame = (function() {
+			  return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+			})();
 
-		var $,
-				w,
-				h,
-				img,
-				d,
-				cracks = [],
-				msX = window.innerWidth / 2,
-				msY = window.innerHeight / 2;
+			var $,
+					w,
+					h,
+					img,
+					d,
+					cracks = [],
+					msX = window.innerWidth / 2,
+					msY = window.innerHeight / 2;
 
-		window.onload = function() {
-		  var c = document.getElementById('canvas');
+			window.onload = function() {
+			  var c = document.getElementById('canvas');
 
-		  c.width = w = window.innerWidth;
-		  c.height = h = window.innerHeight;
+			  c.width = w = window.innerWidth;
+			  c.height = h = window.innerHeight;
 
-		  $ = c.getContext('2d');
+			  $ = c.getContext('2d');
 
-		  window.addEventListener('mousedown', msdn, false);
-		  window.addEventListener('touchstart', tcdn, false);
-		  window.addEventListener('load', resize);
-		  window.addEventListener('resize', resize, false);
+			  window.addEventListener('mousedown', msdn, false);
+			  window.addEventListener('touchstart', tcdn, false);
+			  window.addEventListener('load', resize);
+			  window.addEventListener('resize', resize, false);
 
-		  function resize() {
-		    c.width = w = window.innerWidth;
-		    c.height = h = window.innerHeight;
-		    c.style.position = 'absolute';
-		    c.style.left = (window.innerWidth - w) * .01 + 'px';
-		    c.style.top = (window.innerHeight - h) * .01 + 'px';
-		  }
+			  function resize() {
+			    c.width = w = window.innerWidth;
+			    c.height = h = window.innerHeight;
+			    c.style.position = 'absolute';
+			    c.style.left = (window.innerWidth - w) * .01 + 'px';
+			    c.style.top = (window.innerHeight - h) * .01 + 'px';
+			  }
 
-		  function msdn(e) {
-		    msX = e.clientX;
-		    msY = e.clientY;
+			  function msdn(e) {
+			    msX = e.clientX;
+			    msY = e.clientY;
 
-		    for (var i = 0; i < 50; i++) {
-		      cracks.push(
-		      	new Crack(
+			    for (var i = 0; i < 50; i++) {
+			      cracks.push(
+			      	new Crack(
+				    		msX + rnd(5),
+				    		msY + rnd(5),
+				    		Math.random() * 360 * Math.PI / 180
+				      )
+			      );
+			    }
+			  }
+
+			  function tcdn(e) {
+			    msX = e.touches[0].pageX;
+			    msY = e.touches[0].pageY;
+
+			    for (var i = 0; i < 50; i++) {
+			      cracks.push(
+			      	new Crack(
+			      		msX + rnd(5),
+				        msY + rnd(5),
+				        Math.random() * 360 * Math.PI / 180
+				      )
+				    );
+			    }
+			  }
+
+			  for (var i = 0; i < 50; i++) {
+			    cracks.push(
+			    	new Crack(
 			    		msX + rnd(5),
-			    		msY + rnd(5),
-			    		Math.random() * 360 * Math.PI / 180
-			      )
-		      );
-		    }
-		  }
-
-		  function tcdn(e) {
-		    msX = e.touches[0].pageX;
-		    msY = e.touches[0].pageY;
-
-		    for (var i = 0; i < 50; i++) {
-		      cracks.push(
-		      	new Crack(
-		      		msX + rnd(5),
-			        msY + rnd(5),
-			        Math.random() * 360 * Math.PI / 180
+				      msY + rnd(5),
+				      Math.random() * 360 * Math.PI / 180
 			      )
 			    );
-		    }
-		  }
+			  }
+			  run();
+			};
 
-		  for (var i = 0; i < 50; i++) {
-		    cracks.push(
-		    	new Crack(
-		    		msX + rnd(5),
-			      msY + rnd(5),
-			      Math.random() * 360 * Math.PI / 180
-		      )
-		    );
-		  }
-		  run();
-		};
+			function run() {
+			  shatter();
+			  window.requestAnimFrame(run, 60);
+			}
 
-		function run() {
-		  shatter();
-		  window.requestAnimFrame(run, 60);
-		}
+			function shatter() {
+			  img = $.getImageData(0, 0, w, h);
+			  d = img.data;
 
-		function shatter() {
-		  img = $.getImageData(0, 0, w, h);
-		  d = img.data;
+			  for (var i = 0; i < cracks.length; i++) {
+			    var crack = cracks[i];
+			    crack.upd();
 
-		  for (var i = 0; i < cracks.length; i++) {
-		    var crack = cracks[i];
-		    crack.upd();
+			    if (!crack.done && Math.random() > 0.85 && cracks.length < 300) {
+			      cracks.push(
+			      	new Crack(
+			      		crack.x,
+			      		crack.y,
+			      		(Math.random() > 0.5 ? 90 : -90) * Math.PI / 180 + crack.ang
+			      	)
+			      );
+			    }
+			  }
+			}
 
-		    if (!crack.done && Math.random() > 0.85 && cracks.length < 300) {
-		      cracks.push(
-		      	new Crack(
-		      		crack.x,
-		      		crack.y,
-		      		(Math.random() > 0.5 ? 90 : -90) * Math.PI / 180 + crack.ang
-		      	)
-		      );
-		    }
-		  }
-		}
+			function rnd(num) {
+			  return Math.random() * num - num * 0.5;
+			}
 
-		function rnd(num) {
-		  return Math.random() * num - num * 0.5;
-		}
+			var Crack = function(x, y, ang) {
+			  this.x = x;
+			  this.y = y;
 
-		var Crack = function(x, y, ang) {
-		  this.x = x;
-		  this.y = y;
+			  this.ang = Math.pow(Math.random() * 10, 180) + ang;
 
-		  this.ang = Math.pow(Math.random() * 10, 180) + ang;
+			  this.dx = Math.cos(this.ang);
+			  this.dy = Math.sin(this.ang);
 
-		  this.dx = Math.cos(this.ang);
-		  this.dy = Math.sin(this.ang);
+			  this.span = Math.random() * 100 + 100;
+			  this.done = false;
+			};
 
-		  this.span = Math.random() * 100 + 100;
-		  this.done = false;
-		};
+			Crack.prototype.upd = function() {
+			  $.strokeStyle = 'hsla(255,255%,255%,.7)';
+			  $.beginPath();
+			  $.moveTo(this.x, this.y);
 
-		Crack.prototype.upd = function() {
-		  $.strokeStyle = 'hsla(255,255%,255%,.7)';
-		  $.beginPath();
-		  $.moveTo(this.x, this.y);
+			  this.x += this.dx * 2;
+			  this.y += this.dy * 2;
+			  this.span -= 2;
 
-		  this.x += this.dx * 2;
-		  this.y += this.dy * 2;
-		  this.span -= 2;
+			  $.lineTo(this.x, this.y);
+			  $.stroke();
 
-		  $.lineTo(this.x, this.y);
-		  $.stroke();
+			  var idx = (Math.floor(this.x) + w * Math.floor(this.y)) * 4;
 
-		  var idx = (Math.floor(this.x) + w * Math.floor(this.y)) * 4;
+			  if (this.span <= 0) {
+			    this.end();
+			  }
+			  if (d[idx + 3] > 0) {
+			    this.end();
+			  }
 
-		  if (this.span <= 0) {
-		    this.end();
-		  }
-		  if (d[idx + 3] > 0) {
-		    this.end();
-		  }
+			  if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
+			    this.end();
+			  }
+			};
 
-		  if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
-		    this.end();
-		  }
-		};
-
-		Crack.prototype.end = function() {
-		  cracks.splice(cracks.indexOf(this), 1);
-		  this.done = true;
-		};
-	</script>
-</body>
+			Crack.prototype.end = function() {
+			  cracks.splice(cracks.indexOf(this), 1);
+			  this.done = true;
+			};
+		</script>
+	</body>
 </html>
