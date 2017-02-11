@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>电影预告片 | 双鱼bizhongbio - 渡人渡己，前端开发技术博客</title>
+    <base href="https://bizhongbio.github.io/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="description" content="Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。一、项目结构 [crayon-589edff1b6551171474698/] 二、项目功能 游客：浏览首页、电影详情页面、分类目录页面、搜索电影 用户和管理员除了…">
+    <meta name="keywords" content="Node.js">
+    <meta name="author" content="兰必钟（Bizhong Lan）, https://bizhong.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="双鱼bizhongbio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#e0e0e0">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./asset/img/ms-title-144x144.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@双鱼bizhongbio">
+    <meta name="twitter:title" content="电影预告片">
+    <meta name="twitter:description" content="Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。一、项目结构 [crayon-589edff1b6551171474698/] 二、项目功能 游客：浏览首页、电影详情页面、分类目录页面、搜索电影 用户和管理员除了…">
+    <meta name="twitter:image" content="https://bizhongbio.github.io/article/node-movie/node-movie.png">
+    <meta property="og:site_name" content="双鱼bizhongbio">
+    <meta property="og:url" content="https://bizhongbio.github.io/article/node-movie/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="电影预告片">
+    <meta property="og:description" content="Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。一、项目结构 [crayon-589edff1b6551171474698/] 二、项目功能 游客：浏览首页、电影详情页面、分类目录页面、搜索电影 用户和管理员除了…">
+    <meta property="og:image" content="https://bizhongbio.github.io/article/node-movie/node-movie.png">
+    <meta itemprop="name" content="电影预告片">
+    <meta itemprop="description" content="Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。一、项目结构 [crayon-589edff1b6551171474698/] 二、项目功能 游客：浏览首页、电影详情页面、分类目录页面、搜索电影 用户和管理员除了…">
+    <meta itemprop="image" content="https://bizhongbio.github.io/article/node-movie/node-movie.png">
+    <link rel="fluid-icon" href="https://bizhongbio.github.io/asset/img/fluid-icon-512x512.png" title="双鱼bizhongbio">
+    <link rel="apple-touch-icon" sizes="57x57" href="./asset/img/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./asset/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./asset/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./asset/img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./asset/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./asset/img/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./asset/img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./asset/img/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="32x32" href="./asset/img/favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="./asset/img/android-chrome-192x192.png">
+    <link rel="icon" sizes="96x96" href="./asset/img/favicon-96x96.png">
+    <link rel="icon" sizes="16x16" href="./asset/img/favicon-16x16.png">
+    <link rel="manifest" href="./asset/img/manifest.json">
+    <link rel="mask-icon" href="./asset/img/safari-pinned-tab.svg" color="#000000">
+    <link rel="stylesheet" href="./asset/dep/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./asset/css/bizhongbio.min.css">
+    <link rel="stylesheet" id="crayon-css" href="./asset/dep/crayon-syntax-highlighter/css/min/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-familiar-css" href="./asset/dep/crayon-syntax-highlighter/themes/familiar/familiar.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="./asset/dep/crayon-syntax-highlighter/fonts/monaco.css" type="text/css" media="all">
+    <link rel="canonical" href="https://bizhongbio.github.io/article/node-movie/">
+    <!--[if lt IE 9]>
+      <script src="./asset/dep/html5shiv/html5shiv.min.js"></script>
+      <script src="./asset/dep/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="single">
+    <!--[if lt IE 8]><p id="upgrade-browser-reminder">经年的执念，放下吧。快搭上升级浏览器的末班车。</p><![endif]-->
+    <header id="header" role="banner">
+      <div class="header-content">
+        <a id="btn-nav" href="javascript:void(0);"><i class="fa fa-navicon"></i></a>
+        <h1 class="logo"><a href="./">双鱼bizhongbio</a></h1>
+        <nav class="nav" aria-label="Global navigation" role="navigation">
+          <div class="menu-nav-container">
+            <ul id="menu-nav" class="menu">
+              <li><a href="./">首页</a></li>
+              <li class="current-menu-item"><a href="./article/">文章</a></li>
+              <li><a href="./project/">项目</a></li>
+              <li><a href="./work/">作品</a></li>
+              <li><a href="./video/">视频</a></li>
+              <li><a href="./about/">关于</a></li>
+            </ul>
+          </div>
+        </nav>
+        <a id="btn-search" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+        <form id="searchform" method="get" action="./">
+          <input id="s" name="s" type="text" value="" placeholder="请输入关键字">
+          <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <main class="main" role="main">
+      <div class="content">
+        <article id="article">
+            <section class="article-header">
+              <h1>电影预告片</h1>
+              <span><i class="fa fa-calendar-check-o"></i>2016.05.26 20:30</span>
+              <span><i class="fa fa-user-secret"></i>bizhongbio</span>
+              <span><i class="fa fa-bookmark"></i><a href="./tag/node-js/" rel="tag">Node.js</a></span>
+              <span><i class="fa fa-eye"></i>246</span>
+              <span><i class="fa fa-commenting"></i><a href="./article/node-movie/index.html#comments">1</a></span>
+            </section>
+            <section class="article-content">
+              <p>Movie（电影）是用 Node.js 和 MongoDB 实现的 Web 应用程序。</p>
+              <h2>一、项目结构</h2>
+              <!-- Crayon Syntax Highlighter v2.7.1 -->
+              <div id="crayon-589edff1b6551171474698" class="crayon-syntax crayon-theme-familiar crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings="minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+                <div class="crayon-toolbar" data-settings="mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                  <span class="crayon-title"></span>
+                  <div class="crayon-tools" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important;">
+                    <div class="crayon-button crayon-nums-button" title="切换是否显示行编号">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-plain-button" title="纯文本显示代码">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-wrap-button" title="切换自动换行">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-expand-button" title="点击展开代码">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-copy-button" title="复制代码">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                    <div class="crayon-button crayon-popup-button" title="在新窗口中显示代码">
+                      <div class="crayon-button-icon"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+                <div class="crayon-plain-wrap">
+                  <textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; font-size: 12px !important; line-height: 15px !important;">- movie(项目根目录) |- app(应用程序根目录) |- controllers(控制器) |- category.js(分类目录控制器) |- comment.js(评论控制器) |- index.js(首页控制器) |- movie.js(电影详情页控制器) |- search.js(搜索控制器) |- user.js(用户控制器) |- models(模型) |- category.js(分类目录模型) |- comment.js(评论模型) |- movie.js(电影模型) |- user.js(用户模型) |- routes(路由) |- routes.js(所有路由) |- views(视图) |- layouts |- common.html(所有前端页面的母版) |- pages |- admin.html(管理员操作页面：发布电影、修改电影) |- index.html(首页、分类目录页面、搜索页面) |- movie-list.html(电影列表页面) |- movie.html(详情电影页面) |- public(应用程序静态文件) |- css(CSS脚本所在地) |- images(图片所在目录) |- js(JavaScript脚本所在地) |- upload(上传图片存放地) |- .gitignore(哪些文件及文件夹不上传到代码库里面) |- app.js(应用程序主文件) |- package.json(配置文件) |- README.md(项目说明)</textarea>
+                </div>
+                <div class="crayon-main" style="">
+                  <table class="crayon-table">
+                    <tr class="crayon-row">
+                      <td class="crayon-nums" data-settings="show">
+                        <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;">
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-1">1</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-2">2</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-3">3</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-4">4</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-5">5</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-6">6</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-7">7</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-8">8</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-9">9</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-10">10</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-11">11</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-12">12</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-13">13</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-14">14</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-15">15</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-16">16</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-17">17</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-18">18</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-19">19</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-20">20</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-21">21</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-22">22</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-23">23</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-24">24</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-25">25</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-26">26</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-27">27</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-28">28</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-29">29</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-30">30</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-31">31</div>
+                          <div class="crayon-num crayon-striped-num" data-line="crayon-589edff1b6551171474698-32">32</div>
+                          <div class="crayon-num" data-line="crayon-589edff1b6551171474698-33">33</div>
+                        </div>
+                      </td>
+                      <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;"><div class="crayon-line" id="crayon-589edff1b6551171474698-1"><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">movie</span><span class="crayon-sy">(</span>项目根目录<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">app</span><span class="crayon-sy">(</span>应用程序根目录<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">controllers</span><span class="crayon-sy">(</span>控制器<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">category</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>分类目录控制器<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">comment</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>评论控制器<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">index</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>首页控制器<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">movie</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>电影详情页控制器<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">search</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>搜索控制器<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>用户控制器<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">models</span><span class="crayon-sy">(</span>模型<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">category</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>分类目录模型<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">comment</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>评论模型<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">movie</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>电影模型<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">user</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>用户模型<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">routes</span><span class="crayon-sy">(</span>路由<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">routes</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>所有路由<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">views</span><span class="crayon-sy">(</span>视图<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">layouts</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">common</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span>所有前端页面的母版<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">pages</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">admin</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span>管理员操作页面：发布电影、修改电影<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">index</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span>首页、分类目录页面、搜索页面<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">movie</span><span class="crayon-o">-</span><span class="crayon-v">list</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span>电影列表页面<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">movie</span><span class="crayon-sy">.</span><span class="crayon-e">html</span><span class="crayon-sy">(</span>详情电影页面<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-25"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-m">public</span><span class="crayon-sy">(</span>应用程序静态文件<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">css</span><span class="crayon-sy">(</span><span class="crayon-i">CSS</span>脚本所在地<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">images</span><span class="crayon-sy">(</span>图片所在目录<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">js</span><span class="crayon-sy">(</span><span class="crayon-i">JavaScript</span>脚本所在地<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-29"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">upload</span><span class="crayon-sy">(</span>上传图片存放地<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-30"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-e">gitignore</span><span class="crayon-sy">(</span>哪些文件及文件夹不上传到代码库里面<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-31"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">app</span><span class="crayon-sy">.</span><span class="crayon-e">js</span><span class="crayon-sy">(</span>应用程序主文件<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-589edff1b6551171474698-32"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-t">package</span><span class="crayon-sy">.</span><span class="crayon-e">json</span><span class="crayon-sy">(</span>配置文件<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-589edff1b6551171474698-33"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">README</span><span class="crayon-sy">.</span><span class="crayon-e">md</span><span class="crayon-sy">(</span>项目说明<span class="crayon-sy">)</span></div></div></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- [Format Time: 0.0067 seconds] -->
+              <h2>二、项目功能</h2>
+              <ul>
+                <li>游客：浏览首页、电影详情页面、分类目录页面、搜索电影</li>
+              </ul>
+              <p>用户和管理员除了有游客的权限外还有以下权限：</p>
+              <ul>
+                <li>用户：登录、注册、评论电影</li>
+                <li>管理员：登录、发布电影、修改电影、删除电影、评论电影</li>
+              </ul>
+              <h2>三、完整代码</h2>
+              <p><a href="https://github.com/bizhong/node-movie" target="_blank">电影预告片</a></p>
+              <h2>三、页面展示</h2>
+              <h3>3.1 首页</h3>
+              <p><img src="./article/node-movie/node-movie-1.png" alt="node-movie-1"></p>
+              <h3>3.2 电影详情页面</h3>
+              <p><img src="./article/node-movie/node-movie-2.png" alt="node-movie-2"></p>
+              <h3>3.3 分类目录页面</h3>
+              <p><img src="./article/node-movie/node-movie-3.png" alt="node-movie-3"></p>
+              <h3>3.4 搜索页面</h3>
+              <p><img src="./article/node-movie/node-movie-4.png" alt="node-movie-4"></p>
+              <h3>3.5 管理员发布电影页面</h3>
+              <p><img src="./article/node-movie/node-movie-5.png" alt="node-movie-5"></p>
+              <h3>3.6 电影列表页面</h3>
+              <p><img src="./article/node-movie/node-movie-6.png" alt="node-movie-6"></p>
+            </section>
+            <section class="article-copyright">
+              <p>感谢你的阅读，本文版权归 <a href="https://bizhongbio.github.io/">双鱼bizhongbio</a> 所有，转载时请注明出处。<br/>注明出处格式：双鱼bizhongbio（<a title="电影预告片" href="https://bizhongbio.github.io/article/node-movie/">https://bizhongbio.github.io/article/node-movie/</a>）</p>
+            </section>
+            <section class="article-adjacent">
+              上一篇：<a href="./article/css-summary/" rel="prev">CSS总结</a><br/>
+              下一篇：<a href="./article/material-design-lite-components/" rel="next">MDL组件库</a><br/>
+            </section>
+            <section class="article-share">
+              <h2>分享到</h2>
+              <div class="bdsharebuttonbox">
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <a class="bds_count"></a>
+              </div>
+              <div class="clear"></div>
+            </section>
+            <section class="article-related">
+              <h2>相关文章</h2>
+              <ul class="related-articles">
+                <li class="related-article">
+                  <figure>
+                    <a href="./article/nodejs-summary/" target="_blank">
+                      <img src="./article/nodejs-summary/nodejs-summary.png" alt="Node.js概述">
+                    </a>
+                    <figcaption>
+                      <a href="./article/nodejs-summary/" title="Node.js概述" rel="bookmark">Node.js概述</a>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="related-article">
+                  <figure>
+                    <a href="./article/cms-home-page-search/" target="_blank">
+                      <img src="./article/cms-home-page-search/cms-home-page-search.jpg" alt="CMS首页、分页、搜索的实现">
+                    </a>
+                    <figcaption>
+                      <a href="./article/cms-home-page-search/" title="CMS首页、分页、搜索的实现" rel="bookmark">CMS首页、分页、搜索的实现</a>
+                    </figcaption>
+                  </figure>
+                </li>
+                <div class="clear"></div>
+              </ul>
+            </section>
+            <section class="article-comment">
+              <div class="comments">
+                <a name="comments"></a>
+                <h2>1条评论</h2>
+                <ol class="commentslist">
+                  <li class="comment" id="li-comment-389">
+                    <div class="author-face">夏</div>
+                    <div class="comment-content" id="comment-389">夏陌
+                      <span class="comment-meta">2016.08.09 09:47</span>
+                      <div class="comment-text">
+                        <p>真心佩服你无论什么事都是拿出百分之百的精力去做，要求完美，加油，看好你</p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="respond">
+                <a name="respond"></a>
+                <h2>发表评论</h2>
+                <form class="commentform" name="commentform" action="javascript:void(0);" method="post">
+                  <input id="author" type="text" name="author" tabindex="1" value="" placeholder="姓名（必填）" />
+                  <input id="email" type="text" name="email" tabindex="2" value="" placeholder="Email（必填）" />
+                  <input id="url" type="text" name="url" tabindex="3" value="" placeholder="网站" />
+                  <textarea id="comment" name="comment" tabindex="4" placeholder="说点什么吧"></textarea>
+                  <input id="commentsubmit" type="submit" name="submit" value="发表评论" />
+                  <input type='hidden' name='comment_post_ID' value='170' id='comment_post_ID' />
+                  <input id='comment_parent' type='hidden' name='comment_parent' value='0' />
+                  <input id="comment_mail_notify" name="comment_mail_notify" type="checkbox" value="comment_mail_notify" checked>
+                  <label for="comment_mail_notify">回复时邮件通知我</label>
+                </form>
+              </div>
+            </section>
+          </section>
+        </article>
+        <aside class="sidebar">
+          <article class="promos">
+            <a href="https://github.com/bizhong" title="bizhong (Bizhong Lan) &middot; GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          </article>
+          <section class="recommended-posts">
+            <h2>推荐文章</h2>
+            <ul>
+              <li>
+                <a href="./article/analyse-response-web-design/" title="浅析RWD">浅析RWD</a>
+                <span><a href="./article/analyse-response-web-design/index.html#comments">评论15</a></span>
+              </li>
+              <li>
+                <a href="./article/css-summary/" title="CSS总结">CSS总结</a>
+                <span><a href="./article/css-summary/index.html#comments">评论10</a></span>
+              </li>
+              <li>
+                <a href="./article/speed-up-wordpress-website/" title="加速WordPress站点">加速WordPress站点</a>
+                <span><a href="./article/speed-up-wordpress-website/index.html#comments">评论9</a></span>
+              </li>
+              <li>
+                <a href="./article/nodejs-summary/" title="Node.js概述">Node.js概述</a>
+                <span><a href="./article/nodejs-summary/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/nine-principle-material-design/" title="Material Design的九大设计原则">Material Design的九…</a>
+                <span><a href="./article/nine-principle-material-design/index.html#comments">评论8</a></span>
+              </li>
+              <li>
+                <a href="./article/second-time-to-see-snow/" title="第二次见到雪">第二次见到雪</a>
+                <span><a href="./article/second-time-to-see-snow/index.html#comments">评论6</a></span>
+              </li>
+              <li>
+                <a href="./article/zjz-portfolios/" title="章同学作品集">章同学作品集</a>
+                <span><a href="./article/zjz-portfolios/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/background-design-trend/" title="大背景底图设计趋势">大背景底图设计趋势</a>
+                <span><a href="./article/background-design-trend/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/a-word-bless-college-entrance-students/" title="一句话祝福高考生">一句话祝福高考生</a>
+                <span><a href="./article/a-word-bless-college-entrance-students/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/fixed-right-sidebar-scroll-effect/" title="固定右侧边栏滚动特效">固定右侧边栏滚动特效</a>
+                <span><a href="./article/fixed-right-sidebar-scroll-effect/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/hello-world/" title="世界，你好！">世界，你好！</a>
+                <span><a href="./article/hello-world/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/home-scrolling-effects/" title="首页滚动特效">首页滚动特效</a>
+                <span><a href="./article/home-scrolling-effects/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/singlepage-web-design/" title="单页网页设计">单页网页设计</a>
+                <span><a href="./article/singlepage-web-design/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/html-css-code-guide/" title="HTML&amp;CSS编码规范">HTML&amp;CSS编码规范</a>
+                <span><a href="./article/html-css-code-guide/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/strange-background-homepage/" title="诡异的背景首页">诡异的背景首页</a>
+                <span><a href="./article/strange-background-homepage/index.html#comments">评论3</a></span>
+              </li>
+              <li>
+                <a href="./article/jquery-slides/" title="jQuery图片轮播">jQuery图片轮播</a>
+                <span><a href="./article/jquery-slides/index.html#comments">评论2</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="recent-comments">
+            <h2>近期评论</h2>
+            <li>
+              <div class="comment-author">B</div>
+              <div class="comment-main">
+                <a href="./article/a-word-bless-college-entrance-students/index.html#comment-452">Bell</a>
+                <p>This website very nice, I liked it!</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-441">达达</a>
+                <p>你的博客就像冬天里的一把火！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">游</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-434">游客</a>
+                <p>访问您的博客已成习惯！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">访</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-433">访客</a>
+                <p>学习带来乐趣，谢谢博主！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-429">娜娜</a>
+                <p>来看看，学习学习！！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">亚</div>
+              <div class="comment-main">
+                <a href="./article/second-time-to-see-snow/index.html#comment-418">亚洲</a>
+                <p>博客不错，主题挺漂亮的。</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">达</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-406">达达</a>
+                <p>偶然来访，受益良多！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">尚</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-397">尚先生</a>
+                <p>感觉很不错的样子！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">小</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-395">小米</a>
+                <p>随便看看，随便转转！</p>
+              </div>
+            </li>
+            <li>
+              <div class="comment-author">娜</div>
+              <div class="comment-main">
+                <a href="./article/nodejs-summary/index.html#comment-394">娜娜</a>
+                <p>风吹过，我来过！</p>
+              </div>
+            </li>
+          </section>
+        </aside>
+        <div class="clear"></div>
+      </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <aside class="link">
+          <h2>友情链接</h2>
+          <ul>
+            <li><a href="http://www.new-thread.com/" title="新思路团队网站 - NewThread" target="_blank">新思路团队网站 - NewThread</a></li>
+            <li><a href="http://www.xuanfengge.com/" title="轩枫阁 – 前端开发 | web前端技术博客" target="_blank">轩枫阁</a></li>
+            <li><a href="http://www.niices.com/" title="蓝色栗子" target="_blank">蓝色栗子</a></li>
+            <li><a href="http://www.petite-dd.com/" title="petite-dd丨文艺的聚集地" target="_blank">petite-dd丨文艺的聚集地</a></li>
+            <li><a href="http://greenfavo.com/" title="greenfavo-前端学习笔记" target="_blank">greenfavo-前端学习笔记</a></li>
+            <li><a href="http://www.shuliqiyzs.com/" title="叮当猫~~前端爱好者" target="_blank">叮当猫~~前端爱好者</a></li>
+            <li><a href="http://www.h-five.com/" title="默识者" target="_blank">默识者</a></li>
+          </ul>
+          <div class="clear"></div>
+        </aside>
+        <section class="copyright">
+          <p>&copy; 2014-<script>document.write((new Date()).getFullYear());</script> <a href="./">双鱼bizhongbio</a> <a href="./sitemap.html" target="_blank">网站地图</a></p>
+        </section>
+      </div>
+      <a id="go-top" href="javascript:scroll(0,0);"><i class="fa fa-long-arrow-up"></i></a>
+    </footer>
+    <script src="./asset/dep/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./asset/js/bizhongbio.min.js"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var CrayonSyntaxSettings = {
+        "version": "2.8.4",
+        "is_admin": "0",
+        "ajaxurl": "https:\/\/bizhongbio.github.io\/",
+        "prefix": "crayon-",
+        "setting": "crayon-setting",
+        "selected": "crayon-setting-selected",
+        "changed": "crayon-setting-changed",
+        "special": "crayon-setting-special",
+        "orig_value": "data-orig-value",
+        "debug": ""
+      };
+      var CrayonSyntaxStrings = {
+        "copy": "\u4f7f\u7528 %s \u590d\u5236\uff0c\u4f7f\u7528 %s \u7c98\u8d34\u3002",
+        "minimize": "\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"
+      };
+      /* ]]&gt; */
+    </script>
+    <script type="text/javascript" src="./asset/dep/crayon-syntax-highlighter/js/min/crayon.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </body>
+</html>
