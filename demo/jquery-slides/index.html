@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  	<title>jQuery图片轮播 | 双鱼bizhongbio – 渡人渡己，前端开发技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  	<meta name="keywords" content="jQuery, 图片轮播">
+  	<meta name="description" content="jQuery，实现全屏响应式图片轮播。">
+    <link rel="shortcut icon" href="favicon.ico">
+  	<link rel="stylesheet" href="css/main.min.css">
+  </head>
+  <body>
+    <section id="search">
+    	<form id="searchform" method="get" action="http://www.bizhongbio.com/">
+        <input id="s" name="s" type="text" value="" autofocus="autofocus" placeholder="请输入关键字">
+        <input id="submit" type="submit" value="搜索">
+    	</form>
+    </section>
+    <header id="header">
+    	<a id="logo" href="https://bizhongbio.github.io/">双鱼bizhongbio</a>
+    	<nav id="nav">			
+    		<ul id="menu">
+    			<li><a href="#">首页</a></li>
+    			<li><a href="#">文章</a></li>
+    			<li><a href="#">前端</a></li>
+    			<li><a href="#">技术</a></li>
+    			<li><a href="#">作品</a></li>
+    			<li><a href="#">案例</a></li>
+    		</ul>
+    		<a id="bsearch" href="javascript:void(0)"></a>
+    		<button id="showmenu">
+          <span class="rung rung1"></span>
+          <span class="rung rung2"></span>
+          <span class="rung rung3"></span>
+        </button>
+    	</nav>
+    </header>
+    <article id="main">
+      <section id="showcase">
+      	<div id="sliders">
+      		<div class="sliders">
+  		    	<div class="slider slider1"></div>
+  		    	<div class="slider slider2"></div>
+  		    	<div class="slider slider3"></div>
+  		    	<div class="slider slider4"></div>
+  		    </div>
+  		    <ul class="switch"></ul>
+  	    </div>
+  	    <div id="headline">
+          <h1>磨砺 聚变</h1>
+          <p>没有伞的孩子，必须努力奔跑。</p>
+  	    </div>
+      </section>
+    </article>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#showmenu').click(function() {
+          $('#menu').toggle('slow', function() {
+            $('#showmenu').toggleClass('changemenu');
+          });
+        });
+
+        $('#bsearch').on('click', function() {
+          $('#search').slideToggle(1000);
+        });
+
+        var oSln = $('#sliders'),
+            oSlw = $('#sliders .sliders').children(),
+            oBul = oSln.children('.switch'),
+            oSli = oSlw.length,
+            i = 0;
+
+        oSlw.each(function() {
+          $('.switch').append('<li data-index="' + i + '"><a></a></li>').css('marginLeft', -oBul.width()/2);
+          i++;
+        });
+
+        function slider() {
+          oSlw.eq(i).fadeOut(1500);
+          i >= oSli - 1 ? i = 0 : i++;
+          oSlw.eq(i).fadeIn(1500);
+          oBul.children().eq(i).children('a').addClass('current').end().siblings().children('a').removeClass('current');
+        }
+
+        n = setInterval(slider, 6000);
+
+        oBul.on('click', 'li', function() {
+          var oswi = parseInt($(this).attr('data-index'));
+          oSlw.eq(oswi).fadeIn().siblings().fadeOut();
+          oBul.children().eq(oswi).children('a').addClass('current').end().siblings().children('a').removeClass('current');
+          clearInterval(n);
+          i = oswi;
+          n = setInterval(slider, 6000);
+        });
+      });
+    </script>
+  </body>
+</html>
