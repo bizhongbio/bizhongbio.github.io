@@ -111,7 +111,7 @@
             <p>如果你希望你的网站运行快速，从 <a href="http://www.ventureharbour.com/web-hosting-guide/" target="_blank">一个好的主机提供商</a> 和软件开始。</p>
             <h3>1.2 选择一个好的主题</h3>
             <p>不幸的是，不是所有的 WordPress 主题都是一样的。虽然有些是很快并且有着良好的编码，但其他的则以「多功能和可定制化」为幌子，因为花里胡哨的功能而臃肿不堪。</p>
-            <p>几年前，Synthesis 的 Julian Fernandes 做了一个有趣的研究案例，他把他的主题从 WordPress 默认主题更新为 Genesis Framework ，并监控网站速度。他注意到只是更改主题为 Genesis，他的载入速度从 630 毫秒提升到了 172 毫秒。</p>
+            <p>几年前，Synthesis 的 Julian Fernandes 做了一个有趣的研究案例，他把他的主题从 WordPress 默认主题更新为 Genesis Framework，并监控网站速度。他注意到只是更改主题为 Genesis，他的载入速度从 630 毫秒提升到了 172 毫秒。</p>
             <p>当你选择一个主题时，检查下主题演示的网页速度，使用诸如 Pingdom 的工具，来查看它在没有附加任何东西时的运行速度。这应该可以给你一个编码是否良好的参考。</p>
             <h3>1.3 使用一个内容分发网络 (Content Delivery Network)</h3>
             <p>如果一个网站使用内容分发网络 (CDN) ，带宽使用就会降低 55% 和网页载入速度就会有巨大的提升。</p>
@@ -121,14 +121,14 @@
             <p>现在我们的基础已经打好，我们可以开始微调我们的网站。</p>
             <p>开始加速网站的一个好方式是看有什么是可以去除的。很多时候，一个网站的缓慢并不是因为它缺什么，而是因为它已经有了。</p>
             <h3>2.1 找出正在拖慢你网站的插件</h3>
-            <p><strong>P3</strong>是我最喜欢的诊断插件之一，因为它会显示给你其他插件对网页载入时间的影响。这使得找出正在拖慢你的网站的插件变得十分简单。</p>
-            <p><a href="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-1.jpg"><img src="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-1.jpg" alt="speed-up-your-wordpress-website-1"></a></p>
+            <p><strong>P3</strong> 是我最喜欢的诊断插件之一，因为它会显示给你其他插件对网页载入时间的影响。这使得找出正在拖慢你的网站的插件变得十分简单。</p>
+            <p><a href="./article/speed-up-wordpress-website/speed-up-wordpress-website-1.jpg"><img src="./article/speed-up-wordpress-website/speed-up-wordpress-website-1.jpg" alt="speed-up-wordpress-website-1"></a></p>
             <p>一个常见的罪魁祸首是社交分享插件，其中大部分会导致页面载入时间肿胀，而且可以轻松的使用嵌入式社交按钮代替添加到主题源代码中。</p>
             <p>一旦你知道了是哪个插件在拖慢你的网站，你可以根据情况决定保留他们、替换他们或者完全删除他们。</p>
             <h3>2.2 压缩你的网站</h3>
-            <p>当你在电脑上压缩文件为 ZIP 格式，文件的总大小会减少，这使得发送给别人会更加容易和快速。<strong>Gzip</strong>有着完全一样的工作方式，只不过压缩的是你的网页文件。</p>
+            <p>当你在电脑上压缩文件为 ZIP 格式，文件的总大小会减少，这使得发送给别人会更加容易和快速。<strong>Gzip</strong> 有着完全一样的工作方式，只不过压缩的是你的网页文件。</p>
             <p>一旦安装完毕，Gzip 会自动压缩你的网站的文件为 ZIP 文件，节省带宽并加速页面载入时间。当一个用户访问你的网站，他们的浏览器会自动解压文件并显示其中的内容。这种从服务器传输内容到浏览器的方法更加有效和节省大量时间。</p>
-            <p><a href="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-2.jpg"><img src="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-2.jpg" alt="speed-up-your-wordpress-website-2"></a></p>
+            <p><a href="./article/speed-up-wordpress-website/speed-up-wordpress-website-2.jpg"><img src="./article/speed-up-wordpress-website/speed-up-wordpress-website-2.jpg" alt="speed-up-wordpress-website-2"></a></p>
             <p>安装 Gzip 几乎没有负面影响，而提升的速度却可能是相当的显著。正如上面的截图所示，MusicLawContracts.com 在安装 Gzip 后从原来的 68 KB 减少为了仅 13KB。</p>
             <p>虽然有些插件只需点一个按钮就能自动添加 Gzip 到你的网站，不过手动安装也是十分简单。打开你的 .htaccess 文件（在你的服务器根目录可以找到），并添加以下代码：</p>
             <!-- Crayon Syntax Highlighter v2.7.1 -->
@@ -185,7 +185,7 @@
             <p>一旦你添加了这段代码到 .htaccess 文件，通过运行 <a href="http://checkgzipcompression.com/" target="_blank">Check Gzip Compression</a>
             来测试 Gzip 是否开始工作。如果由于某种原因以上的代码不工作，尝试下 Patrick Sexton 在他的文章「<a href="http://www.feedthebot.com/pagespeed/enable-compression.html" target="_blank">启用 Gzip</a>」中介绍的另一种方法。</p>
             <h3>2.3 压缩图片</h3>
-            <p>图片占用了绝大多数网站的大部分带宽。<strong>WP Smush.it</strong>是另一个强大的插件，当你上传图片到媒体库时会自动压缩图片。所有的压缩都是「无损」的，这意味着你无须担心图片的质量会有任何变化。</p>
+            <p>图片占用了绝大多数网站的大部分带宽。<strong>WP Smush.it</strong> 是另一个强大的插件，当你上传图片到媒体库时会自动压缩图片。所有的压缩都是「无损」的，这意味着你无须担心图片的质量会有任何变化。</p>
             <p>WP Smush.it 有一个不错的地方在于它可以回溯工作。如果已经有上千张的图片保存在你的媒体库，你可以通过插件压缩所有图片来获得一个更易于管理的大小。</p>
             <h3>2.4 利用浏览器缓存</h3>
             <p>浏览器缓存是一个棘手的问题。有不少强大的插件可以使用，但是如果设置错误，他们会导致弊大于利。</p>
@@ -274,14 +274,14 @@
             </div>
             <!-- [Format Time: 0.0046 seconds] -->
             <h3>2.5 清理数据库</h3>
-            <p>经常使用 WordPress 自动保存功能，你的数据库会很快被上千的文章修订版、引用通知 (trackbacks, pingbacks)、待审评论和回收站项目填满。</p>
+            <p>经常使用 WordPress 自动保存功能，你的数据库会很快被上千的文章修订版、引用通知 (Trackbacks、Pingbacks)、待审评论和回收站项目填满。</p>
             <p>这个的解决方案是一个名为 <strong>WP-Optimize</strong> 的神奇插件，它会定期清理你的数据库垃圾，保持数据库高效并只保存那些需要存储的数据。当然，在你对数据库进行任何操作前，务必先备份。</p>
             <h3>2.6 压缩 CSS 和 JavaScript 文件</h3>
             <p>当你安装了不少插件后，也许你网站的每个页面都被引入了 10 到 20 个单独的样式表和 JavaScript 文件。这可不好。把所有的 JavaScript 合为一个 JavaScript 文件和所有的 CSS 合为一个 CSS 文件会卓有成效。</p>
             <p>接下来就是压缩了，诸如 <strong>Better WordPress Minify</strong> 这样的插件会合并所有样式表和 JavaScript 文件到一个文件，减少浏览器需要产生的请求数。</p>
             <p>我更喜欢 Better WordPress Minify，因为它做同一件事但没有一些其他插件那样激进（某些会导致问题，比如 <a href="http://www.smashingmagazine.com/2014/03/21/wordpress-performance-improvements-that-can-go-wrong/" target="_blank">Hristo Pandjarov outlines</a>）。</p>
             <h3>2.7 关掉 Pingbacks 和 Trackbacks</h3>
-            <p>Pingbacks 和 trackbacks 被 WordPress 用来通知其他博客你的文章被引用了。有趣的是，他们可能会消耗页面速度，通常建议关掉。你可以在「设置」菜单下的「讨论」标签中关掉他们。</p>
+            <p>Pingbacks 和 Trackbacks 被 WordPress 用来通知其他博客你的文章被引用了。有趣的是，他们可能会消耗页面速度，通常建议关掉。你可以在「设置」菜单下的「讨论」标签中关掉他们。</p>
             <h3>2.8 指定图片尺寸和字符集</h3>
             <p>在访客的浏览器可以显示你的网页之前，它需要计算出该如何布局在图片周围的内容。如果不知道这些图片的尺寸，浏览器必须计算出来，从而导致其工作更繁杂，需要更长的时间。</p>
             <p>指定图片尺寸可以让浏览器跳过这一步骤，加快执行效率。</p>
@@ -291,7 +291,7 @@
             <p>在大多数情况下，这个简单的操作通过强制文件下载的最优顺序来提升页面载入速度。但是这在严重依赖 JavaScript 和需要在用户看见页面之前就加载 JavaScript 文件的网站上可能会导致问题。</p>
             <h3>2.10 使用 CSS 雪碧图 (CSS Sprites)</h3>
             <p>雪碧图本质上是一个包含了所有独立图片相邻排列的大图。使用 CSS，你可以通过指定一组坐标来隐藏图片中任何你不需要的部分。因为加载一张大图比加载一堆小图快很多，所以 CSS 雪碧图可以加速网站。</p>
-            <p><a href="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-3.jpg"><img src="./article/speed-up-your-wordpress-website/speed-up-your-wordpress-website-3.jpg" alt="speed-up-your-wordpress-website-3"></a></p>
+            <p><a href="./article/speed-up-wordpress-website/speed-up-wordpress-website-3.jpg"><img src="./article/speed-up-wordpress-website/speed-up-wordpress-website-3.jpg" alt="speed-up-wordpress-website-3"></a></p>
             <p>最简单的方法是 <a href="http://spriteme.org/" target="_blank">SpriteMe</a>，一个可以把所有图片合并为一个 CSS 雪碧图的工具。请记住 Safari 不会加载过大的雪碧图。</p>
             <h3>2.11 启用 Keep Alive（持久连接）</h3>
             <p><strong>HTTP Keep Alive</strong> 涉及到客户机器和网络服务器之间请求下载文件权限发送的消息。启用 Keep Alive 允许客户机器下载多个文件而无须重复请求权限，因此节省带宽。</p>
@@ -369,7 +369,7 @@
               <li class="related-article">
                 <figure>
                   <a href="./article/wordpress-4-1-new-function/" target="_blank">
-                    <img src="./article/wordpress-website-automatic-ping/wordpress-4-1-new-function.jpg" alt="WordPress 4.1新增函数">
+                    <img src="./article/wordpress-4-1-new-function/wordpress-4-1-new-function.jpg" alt="WordPress 4.1新增函数">
                   </a>
                   <figcaption>
                     <a href="./article/wordpress-4-1-new-function/" title="WordPress 4.1新增函数" rel="bookmark">WordPress 4.1新增函数</a>
