@@ -217,7 +217,7 @@ $(function() {
     });
 
     // hash 值变化触发
-    $(window).on('hashchange', hashChange());
+    $(window).on('hashchange', hashChange);
   }
 
   // ------------------------------------------------------------------ 作品页面
