@@ -254,9 +254,9 @@ html {
 }
 #btn-nav,
 #btn-search {
+  display: none;
   position: relative;
   z-index: 7;
-  display: none;
   font-size: 1.5em;
   line-height: 2;
   color: #fff;
@@ -328,20 +328,20 @@ html {
 #searchform {
   float: right;
   margin-top: 9px;
-  background: #000;
   border: 1px solid #3f3f3f;
+  background: #000;
 }
 #cat-header #searchform {
-  background: #f2f2f2;
   border: 1px solid #e5e5e5;
+  background: #f2f2f2;
 }
 #s,
 .submit {
   float: left;
-  height: 28px;
-  background: 0 0;
   border: 0;
   border-radius: 0;
+  height: 28px;
+  background: 0 0;
 }
 #s {
   padding-left: 7px;
@@ -362,8 +362,8 @@ html {
   background: #f2f2f2;
 }
 #hero-slides {
-  position: relative;
   overflow: hidden;
+  position: relative;
   width: 100%;
   height: 567px;
 }
@@ -379,8 +379,8 @@ html {
   transition: left .6s ease-in-out;
 }
 .slide-link {
-  position: absolute;
   display: block;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -448,8 +448,8 @@ html {
 }
 .slides-nav {
   position: absolute;
-  left: 50%;
   bottom: 0;
+  left: 50%;
   margin-left: -56px;
   width: 112px;
 }
@@ -457,16 +457,16 @@ html {
   display: block;
   float: left;
   margin: 14px 8px;
+  border-radius: 50%;
   width: 12px;
   height: 12px;
-  border-radius: 50%;
   background: #000;
 }
 a.current {
+  border: 1px solid #000;
   width: 10px;
   height: 10px;
   background: 0 0;
-  border: 1px solid #000;
 }
 @media screen and (min-width: 1025px) {
   .slide-intro .slide-content {
@@ -613,8 +613,8 @@ a.current {
   margin: -8px;
 }
 .article {
-  position: relative;
   float: left;
+  position: relative;
   padding-bottom: 25%;
   width: 25%;
   height: 0;
@@ -627,24 +627,24 @@ a.current {
 }
 .article figcaption {
   position: absolute;
-  left: 8px;
   right: 8px;
   bottom: 7px;
+  left: 8px;
   padding: 12px;
   background: #fff;
 }
 .article figcaption:after {
   position: absolute;
-  left: 50%;
   bottom: 100%;
+  left: 50%;
   z-index: 1;
-  content: '';
   margin-left: -12px;
-  width: 0;
-  height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
   border-bottom: 12px solid #fff;
+  width: 0;
+  height: 0;
+  content: '';
 }
 .article a,
 .project a,
@@ -685,8 +685,11 @@ a.current {
   color: #999;
 }
 .article span i {
-  margin: 0 2px;
+  margin: 0 4px;
   color: #999;
+}
+.article span i:first-child {
+  margin-left: 0;
 }
 .article span a {
   display: inline;
@@ -804,15 +807,15 @@ a.current {
 .recent-comments h2,
 .recommended-posts h2 {
   margin-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
   padding-bottom: 8px;
   font-size: 1.25em;
   color: #333;
-  border-bottom: 1px solid #e5e5e5;
 }
 .recommended-posts li {
+  list-style: decimal-leading-zero inside none;
   padding: 4px 0;
   color: #0fae6f;
-  list-style: decimal-leading-zero inside none;
 }
 .recommended-posts a {
   color: #666;
@@ -836,6 +839,7 @@ a.current {
 }
 .comment-author {
   float: left;
+  border-radius: 50%;
   width: 38px;
   height: 38px;
   font-size: 1.125em;
@@ -843,7 +847,6 @@ a.current {
   text-align: center;
   color: #fff;
   background: #0fae6f;
-  border-radius: 50%;
 }
 .comment-main {
   margin-left: 46px;
@@ -911,19 +914,19 @@ a.current {
 }
 #article h3 {
   margin: 12px 0 12px -16px;
+  border-left: 4px solid #0fcc8d;
   padding-left: 12px;
   font-size: 1.0625em;
   line-height: 1.41177;
   color: #000;
-  border-left: 4px solid #0fcc8d;
 }
 #article h4 {
   margin: 8px 0 8px -16px;
+  border-left: 4px solid #0feaab;
   padding-left: 12px;
   font-size: 1em;
   line-height: 1.5;
   color: #000;
-  border-left: 4px solid #0feaab;
 }
 .article-content p,
 .article-content ul li,
@@ -942,8 +945,8 @@ a.current {
   padding-left: 16px;
 }
 .article-content ul li {
-  margin: 8px 0;
   list-style: disc outside none;
+  margin: 8px 0;
 }
 .article-copyright {
   font-size: .875em;
@@ -959,8 +962,8 @@ a.current {
 }
 .article-comment,
 .article-related {
-  padding: 0 16px 16px;
   border-top: 16px solid #f2f2f2;
+  padding: 0 16px 16px;
 }
 .related-articles {
   margin: -8px;
@@ -977,9 +980,9 @@ a.current {
 }
 .related-article figcaption {
   position: absolute;
-  left: 8px;
   right: 8px;
   bottom: 8px;
+  left: 8px;
   padding: 8px 0;
   background: #fff;
 }
@@ -993,12 +996,13 @@ a.current {
   margin: 0;
 }
 .comment {
-  padding: 8px 0;
   border-bottom: 1px solid #e5e5e5;
+  padding: 8px 0;
 }
 .author-face {
   float: left;
   margin-top: 5px;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   font-size: 1.125em;
@@ -1006,7 +1010,6 @@ a.current {
   text-align: center;
   color: #fff;
   background: #0fae6f;
-  border-radius: 50%;
 }
 .comment-content {
   margin-left: 48px;
@@ -1017,8 +1020,8 @@ a.current {
   margin-left: 48px;
 }
 .children .comment {
-  padding-bottom: 0;
   border-bottom: 0;
+  padding-bottom: 0;
 }
 .comment-meta {
   padding-left: 4px;
@@ -1040,16 +1043,16 @@ a.current {
 }
 .commentform input,
 .commentform textarea {
-  width: 100%;
   margin-bottom: 8px;
+  border: 1px solid #d7d7d7;
+  border-radius: 2px;
   padding: 8px 0;
+  width: 100%;
   font-size: 1em;
   line-height: 1.5;
   text-indent: 1em;
   color: #333;
   background: #fff;
-  border: 1px solid #d7d7d7;
-  border-radius: 2px;
 }
 .commentform input:focus,
 .commentform textarea:focus {
@@ -1060,14 +1063,14 @@ a.current {
 }
 #commentsubmit {
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   margin-bottom: 0;
+  border: 1px solid #0fae6f;
   padding-right: 1em;
   width: auto;
   line-height: 1.25;
   color: #0fae6f;
-  border: 1px solid #0fae6f;
   cursor: pointer;
 }
 #commentsubmit:hover {
@@ -1138,8 +1141,8 @@ a.current {
   color: #0fae6f;
 }
 .hero-video {
-  width: 100%;
   padding-bottom: 48px;
+  width: 100%;
   background: #000;
 }
 .hero-video-player {
@@ -1169,10 +1172,10 @@ a.current {
   background: #000;
 }
 .video span {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
-  display: block;
   margin-top: -2em;
   margin-left: -2em;
   width: 64px;
@@ -1275,10 +1278,10 @@ a.current {
   background: #fff;
 }
 .link {
-  width: 100%;
-  padding-bottom: 15px;
   margin-bottom: 16px;
   border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 15px;
+  width: 100%;
 }
 .link h2,
 .link li,
@@ -1314,16 +1317,15 @@ a.current {
   color: #0fae6f;
 }
 #go-top {
+  display: none;
   position: fixed;
   right: 46px;
   bottom: 46px;
   z-index: 5;
-  display: none;
   width: 40px;
   height: 40px;
   line-height: 2.5;
   text-align: center;
-  background: #000;
   background:rgba(0, 0, 0, .85);
 }
 #mask {
@@ -1333,8 +1335,6 @@ a.current {
   z-index: 5;
   width: 100%;
   height: 100%;
-}
-#mask {
   background: rgba(0, 0, 0, .85);
 }
 @media screen and (min-width: 1441px) {
@@ -1504,9 +1504,9 @@ a.current {
   }
   #header #menu-nav,
   #menu-cat-nav {
+    overflow: hidden;
     position: absolute;
     left: 0;
-    overflow: hidden;
     width: 100%;
     height: 0;
   }
@@ -1527,8 +1527,8 @@ a.current {
   }
   #searchform {
     position: absolute;
-    left: 0;
     right: 0;
+    left: 0;
     margin-top: 0;
     border: none;
   }
@@ -1610,9 +1610,9 @@ a.current {
   }
   #header #menu-nav,
   #menu-cat-nav {
+    overflow: hidden;
     position: absolute;
     left: 0;
-    overflow: hidden;
     width: 100%;
     height: 0;
   }
@@ -1637,8 +1637,8 @@ a.current {
   }
   #searchform {
     position: absolute;
-    left: 0;
     right: 0;
+    left: 0;
     margin-top: 0;
     border: none;
   }
@@ -1670,9 +1670,9 @@ a.current {
     font-size: 1.5em;
   }
   .article figcaption {
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
     padding: 16px;
   }
   #article,
@@ -1693,8 +1693,8 @@ a.current {
     width: 50%;
   }
   .work-current {
-    width: 224px;
     margin-left: -112px;
+    width: 224px;
   }
   .work figure {
     margin: 2px;
