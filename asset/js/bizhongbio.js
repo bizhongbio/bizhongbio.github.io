@@ -189,21 +189,20 @@ $(function() {
     // 设置 hash 值后显示对应分类目录文章
     var catId = 0;
     $(window).on('hashchange', function() {
-      console.log(location.hash);
       switch(location.hash) {
-        case 'frontend':
+        case '#frontend':
           catId = 0;
           break;
-        case 'backend':
+        case '#backend':
           catId = 1;
           break;
-        case 'mobile':
+        case '#mobile':
           catId = 2;
           break;
-        case 'design':
+        case '#design':
           catId = 3;
           break;
-        case 'other':
+        case '#other':
           catId = 4;
           break;
         default:
