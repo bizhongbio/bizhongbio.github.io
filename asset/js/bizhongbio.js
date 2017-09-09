@@ -172,12 +172,10 @@ $(function() {
   // 分类目录页面处理主函数
   function handleArticle() {
 
-    // 点击分类目录导航链接，显示对应分类目录文章
+    // 点击分类目录导航链接
     $('#menu-cat-nav li').each(function(i) {
       $(this).on('click', function() {
-        $(this).addClass('current-menu-item').siblings().removeClass('current-menu-item');
-        $('.posts').eq(i).show().siblings('.posts').hide();
-
+        
         // 浏览器当前窗口文档对象宽度低于 768 像素执行
         if ($(window).width() < 768) {
           $('#cat-header').toggleClass('show-nav');
@@ -186,6 +184,32 @@ $(function() {
           $('body, html').off('touchmove');
         }
       });
+    });
+
+    // 设置 hash 值后显示对应分类目录文章
+    var catId = 0;
+    $(window).on('hashchange', function() {
+      switch(location.hash) {
+        case 'frontend':
+          catId = 0;
+          break;
+        case 'backend':
+          catId = 1;
+          break;
+        case 'mobile':
+          catId = 2;
+          break;
+        case 'design':
+          catId = 3;
+          break;
+        case 'other':
+          catId = 4;
+          break;
+        default:
+          catId = 0;
+      }
+      $('#menu-cat-nav li:eq(' + catId + ')').addClass('current-menu-item').siblings().removeClass('current-menu-item');
+      $('.posts').eq(catId).show().siblings('.posts').hide();
     });
   }
 
