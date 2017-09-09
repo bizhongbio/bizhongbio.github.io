@@ -175,7 +175,7 @@ $(function() {
     // 点击分类目录导航链接
     $('#menu-cat-nav li').each(function(i) {
       $(this).on('click', function() {
-        
+
         // 浏览器当前窗口文档对象宽度低于 768 像素执行
         if ($(window).width() < 768) {
           $('#cat-header').toggleClass('show-nav');
@@ -189,6 +189,7 @@ $(function() {
     // 设置 hash 值后显示对应分类目录文章
     var catId = 0;
     $(window).on('hashchange', function() {
+      console.log(location.hash);
       switch(location.hash) {
         case 'frontend':
           catId = 0;
