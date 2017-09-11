@@ -55,7 +55,7 @@ $(function() {
   // 搜索框显示与隐藏 手机、平板端点击搜索按钮
   $('#btn-search').on('click', function() {
     var header = $('#header').length > 0 ? $('#header') : $('#cat-header'),
-        headerWidth = header.find('.header-content').width();
+        headerWidth = header.find('.header-content').innerWidth();
 
     $('#searchform').show();
     $('#s').css('width', (headerWidth - 32) + 'px').focus();
@@ -72,8 +72,8 @@ $(function() {
 
     // 隐藏搜索框 点击蒙层
     $('#mask').on('click', function() {
-      $('#searchform').hide();
-      $('#s').css('width', 'auto').blur();
+      $('#searchform').css('display', '');
+      $('#s').css('width', '').blur();
       $('#mask').hide();
       $('body, html').off('touchmove');
     });
