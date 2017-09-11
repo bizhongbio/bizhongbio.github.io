@@ -1,3 +1,18 @@
+/*
+Theme Name: Bizhongbio
+Theme URI: https://github.com/bizhongbio/bizhongbio
+Author: Bizhong Lan
+Author URI: https://bizhong.github.io/
+Description: Bizhongbio is a free, minimalistic, and responsive WordPress Blog Theme.
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, left-sidebar, accessibility-ready, custom-header, custom-menu, featured-images, flexible-header, microformats, threaded-comments, blog
+Text Domain: bizhongbio
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
 $(function() {
   var pageName = $(document.body).attr('id');// 页面名称
 
@@ -39,11 +54,11 @@ $(function() {
 
   // 搜索框显示与隐藏 手机、平板端点击搜索按钮
   $('#btn-search').on('click', function() {
-    var header = $('#header') || $('#cat-header'),
+    var header = $('#header').length > 0 ? $('#header') : $('#cat-header'),
         headerWidth = header.find('.header-content').width();
 
     $('#searchform').show();
-    $('#s').css('width', headerWidth + 'px').focus();
+    $('#s').css('width', (headerWidth - 32) + 'px').focus();
 
     // 判断页面是否存在蒙层元素 存在，显示；否则创建
     if ($('#mask').length > 0) {
@@ -69,14 +84,8 @@ $(function() {
     $(window).on('scroll', function() {
       if ($(this).scrollTop() > 32) {
         $('#cat-header').addClass('cat-header-fixed');
-        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
-          $('#menu-cat-nav').css('paddingTop', '48px');
-        }
       } else {
         $('#cat-header').removeClass('cat-header-fixed');
-        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
-          $('#menu-cat-nav').removeAttr('style');
-        }
       }
     });
   }
@@ -220,17 +229,18 @@ $(function() {
       hashChange();
     }
 
-    // 隐藏分类目录导航菜单 点击分类目录导航链接
-    $('#menu-cat-nav li').each(function(i) {
-      $(this).on('click', function() {
-        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
-          $('#cat-header').toggleClass('show-nav');
-          $('#btn-nav i').removeClass('fa-remove').addClass('fa-navicon');
-          $('#menu-cat-nav').removeAttr('style');
-          $('body, html').off('touchmove');
-        }
+    // 浏览器当前窗口文档对象宽度低于768像素执行
+    if ($(window).width() < 768) {
+      // 隐藏分类目录导航菜单 点击分类目录导航链接
+      $('#menu-cat-nav li').each(function(i) {
+        $(this).on('click', function() {
+            $('#cat-header').toggleClass('show-nav');
+            $('#btn-search').toggle();
+            $('#btn-nav i').removeClass('fa-remove').addClass('fa-navicon');
+            $('body, html').off('touchmove');
+        });
       });
-    });
+    }
 
     // hash 值变化触发
     $(window).on('hashchange', hashChange);
