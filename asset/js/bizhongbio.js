@@ -45,8 +45,8 @@ $(function() {
     $('#searchform').show();
     $('#s').css('width', headerWidth + 'px').focus();
 
-    // 判断是否有蒙层 有，显示；否则创建
-    if ($('#mask')) {
+    // 判断页面是否存在蒙层元素 存在，显示；否则创建
+    if ($('#mask').length > 0) {
       $('#mask').show();
     } else {
       $('<div id="mask"></div>').appendTo('body');
@@ -279,7 +279,7 @@ $(function() {
       // 当前点击的作品有 work-current 类，不可再次点击
       if (!self.hasClass('work-current')) {
         workLeft = self.css('left');
-        $('#mask').css('display', 'block');
+        $('#mask').show();
         $('body, html').scrollTop(self.offset().top);// 滚动条滚动到当前点击的作品距离文档的上方位置
         self.addClass('work-current').siblings().removeClass('work-current');
         self.css('left', '50%');
@@ -288,7 +288,7 @@ $(function() {
       // 退出 点击蒙层
       $('#mask').on('click', function() {
         self.removeClass('work-current').css('left', workLeft);
-        $('#mask').css('display', 'none');
+        $('#mask').hide();
       });
     });
   }
@@ -324,7 +324,7 @@ $(function() {
       // 当前点击的视频有 video-current 类，不可再次点击
       if (!self.hasClass('video-current')) {
         videoLeft = self.css('left');
-        $('#mask').css('display', 'block');
+        $('#mask').show();
         $('body, html').scrollTop(self.offset().top - videoHeight / 3);// 滚动条滚动到适当的位置
         self.addClass('video-current').siblings().removeClass('video-current');
         self.css('left', '50%');
@@ -333,7 +333,7 @@ $(function() {
 
       // 退出 点击蒙层
       $('#mask').on('click', function() {
-        $('#mask').css('display', 'none');
+        $('#mask').hide();
         self.removeClass('video-current').css('left', videoLeft);
         self.find('.video-player').removeAttr('controls');
       });
