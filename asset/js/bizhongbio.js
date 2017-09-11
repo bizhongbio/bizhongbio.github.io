@@ -54,11 +54,8 @@ $(function() {
 
   // 搜索框显示与隐藏 手机、平板端点击搜索按钮
   $('#btn-search').on('click', function() {
-    var header = $('#header').length > 0 ? $('#header') : $('#cat-header'),
-        headerWidth = header.find('.header-content').innerWidth();
-
     $('#searchform').show();
-    $('#s').css('width', (headerWidth - 32) + 'px').focus();
+    $('#s').focus();
 
     // 判断页面是否存在蒙层元素 存在，显示；否则创建
     if ($('#mask').length > 0) {
@@ -73,16 +70,18 @@ $(function() {
     // 隐藏搜索框 点击蒙层
     $('#mask').on('click', function() {
       $('#searchform').css('display', '');
-      $('#s').css('width', '').blur();
+      $('#s').blur();
       $('#mask').hide();
       $('body, html').off('touchmove');
     });
   });
 
-  // 分类目录头部固定 滚动条滚动32像素以上，分类目录头部固定；否则不固定
+  // 分类目录头部固定 滚动条滚动全局头部高度以上，分类目录头部固定；否则不固定
   function catHeaderFixed() {
+    var globalHeaderHeight = $('.global-header').height();
+
     $(window).on('scroll', function() {
-      if ($(this).scrollTop() > 32) {
+      if ($(this).scrollTop() > globalHeaderHeight) {
         $('#cat-header').addClass('cat-header-fixed');
       } else {
         $('#cat-header').removeClass('cat-header-fixed');
