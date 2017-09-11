@@ -1429,6 +1429,7 @@ a.current {
   }
   #searchform {
     position: absolute;
+    z-index: 8;
     margin-top: 0;
     border: none;
   }
@@ -1529,6 +1530,7 @@ a.current {
     position: absolute;
     right: 0;
     left: 0;
+    z-index: 8;
     margin-top: 0;
     border: none;
   }
@@ -1639,6 +1641,7 @@ a.current {
     position: absolute;
     right: 0;
     left: 0;
+    z-index: 8;
     margin-top: 0;
     border: none;
   }

@@ -18,16 +18,14 @@ $(function() {
     case 'page-video':// 视频页面
       handleVideo();
       break;
-    default:// 匹配不存在
-      console.log('Nothing to do.');
   }
 
   // ------------------------------------------------------------------ 公共
   
-  // 手机端点击汉堡菜单链接，导航菜单显示与隐藏
+  // 导航菜单显示与隐藏 手机端点击汉堡菜单按钮
   $('#btn-nav').on('click', function() {
     $('#header, #cat-header').toggleClass('show-nav');
-
+    $('#btn-search').toggle();
     if ($('#header, #cat-header').hasClass('show-nav')) {
       $('#btn-nav i').removeClass('fa-navicon').addClass('fa-remove');
       $('body, html').on('touchmove', function(event) {
@@ -39,30 +37,51 @@ $(function() {
     }
   });
 
-  // 分类目录页面、文章页面、搜索页面、标签页面 分类目录头部固定
-  function catHeaderFixed() {
+  // 搜索框显示与隐藏 手机、平板端点击搜索按钮
+  $('#btn-search').on('click', function() {
+    var header = $('#header') || $('#cat-header'),
+        headerWidth = header.find('.header-content').width();
 
-    // 分类目录头部固定 滚动条距顶部 32 像素以上，分类目录头部固定，否则不固定
+    $('#searchform').show();
+    $('#s').css('width', headerWidth + 'px').focus();
+
+    // 判断是否有蒙层 有，显示；否则创建
+    if ($('#mask')) {
+      $('#mask').show();
+    } else {
+      $('<div id="mask"></div>').appendTo('body');
+    }
+    $('body, html').on('touchmove', function(event) {
+      event.preventDefault();
+    });
+
+    // 隐藏搜索框 点击蒙层
+    $('#mask').on('click', function() {
+      $('#searchform').hide();
+      $('#s').css('width', 'auto').blur();
+      $('#mask').hide();
+      $('body, html').off('touchmove');
+    });
+  });
+
+  // 分类目录头部固定 滚动条滚动32像素以上，分类目录头部固定；否则不固定
+  function catHeaderFixed() {
     $(window).on('scroll', function() {
       if ($(this).scrollTop() > 32) {
         $('#cat-header').addClass('cat-header-fixed');
-
-        // 浏览器当前窗口文档对象宽度低于 768 像素执行
-        if ($(window).width() < 768) {
+        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
           $('#menu-cat-nav').css('paddingTop', '48px');
         }
       } else {
         $('#cat-header').removeClass('cat-header-fixed');
-
-        // 浏览器当前窗口文档对象宽度低于 768 像素执行
-        if ($(window).width() < 768) {
-          $('#menu-cat-nav').removeAttr("style");
+        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
+          $('#menu-cat-nav').removeAttr('style');
         }
       }
     });
   }
 
-  // 返回顶部 滚动条距顶部 600 像素以上，返回顶部链接出现，否则隐藏
+  // 返回顶部按钮显示与隐藏 滚动条滚动600像素以上，返回顶部按钮出现；否则隐藏
   $(window).on('scroll', function() {
     if ($(this).scrollTop() > 600) {
       $('#go-top').fadeIn(300);
@@ -71,7 +90,7 @@ $(function() {
     }
   });
 
-  // 返回顶部 点击返回顶部链接，返回顶部
+  // 返回顶部 点击返回顶部按钮
   $('#go-top').on('click', function(event) {
     $('body, html').animate({'scrollTop': '0'}, 600);
     event.preventDefault();
@@ -88,19 +107,19 @@ $(function() {
         endPosition = {},// 结束位置
         isScrolling = -1; // 判断是水平滚动还是垂直滚动
 
-    // 轮播图自动切换
+    // 切换轮播图
     function slidesAnimation() {
       $('#hero-slides .slide').each(function(i) {
         $(this).eq(slideIndex).css('left', '0%').end().not(slideIndex).css('left', (-(slideIndex - i) * 100) + '%');
         $('.slides-nav a').eq(slideIndex).addClass('current').siblings().removeClass('current');
       });
-
       slideIndex >= len - 1 ? slideIndex = 0 : slideIndex++;
     }
 
+    // 切换轮播图 自动
     timer = setInterval(slidesAnimation, 6000);
 
-    // 点击轮播图导航菜单，切换轮播图
+    // 切换轮播图 点击轮播图导航菜单
     $('.slides-nav a').each(function() {
       $(this).on('click', function(event) {
         clearInterval(timer);
@@ -110,7 +129,7 @@ $(function() {
       });
     });
 
-    // 按下键盘左右方向键，切换轮播图
+    // 切换轮播图 按下键盘左右方向键
     $(document).on('keydown', function(event) {
       switch(event.keyCode) {
         case 37:// 左方向键
@@ -125,9 +144,8 @@ $(function() {
       }
     });
 
-    // 触屏设备左右滑动，切换轮播图
-
-    // 滑动开始
+    // 切换轮播图 触屏设备左右滑动
+    // - 滑动开始
     $('#hero-slides').on('touchstart', function(event) {
       var touch = event.targetTouches[0];
       startPosition = {
@@ -136,7 +154,7 @@ $(function() {
       };
     });
 
-    // 滑动
+    // - 滑动
     $('#hero-slides').on('touchmove', function(event) {
       if (event.targetTouches.length === 1) {
         var touch = event.targetTouches[0];
@@ -145,14 +163,13 @@ $(function() {
           y: touch.pageY - startPosition.y
         };
         isScrolling = Math.abs(endPosition.x) > Math.abs(endPosition.y) ? 0 : 1;// 0：水平滚动，1：垂直滚动
-
         if (isScrolling === 0) {// 水平滚动
           event.preventDefault();
         }
       }
     });
 
-    // 滑动释放
+    // - 滑动释放
     $('#hero-slides').on('touchend', function(event) {
       if (isScrolling === 0) {// 水平滚动
         if (endPosition.x > 10) {// 右滑
@@ -198,19 +215,18 @@ $(function() {
       $('.posts').eq(catId).show().siblings('.posts').hide();
     }
 
+    // 地址栏有 hash 值执行
     if (location.hash) {
       hashChange();
     }
 
-    // 点击分类目录导航链接
+    // 隐藏分类目录导航菜单 点击分类目录导航链接
     $('#menu-cat-nav li').each(function(i) {
       $(this).on('click', function() {
-
-        // 浏览器当前窗口文档对象宽度低于 768 像素执行
-        if ($(window).width() < 768) {
+        if ($(window).width() < 768) {// 浏览器当前窗口文档对象宽度低于 768 像素执行
           $('#cat-header').toggleClass('show-nav');
           $('#btn-nav i').removeClass('fa-remove').addClass('fa-navicon');
-          $('#menu-cat-nav').removeAttr("style");
+          $('#menu-cat-nav').removeAttr('style');
           $('body, html').off('touchmove');
         }
       });
@@ -245,7 +261,6 @@ $(function() {
             columnIndex = j;
           }
         });
-
         $(this).css({
           'position': 'absolute',
           'top': columnMinHeight + 'px',
@@ -254,7 +269,6 @@ $(function() {
         columnsHeight[columnIndex] += $(this).height();
       }
     });
-
     $('#works').css({'height': Math.max.apply(null, columnsHeight) + 'px'});
 
     // 作品点击放大图片
@@ -265,15 +279,13 @@ $(function() {
       // 当前点击的作品有 work-current 类，不可再次点击
       if (!self.hasClass('work-current')) {
         workLeft = self.css('left');
-
         $('#mask').css('display', 'block');
         $('body, html').scrollTop(self.offset().top);// 滚动条滚动到当前点击的作品距离文档的上方位置
-
         self.addClass('work-current').siblings().removeClass('work-current');
         self.css('left', '50%');
       }
 
-      // 蒙版点击退出
+      // 退出 点击蒙层
       $('#mask').on('click', function() {
         self.removeClass('work-current').css('left', workLeft);
         $('#mask').css('display', 'none');
@@ -298,12 +310,10 @@ $(function() {
         'top': videoTop + 'px',
         'left': (i % 2 === 0 ? '0px' : videoWidth + 'px')
       });
-
       if (videoCount % 2 === 0) {
         videoTop += videoHeight;
       }
     });
-
     $('#videos').css({'height': (videoHeight * $('#videos .video').length / 2 + 42) + 'px'});
 
     // 视频点击播放
@@ -314,16 +324,14 @@ $(function() {
       // 当前点击的视频有 video-current 类，不可再次点击
       if (!self.hasClass('video-current')) {
         videoLeft = self.css('left');
-
         $('#mask').css('display', 'block');
         $('body, html').scrollTop(self.offset().top - videoHeight / 3);// 滚动条滚动到适当的位置
-
         self.addClass('video-current').siblings().removeClass('video-current');
         self.css('left', '50%');
         self.find('.video-player').attr('controls', 'controls');
       }
 
-      // 蒙版点击退出
+      // 退出 点击蒙层
       $('#mask').on('click', function() {
         $('#mask').css('display', 'none');
         self.removeClass('video-current').css('left', videoLeft);
