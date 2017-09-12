@@ -7,7 +7,7 @@ Description: Bizhongbio is a free, minimalistic, and responsive WordPress Blog T
 Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, left-sidebar, accessibility-ready, custom-header, custom-menu, featured-images, flexible-header, microformats, threaded-comments, blog
+Tags: blog, one-column, two-columns, left-sidebar, custom-header, custom-menu, featured-images, flexible-header, full-width-template, microformats, threaded-comments
 Text Domain: bizhongbio
 
 This theme, like WordPress, is licensed under the GPL.
@@ -21,7 +21,10 @@ $(function() {
       handleHome();
       break;
     case 'category':// 分类目录页面
-      handleArticle();
+      handleCategory();
+    case 'single':// 文章页面
+    case 'search':// 搜索页面
+    case 'tag':// 标签页面
       catHeaderFixed();
       break;
     case 'page-work':// 作品页面
@@ -54,12 +57,12 @@ $(function() {
 
   // 搜索框显示与隐藏 手机、平板端点击搜索按钮
   $('#btn-search').on('click', function() {
-    $('#searchform').show();
+    $('#searchform').show(300);
     $('#s').focus();
 
     // 判断页面是否存在蒙层元素 存在，显示；否则创建
     if ($('#mask').length > 0) {
-      $('#mask').show();
+      $('#mask').show(300);
     } else {
       $('<div id="mask"></div>').appendTo('body');
     }
@@ -71,7 +74,7 @@ $(function() {
     $('#mask').on('click', function() {
       $('#searchform').css('display', '');
       $('#s').blur();
-      $('#mask').hide();
+      $('#mask').hide(150);
       $('body, html').off('touchmove');
     });
   });
@@ -195,7 +198,7 @@ $(function() {
   // ------------------------------------------------------------------ 分类目录页面
 
   // 分类目录页面处理主函数
-  function handleArticle() {
+  function handleCategory() {
     var catId = 0;
 
     // 设置 hash 值后显示对应分类目录文章
@@ -288,7 +291,7 @@ $(function() {
       // 当前点击的作品有 work-current 类，不可再次点击
       if (!self.hasClass('work-current')) {
         workLeft = self.css('left');
-        $('#mask').show();
+        $('#mask').show(300);
         $('body, html').scrollTop(self.offset().top);// 滚动条滚动到当前点击的作品距离文档的上方位置
         self.addClass('work-current').siblings().removeClass('work-current');
         self.css('left', '50%');
@@ -297,7 +300,7 @@ $(function() {
       // 退出 点击蒙层
       $('#mask').on('click', function() {
         self.removeClass('work-current').css('left', workLeft);
-        $('#mask').hide();
+        $('#mask').hide(150);
       });
     });
   }
@@ -333,7 +336,7 @@ $(function() {
       // 当前点击的视频有 video-current 类，不可再次点击
       if (!self.hasClass('video-current')) {
         videoLeft = self.css('left');
-        $('#mask').show();
+        $('#mask').show(300);
         $('body, html').scrollTop(self.offset().top - videoHeight / 3);// 滚动条滚动到适当的位置
         self.addClass('video-current').siblings().removeClass('video-current');
         self.css('left', '50%');
@@ -342,7 +345,7 @@ $(function() {
 
       // 退出 点击蒙层
       $('#mask').on('click', function() {
-        $('#mask').hide();
+        $('#mask').hide(150);
         self.removeClass('video-current').css('left', videoLeft);
         self.find('.video-player').removeAttr('controls');
       });
