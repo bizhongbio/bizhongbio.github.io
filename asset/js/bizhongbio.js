@@ -57,12 +57,12 @@ $(function() {
 
   // 搜索框显示与隐藏 手机、平板端点击搜索按钮
   $('#btn-search').on('click', function() {
-    $('#searchform').show(300);
+    $('#searchform').fadeIn(300);
     $('#s').focus();
 
     // 判断页面是否存在蒙层元素 存在，显示；否则创建
     if ($('#mask').length > 0) {
-      $('#mask').show(300);
+      $('#mask').fadeIn(300);
     } else {
       $('<div id="mask"></div>').appendTo('body');
     }
@@ -74,7 +74,7 @@ $(function() {
     $('#mask').on('click', function() {
       $('#searchform').css('display', '');
       $('#s').blur();
-      $('#mask').hide(150);
+      $('#mask').fadeOut(150);
       $('body, html').off('touchmove');
     });
   });
@@ -97,7 +97,7 @@ $(function() {
     if ($(this).scrollTop() > 600) {
       $('#go-top').fadeIn(300);
     } else {
-      $('#go-top').fadeOut(300);
+      $('#go-top').fadeOut(150);
     }
   });
 
@@ -291,7 +291,7 @@ $(function() {
       // 当前点击的作品有 work-current 类，不可再次点击
       if (!self.hasClass('work-current')) {
         workLeft = self.css('left');
-        $('#mask').show(300);
+        $('#mask').fadeIn(300);
         $('body, html').scrollTop(self.offset().top);// 滚动条滚动到当前点击的作品距离文档的上方位置
         self.addClass('work-current').siblings().removeClass('work-current');
         self.css('left', '50%');
@@ -300,7 +300,7 @@ $(function() {
       // 退出 点击蒙层
       $('#mask').on('click', function() {
         self.removeClass('work-current').css('left', workLeft);
-        $('#mask').hide(150);
+        $('#mask').fadeOut(150);
       });
     });
   }
@@ -336,7 +336,7 @@ $(function() {
       // 当前点击的视频有 video-current 类，不可再次点击
       if (!self.hasClass('video-current')) {
         videoLeft = self.css('left');
-        $('#mask').show(300);
+        $('#mask').fadeIn(300);
         $('body, html').scrollTop(self.offset().top - videoHeight / 3);// 滚动条滚动到适当的位置
         self.addClass('video-current').siblings().removeClass('video-current');
         self.css('left', '50%');
@@ -345,7 +345,7 @@ $(function() {
 
       // 退出 点击蒙层
       $('#mask').on('click', function() {
-        $('#mask').hide(150);
+        $('#mask').fadeOut(150);
         self.removeClass('video-current').css('left', videoLeft);
         self.find('.video-player').removeAttr('controls');
       });
