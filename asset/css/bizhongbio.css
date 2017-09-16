@@ -310,19 +310,21 @@ html {
 .cat-nav li.current-menu-item a,
 .slide-work h3,
 .slide-video h3,
-.article:hover h2 a,
+.article figure:hover h2 a,
 .headline h2 strong,
 .post h2 a:hover,
-.post span a:hover,
 .post span:nth-child(3):hover i,
 .post span:nth-child(5):hover i,
+.post span a:hover,
 .post p a,
 .recommended-posts li:hover a,
 .recent-comments li:hover a,
+.article-header span:nth-child(4):hover i,
+.article-header span:nth-child(6):hover i,
 .article-header span a:hover,
-.project:hover h2,
-.work h2,
-.video:hover i,
+.project a:hover h2,
+.work figure:hover h2,
+.video figure:hover i,
 .link li a:hover,
 .copyright p a:hover {
   color: #0fae6f;
@@ -1383,6 +1385,17 @@ a.current {
   #hero-slides {
     height: 468px;
   }
+  .hero-error {
+    height: 736px;
+  }
+  .hero-error-content {
+    height: calc(100% - 24px);
+    background-position: bottom center;
+  }
+  .hero-error-content h2 {
+    top: 24px;
+    margin-top: 0;
+  }
   #articles,
   #projects,
   .works {
@@ -1491,6 +1504,19 @@ a.current {
   }
   .slide-project .slide-content {
     margin: 0 16px;
+  }
+  .hero-error {
+    height: 520px;
+  }
+  .hero-error-content {
+    height: calc(100% - 16px);
+    background-position: bottom center;
+    background-size: 65% auto;
+  }
+  .hero-error-content h2 {
+    top: 16px;
+    left: 16px;
+    margin-top: 0;
   }
   #articles {
     padding: 16px 8px;
@@ -1613,6 +1639,19 @@ a.current {
   }
   #hero-slides {
     height: 369px;
+  }
+  .hero-error {
+    height: 468px;
+  }
+  .hero-error-content {
+    height: calc(100% - 16px);
+    background-position: bottom center;
+    background-size: calc(100% - 32px) auto;
+  }
+  .hero-error-content h2 {
+    top: 16px;
+    left: 16px;
+    margin-top: 0;
   }
   #articles,
   #projects {
