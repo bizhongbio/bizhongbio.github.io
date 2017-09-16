@@ -241,8 +241,7 @@ html {
 .cat-nav ul,
 .cat-nav ul li,
 .link h2,
-.link ul,
-.link li {
+.link ul {
   float: left;
 }
 #btn-nav,
@@ -1227,20 +1226,26 @@ a.current {
 .link {
   margin-bottom: 16px;
   border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 15px;
+  padding-bottom: 16px;
   width: 100%;
 }
 .link h2 {
-  padding-right: 12px;
+  padding-right: 16px;
   font-size: 1em;
   color: #000;
 }
-.link li a {
-  padding-right: 12px;
-  font-size: .875em;
-  line-height: 1;
+.link ul {
+  font-size: 0;
   word-wrap: break-word;
   word-break: break-all;
+}
+.link ul li {
+  display: inline-block;
+  padding-right: 16px;
+}
+.link li a {
+  font-size: .875em;
+  line-height: 1;
   color: #999;
 }
 .copyright {
