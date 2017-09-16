@@ -326,7 +326,7 @@ $(function() {
         videoTop += videoHeight;
       }
     });
-    $('#videos').css({'height': (videoHeight * $('#videos .video').length / 2 + 42) + 'px'});
+    $('#videos').css({'height': (videoHeight * $('#videos .video').length / 2) + 'px'});
 
     // 视频点击播放
     $('#videos .video').on('click', function(i) {
