@@ -217,12 +217,9 @@ html {
 .header-content,
 .slide-content,
 .hero-error-content,
-#articles,
 .content,
-#projects,
-.works,
 .hero-video-content,
-.videos,
+.more-videos,
 .footer-content {
   margin: 0 auto;
   width: 1008px;
@@ -600,27 +597,15 @@ a.current {
   clear: both;
 }
 #articles,
-.videos {
-  padding: 32px 0;
-}
-.content,
-#projects,
-.works,
-.footer-content {
-  padding: 16px 0;
-}
-#articles,
 #projects,
 .works,
 .videos {
-  overflow-x: hidden;
+  margin: 0 auto;
+  padding: 8px 0;
+  width: 1024px;
 }
-.articles,
-.related-articles,
-.projects,
-#works,
-#videos {
-  margin: -8px;
+#articles {
+  padding: 24px 0;
 }
 .article {
   float: left;
@@ -655,7 +640,7 @@ a.current {
   border-left: 12px solid transparent;
   width: 0;
   height: 0;
-  content: '';
+  content: "";
 }
 .article a,
 .project a,
@@ -730,6 +715,10 @@ a.current {
   display: none;
   font-size: 2em;
 }
+.content,
+.footer-content {
+  padding: 16px 0;
+}
 .posts,
 #article {
   float: right;
@@ -739,20 +728,22 @@ a.current {
   float: right;
   width: 288px;
 }
-.headline,
-.post {
+.headline {
   margin-bottom: 16px;
+  padding: 10px 16px;
   word-wrap: break-word;
   word-break: break-all;
   background: #fff;
 }
-.headline {
-  padding: 8px 16px;
-}
-.post,
-.article-header,
-.article-copyright {
+.post {
+  margin-top: 16px;
   padding: 16px;
+  word-wrap: break-word;
+  word-break: break-all;
+  background: #fff;
+}
+.post:first-child {
+  margin-top: 0;
 }
 .post h2 {
   margin-bottom: 8px;
@@ -794,6 +785,10 @@ a.current {
 .more-videos a:hover,
 .about p a:hover {
   text-decoration: underline;
+}
+.article-header,
+.article-copyright {
+  padding: 16px;
 }
 .article-header h1 {
   margin-bottom: 16px;
@@ -876,6 +871,12 @@ a.current {
 .article-comment {
   border-top: 16px solid #f2f2f2;
   padding: 0 16px 16px;
+}
+.related-articles {
+  margin: -8px;
+}
+.related-articles p {
+  margin: 20px 8px 8px;
 }
 .related-article {
   position: relative;
@@ -1034,6 +1035,9 @@ a.current {
   line-height: 1.14286;
   color: #999;
 }
+.recent-comments {
+  margin: 0 16px 0 0;
+}
 .recent-comments li {
   padding: 8px 0;
 }
@@ -1078,7 +1082,7 @@ a.current {
 }
 #works {
   position: relative;
-  min-height: 1008px;
+  height: 825px;
 }
 .work {
   float: left;
@@ -1095,7 +1099,7 @@ a.current {
   cursor: pointer;
 }
 .hero-video {
-  padding-bottom: 48px;
+  padding-bottom: 32px;
   width: 100%;
   background: #000;
 }
@@ -1105,7 +1109,7 @@ a.current {
 }
 #videos {
   position: relative;
-  min-height: 820px;
+  height: 778px;
 }
 .video {
   float: left;
@@ -1158,13 +1162,12 @@ a.current {
 }
 .more-videos {
   margin: 0 auto;
-  padding-bottom: 74px;
-  width: 1008px;
+  padding-bottom: 64px;
 }
 .more-videos a {
   display: block;
   margin: 0 auto;
-  padding-left: 148px;
+  padding-left: 160px;
   width: 160px;
   height: 50px;
   line-height: 3.125;
@@ -1263,7 +1266,7 @@ a.current {
   z-index: 5;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, .5);
 }
 @media screen and (min-width: 1441px) {
   #header,
@@ -1272,12 +1275,9 @@ a.current {
   }
   .header-content,
   .slide-content,
-  #articles,
+  .hero-error-content,
   .content,
-  #projects,
-  .works,
   .hero-video-content,
-  .videos,
   .more-videos,
   .footer-content {
     width: 1184px;
@@ -1304,6 +1304,12 @@ a.current {
   }
   #hero-slides {
     height: 666px;
+  }
+  #articles,
+  #projects,
+  .works,
+  .videos {
+    width: 1200px;
   }
   .posts,
   #article {
@@ -1334,12 +1340,10 @@ a.current {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .header-content,
   .slide-content,
-  #articles,
+  .hero-error-content,
   .content,
-  #projects,
-  .works,
   .footer-content {
-    max-width: 736px;
+    width: 736px;
   }
   #btn-search {
     display: block;
@@ -1356,7 +1360,7 @@ a.current {
     z-index: 8;
     margin: 0 auto;
     border: 0;
-    max-width: 736px;
+    width: 736px;
     background: #000;
   }
   #cat-header #searchform {
@@ -1371,6 +1375,14 @@ a.current {
   #hero-slides {
     height: 468px;
   }
+  #articles,
+  #projects,
+  .works {
+    width: 752px;
+  }
+  #articles {
+    padding: 16px 0;
+  }
   .article {
     padding-bottom: 33.333333%;
     width: 33.333333%;
@@ -1382,18 +1394,12 @@ a.current {
   .project {
     width: 50%;
   }
-  #works {
-    margin: -4px;
-  }
   .work {
     width: 33.333333%;
   }
   .work-current {
     margin-left: -280px;
     width: 560px;
-  }
-  .work figure {
-    margin: 4px;
   }
   .link h2 {
     margin-bottom: 8px;
@@ -1408,6 +1414,7 @@ a.current {
 @media screen and (min-width: 415px) and (max-width: 767px) {
   .header-content,
   .slide-content,
+  .hero-error-content,
   #articles,
   .content,
   #projects,
@@ -1477,25 +1484,29 @@ a.current {
   .slide-project .slide-content {
     margin: 0 16px;
   }
-  #articles,
-  #projects,
-  .works,
-  .footer-content {
-    padding: 16px;
+  #articles {
+    padding: 16px 8px;
   }
   .article {
     padding-bottom: 50%;
     width: 50%;
   }
+  .load-more,
+  .footer-content {
+    padding: 16px;
+  }
   .posts,
   #article {
     width: 100%;
   }
+  #projects {
+    padding: 8px;
+  }
   .project {
     width: 50%;
   }
-  #works {
-    margin: -4px;
+  .works {
+    padding: 8px 12px;
   }
   .work {
     width: 33.333333%;
@@ -1520,6 +1531,7 @@ a.current {
 @media screen and (max-width: 414px) {
   .header-content,
   .slide-content,
+  .hero-error-content,
   #articles,
   .content,
   #projects,
@@ -1591,20 +1603,21 @@ a.current {
     height: 369px;
   }
   #articles,
-  .load-more,
   #projects {
-    padding: 16px 0;
-  }
-  .articles,
-  .article figure,
-  .projects,
-  .project figure {
-    margin: 0;
+    padding: 8px 0;
   }
   .article {
-    margin-bottom: 16px;
+    margin-top: 16px;
     padding-bottom: 100%;
     width: 100%;
+  }
+  .article:first-child,
+  .project:first-child {
+    margin-top: 0;
+  }
+  .article figure,
+  .project figure {
+    margin: 0;
   }
   .article h2 {
     font-size: 1.5em;
@@ -1615,19 +1628,23 @@ a.current {
     left: 0;
     padding: 16px;
   }
-  .posts,
-  #article,
-  .project {
-    width: 100%;
-  }
+  .load-more,
   .project figcaption,
   .works,
   .work figcaption,
   .footer-content {
     padding: 16px;
   }
-  #works {
-    margin: -2px;
+  .posts,
+  .project,
+  #article {
+    width: 100%;
+  }
+  .project {
+    margin-top: 16px;
+  }
+  .works {
+    padding: 8px 14px;
   }
   .work {
     width: 50%;
