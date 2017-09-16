@@ -1319,6 +1319,10 @@ a.current {
   #article {
     width: 832px;
   }
+  .related-article {
+    padding-bottom: 20%;
+    width: 20%;
+  }
   .sidebar {
     width: 352px;
   }
@@ -1502,6 +1506,10 @@ a.current {
   .posts,
   #article {
     width: 100%;
+  }
+  .related-article {
+    padding-bottom: 33.333333%;
+    width: 33.333333%;
   }
   #projects {
     padding: 8px;
