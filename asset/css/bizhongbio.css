@@ -891,15 +891,17 @@ a.current {
   right: 8px;
   bottom: 8px;
   left: 8px;
-  padding: 8px 0;
+  padding-top: 8px;
   background: #fff;
 }
 .related-article figcaption a,
-.project h2 {
+.project h2,
+.work h2 {
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
-  text-overflow: clip;
+  text-overflow: ellipsis;
+  word-break: keep-all;
 }
 .prompt p,
 .work.work-current figure,
