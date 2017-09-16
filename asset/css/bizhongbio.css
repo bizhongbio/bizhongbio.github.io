@@ -241,7 +241,8 @@ html {
 .cat-nav ul,
 .cat-nav ul li,
 .link h2,
-.link ul {
+.link ul,
+.link li {
   float: left;
 }
 #btn-nav,
@@ -1234,16 +1235,8 @@ a.current {
   font-size: 1em;
   color: #000;
 }
-.link ul {
-  font-size: 0;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-.link ul li {
-  display: inline-block;
-  padding-right: 16px;
-}
 .link li a {
+  margin-right: 12px;
   font-size: .875em;
   line-height: 1;
   color: #999;
