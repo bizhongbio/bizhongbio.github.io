@@ -692,7 +692,8 @@ a.current {
 .post:hover,
 .project figure:hover,
 .work figure:hover,
-.video figure:hover {
+.video figure:hover,
+#go-top:hover {
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
   -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
@@ -701,12 +702,13 @@ a.current {
 }
 .load-more {
   float: left;
-  padding: 32px 0;
+  margin-top: 8px;
   width: 100%;
+  text-align: center;
 }
 .load-more a {
-  display: block;
-  text-align: center;
+  display: inline-block;
+  padding: 16px 32px;
   color: #0fae6f;
 }
 .load-more a i {
@@ -874,7 +876,7 @@ a.current {
   margin: -8px;
 }
 .related-articles p {
-  margin: 20px 8px 8px;
+  margin: 8px;
 }
 .related-article {
   position: relative;
@@ -948,7 +950,7 @@ a.current {
   padding-bottom: 42px;
 }
 .commentform p {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .commentform input,
 .commentform textarea {
@@ -1195,12 +1197,12 @@ a.current {
   text-align: center;
   color: #666;
 }
-.aboutme {
+.avatar {
   margin-top: 48px;
   padding: 48px 0;
   background: #0fae6f;
 }
-.aboutme img {
+.avatar img {
   display: block;
   margin: 0 auto;
   width: 240px;
@@ -1240,7 +1242,7 @@ a.current {
   color: #000;
 }
 .link li a {
-  margin-right: 12px;
+  margin-right: 16px;
   font-size: .875em;
   line-height: 1;
   color: #999;
@@ -1248,6 +1250,7 @@ a.current {
 .copyright {
   width: 100%;
   font-size: .875em;
+  line-height: 1.5;
   color: #999;
 }
 .copyright p {
@@ -1256,8 +1259,8 @@ a.current {
 #go-top {
   display: none;
   position: fixed;
-  right: 46px;
-  bottom: 46px;
+  right: 54px;
+  bottom: 54px;
   z-index: 5;
   width: 40px;
   height: 40px;
@@ -1454,9 +1457,10 @@ a.current {
   }
   .logo {
     position: absolute;
-    left: 50%;
+    right: 72px;
+    left: 72px;
     z-index: 7;
-    margin-left: -83.91px;
+    text-align: center;
   }
   #header #menu-nav,
   #menu-cat-nav {
@@ -1525,9 +1529,8 @@ a.current {
     padding-bottom: 50%;
     width: 50%;
   }
-  .load-more,
-  .footer-content {
-    padding: 16px;
+  .load-more a {
+    padding: 8px 16px;
   }
   .posts,
   #article {
@@ -1555,6 +1558,9 @@ a.current {
   }
   .work figure {
     margin: 4px;
+  }
+  .footer-content {
+    padding: 16px;
   }
   .link h2 {
     margin-bottom: 8px;
@@ -1588,9 +1594,10 @@ a.current {
   }
   .logo {
     position: absolute;
-    left: 50%;
+    right: 72px;
+    left: 72px;
     z-index: 7;
-    margin-left: -83.91px;
+    text-align: center;
   }
   #header #menu-nav,
   #menu-cat-nav {
@@ -1679,12 +1686,8 @@ a.current {
     left: 0;
     padding: 16px;
   }
-  .load-more,
-  .project figcaption,
-  .works,
-  .work figcaption,
-  .footer-content {
-    padding: 16px;
+  .load-more a {
+    padding: 8px 16px;
   }
   .posts,
   .project,
@@ -1693,6 +1696,10 @@ a.current {
   }
   .project {
     margin-top: 16px;
+  }
+  .project figcaption,
+  .footer-content {
+    padding: 16px;
   }
   .works {
     padding: 14px;
