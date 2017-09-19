@@ -1103,7 +1103,8 @@ a.current {
   width: 640px;
   background: #fff;
 }
-.work figure {
+.work figure,
+.video figure {
   cursor: pointer;
 }
 .hero-video {
@@ -1123,7 +1124,6 @@ a.current {
   float: left;
   width: 50%;
   background: #f2f2f2;
-  cursor: pointer;
 }
 .video-cover {
   position: relative;
@@ -1547,7 +1547,7 @@ a.current {
     width: 50%;
   }
   .works {
-    padding: 8px 12px;
+    padding: 12px;
   }
   .work {
     width: 33.333333%;
