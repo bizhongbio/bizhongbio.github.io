@@ -270,14 +270,12 @@ html {
   margin-left: 16px;
 }
 #header #menu-nav,
-#menu-cat-nav,
-.work,
-.video {
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+#menu-cat-nav {
+  -webkit-transition: height .3s ease-in-out;
+  -moz-transition: height .3s ease-in-out;
+  -ms-transition: height .3s ease-in-out;
+  -o-transition: height .3s ease-in-out;
+  transition: height .3s ease-in-out;
 }
 #header.show-nav #menu-nav,
 #cat-header.show-nav #menu-cat-nav {
@@ -303,11 +301,11 @@ html {
 .current-menu-item a {
   cursor: default;
 }
-.nav a:hover,
 .nav li.current-menu-item a,
+.nav a:hover,
 .main-nav li:nth-child(2) a,
-.cat-nav a:hover,
 .cat-nav li.current-menu-item a,
+.cat-nav a:hover,
 .slide-work h3,
 .slide-video h3,
 .article figure:hover h2 a,
@@ -325,6 +323,7 @@ html {
 .project a:hover h2,
 .work figure:hover h2,
 .video figure:hover i,
+.more-videos a:hover,
 .link li a:hover,
 .copyright p a:hover {
   color: #0fae6f;
@@ -454,7 +453,7 @@ html {
 }
 .slides-nav {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
   left: 50%;
   margin-left: -56px;
   width: 112px;
@@ -462,17 +461,18 @@ html {
 .slides-nav a {
   display: block;
   float: left;
-  margin: 14px 8px;
+  margin: 0 8px;
+  border: 1px solid #fff;
   border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  background: #000;
-}
-a.current {
-  border: 1px solid #000;
   width: 10px;
   height: 10px;
   background: transparent;
+}
+.slides-nav a.current {
+  border: 0;
+  width: 12px;
+  height: 12px;
+  background: #fff;
 }
 @media screen and (min-width: 1025px) {
   .slide-intro .slide-content {
@@ -544,7 +544,7 @@ a.current {
     background: rgba(0, 0, 0, .8);
   }
   .slide-intro h2 {
-    margin: 0 auto 16px auto;
+    margin: 0 auto 16px;
     width: 261px;
     height: 58px;
     background-size: contain;
@@ -560,7 +560,7 @@ a.current {
     width: 100%;
   }
   .slide-project h2 {
-    margin: 0 auto 16px auto;
+    margin: 0 auto 16px;
     width: 76px;
     height: 76px;
     background-size: contain;
@@ -610,7 +610,8 @@ a.current {
 .videos {
   padding: 24px 0;
 }
-.article {
+.article,
+.related-article {
   float: left;
   position: relative;
   padding-bottom: 25%;
@@ -618,17 +619,42 @@ a.current {
   height: 0;
 }
 .article figure,
-.related-article figure,
-.project a,
-.work figure,
-.video figure {
-  margin: 8px;
-}
-.article figcaption {
+.related-article figure {
   position: absolute;
+  top: 8px;
   right: 8px;
   bottom: 8px;
   left: 8px;
+}
+.article figure:hover,
+.post:hover,
+.project figure:hover,
+.work figure:hover,
+.video figure:hover,
+#go-top:hover {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+.article a,
+.related-article a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article img,
+.related-article img {
+  width: 100%;
+  height: 100%;
+}
+.article figcaption,
+.related-article figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 12px;
   background: #fff;
 }
@@ -644,21 +670,6 @@ a.current {
   width: 0;
   height: 0;
   content: "";
-}
-.article a,
-.project a,
-.related-article a {
-  display: block;
-}
-.article img,
-.article-content p a img,
-.article-content p img,
-.related-article img,
-.work img,
-.video img {
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
 }
 .article h2 {
   margin-bottom: 10px;
@@ -688,18 +699,6 @@ a.current {
   display: inline;
   color: #999;
 }
-.article figure:hover,
-.post:hover,
-.project figure:hover,
-.work figure:hover,
-.video figure:hover,
-#go-top:hover {
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
-}
 .load-more {
   float: left;
   margin-top: 8px;
@@ -723,10 +722,6 @@ a.current {
 #article {
   float: right;
   width: 720px;
-}
-.sidebar {
-  float: right;
-  width: 288px;
 }
 .headline {
   margin-bottom: 16px;
@@ -781,9 +776,7 @@ a.current {
   word-break: break-all;
   background: #fff;
 }
-#article a:hover,
-.more-videos a:hover,
-.about p a:hover {
+#article a:hover {
   text-decoration: underline;
 }
 .article-header,
@@ -844,6 +837,11 @@ a.current {
   line-height: 1.5;
   color: #666;
 }
+.article-content img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
 .article-content strong {
   font-weight: 400;
   color: #000;
@@ -878,20 +876,8 @@ a.current {
 .related-articles p {
   margin: 8px;
 }
-.related-article {
-  position: relative;
-  float: left;
-  padding-bottom: 25%;
-  width: 25%;
-  height: 0;
-}
 .related-article figcaption {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  left: 8px;
-  padding-top: 8px;
-  background: #fff;
+  padding: 8px 0 0;
 }
 .related-article figcaption a,
 .project h2,
@@ -928,13 +914,6 @@ a.current {
   font-size: 1em;
   line-height: 1.5;
 }
-.children {
-  margin-left: 48px;
-}
-.children .comment {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
 .comment-meta {
   padding-left: 4px;
   font-size: .875em;
@@ -944,6 +923,13 @@ a.current {
 .recommended-posts a,
 .video p {
   color: #666;
+}
+.children {
+  margin-left: 48px;
+}
+.children .comment {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 .commentform {
   position: relative;
@@ -1000,6 +986,10 @@ a.current {
   font-size: 1em;
   line-height: 1;
   color: #656565;
+}
+.sidebar {
+  float: right;
+  width: 288px;
 }
 .promos {
   margin-right: 16px;
@@ -1073,6 +1063,14 @@ a.current {
   float: left;
   width: 33.333333%;
 }
+.project a,
+.work figure,
+.video figure {
+  margin: 8px;
+}
+.project a {
+  display: block;
+}
 .project img {
   width: 100%;
   height: 66.666666%;
@@ -1092,6 +1090,14 @@ a.current {
   position: relative;
   height: 825px;
 }
+.work,
+.video {
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
 .work {
   float: left;
   width: 25%;
@@ -1106,6 +1112,10 @@ a.current {
 .work figure,
 .video figure {
   cursor: pointer;
+}
+.work img {
+  width: 100%;
+  height: auto;
 }
 .hero-video {
   padding-bottom: 32px;
@@ -1179,6 +1189,7 @@ a.current {
   width: 160px;
   height: 50px;
   line-height: 3.125;
+  color: #666;
   background: url(../img/yk-logo-1220.png) no-repeat;
 }
 .about {
@@ -1347,7 +1358,7 @@ a.current {
     width: 816px;
   }
   #videos {
-    min-height: 973px;
+    height: 877px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -1673,18 +1684,19 @@ a.current {
   .project:first-child {
     margin-top: 0;
   }
-  .article figure,
-  .project a {
-    margin: 0;
-  }
-  .article h2 {
-    font-size: 1.5em;
-  }
-  .article figcaption {
+  .article figure {
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+  }
+  .article figcaption,
+  .project figcaption,
+  .footer-content {
     padding: 16px;
+  }
+  .article h2 {
+    font-size: 1.5em;
   }
   .load-more a {
     padding: 8px 16px;
@@ -1694,12 +1706,21 @@ a.current {
   #article {
     width: 100%;
   }
+  .article-header span i {
+    margin-bottom: 4px;
+  }
+  .related-article {
+    padding-bottom: 50%;
+    width: 50%;
+  }
+  #comment {
+    height: 114px;
+  }
   .project {
     margin-top: 16px;
   }
-  .project figcaption,
-  .footer-content {
-    padding: 16px;
+  .project a {
+    margin: 0;
   }
   .works {
     padding: 14px;
@@ -1713,16 +1734,6 @@ a.current {
   }
   .work figure {
     margin: 2px;
-  }
-  .article-header span i {
-    margin-bottom: 4px;
-  }
-  .related-article {
-    padding-bottom: 50%;
-    width: 50%;
-  }
-  #comment {
-    height: 114px;
   }
   .copyright {
     font-size: .8125em;
