@@ -113,10 +113,10 @@ $(function() {
   function handleHome() {
     var len = $('#hero-slides .slide').length,// 轮播图张数
         slideIndex = 1,// 当前轮播图索引
-        timer,// 定时器
+        timer = null,// 定时器
         startPosition = {},// 开始位置
         endPosition = {},// 结束位置
-        isScrolling = -1; // 判断是水平滚动还是垂直滚动
+        isScrolling = -1;// 判断是水平滚动还是垂直滚动
 
     // 切换轮播图
     function slidesAnimation() {
