@@ -828,14 +828,15 @@ html {
   line-height: 1.5;
   color: #000;
 }
-.article-content p,
-.article-content ul li,
-.related-articles p,
-.prompt p {
-  margin-bottom: 16px;
+.article-content {
   font-size: 1em;
   line-height: 1.5;
   color: #666;
+}
+.article-content p,
+.article-content hr,
+.commentform p {
+  margin-bottom: 16px;
 }
 .article-content img {
   width: auto;
@@ -843,15 +844,36 @@ html {
   height: auto;
 }
 .article-content strong {
-  font-weight: 400;
-  color: #000;
+  font-weight: 700;
 }
-.article-content ul {
-  padding-left: 16px;
+.article-content em {
+  font-weight: 400;
+  font-style: italic;
+}
+.article-content del {
+  text-decoration: line-through;
+  color: #666;
+}
+.article-content ul,
+.article-content ol {
+  margin-bottom: 16px;
+  padding-left: 32px;
 }
 .article-content ul li {
   list-style: disc outside none;
   margin: 8px 0;
+}
+.article-content ol li {
+  list-style: decimal outside none;
+  margin: 8px 0;
+}
+.article-content blockquote {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f2f2f2;
+}
+.article-content blockquote p {
+  margin-bottom: 0;
 }
 .article-copyright {
   font-size: .875em;
@@ -875,6 +897,7 @@ html {
 }
 .related-articles p {
   margin: 8px;
+  color: #666;
 }
 .related-article figcaption {
   padding: 8px 0 0;
@@ -889,9 +912,10 @@ html {
   word-break: keep-all;
 }
 .prompt p,
-.work.work-current figure,
-.video.video-current figure {
-  margin: 0;
+.comment-text,
+.recommended-posts a,
+.video p {
+  color: #666;
 }
 .comment {
   border-bottom: 1px solid #e5e5e5;
@@ -919,11 +943,6 @@ html {
   font-size: .875em;
   color: #d0d4d8;
 }
-.comment-text,
-.recommended-posts a,
-.video p {
-  color: #666;
-}
 .children {
   margin-left: 48px;
 }
@@ -934,9 +953,6 @@ html {
 .commentform {
   position: relative;
   padding-bottom: 42px;
-}
-.commentform p {
-  margin-bottom: 16px;
 }
 .commentform input,
 .commentform textarea {
@@ -1112,6 +1128,10 @@ html {
 .work figure,
 .video figure {
   cursor: pointer;
+}
+.work.work-current figure,
+.video.video-current figure {
+  margin: 0;
 }
 .work img {
   width: 100%;
